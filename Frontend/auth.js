@@ -133,11 +133,18 @@ async function handleLogin(event) {
             rememberMe: rememberMe
         };
         
+        console.log('💾 Storing auth data...', { rememberMe, hasToken: !!result.token });
+        
+        // Store in both formats for compatibility
         if (rememberMe) {
             localStorage.setItem('autocare360_auth', JSON.stringify(authData));
+            localStorage.setItem('token', result.token); // For script.js compatibility
         } else {
             sessionStorage.setItem('autocare360_auth', JSON.stringify(authData));
+            localStorage.setItem('token', result.token); // For script.js compatibility
         }
+        
+        console.log('✅ Auth data stored successfully');
         
         // Show success and redirect
         showSuccessModal(result.user);
@@ -178,23 +185,31 @@ async function handleForgotPassword(event) {
 }
 
 function checkExistingAuth() {
+    console.log('🔍 Checking existing auth on page load...');
     const authData = localStorage.getItem('autocare360_auth') || 
                     sessionStorage.getItem('autocare360_auth');
     
     if (authData) {
         try {
             const parsed = JSON.parse(authData);
+            console.log('✅ Found existing auth data:', { hasToken: !!parsed.token, loginTime: parsed.loginTime });
             // Check if token is still valid (basic check)
             if (parsed.token && parsed.loginTime && (Date.now() - parsed.loginTime < 24 * 60 * 60 * 1000)) {
+                console.log('🔄 Valid token found, redirecting to dashboard...');
                 // Redirect to dashboard if already logged in
-                window.location.href = '/dashboard';
+                window.location.href = 'dashboard.html';
                 return;
+            } else {
+                console.log('❌ Token expired or invalid');
             }
         } catch (err) {
+            console.error('❌ Error parsing auth data:', err);
             // Clear invalid auth data
             localStorage.removeItem('autocare360_auth');
             sessionStorage.removeItem('autocare360_auth');
         }
+    } else {
+        console.log('❌ No existing auth data found');
     }
 }
 
@@ -395,7 +410,7 @@ function closeModal(modalId) {
 }
 
 function redirectToDashboard() {
-    window.location.href = '/dashboard';
+    window.location.href = 'dashboard.html';
 }
 
 // === KEYBOARD NAVIGATION ===

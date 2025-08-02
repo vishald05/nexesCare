@@ -32,6 +32,10 @@ app.get('/register', (req, res) => {
 });
 
 // Frontend route: login
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../Frontend/login.html'));
+});
+
 app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, '../Frontend/login.html'));
 });
@@ -47,4 +51,4 @@ app.use('/api/login', require('./routes/login'));
 app.use('/api/dashboard', require('./routes/dashboard'));
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}/login`));

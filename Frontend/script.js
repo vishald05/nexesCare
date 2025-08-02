@@ -8,27 +8,255 @@ let selectedAgent = null;
 let feedActive = true;
 let vehicleRotation = { x: 0, y: 0, z: 0 };
 
-// === VEHICLE DATA SIMULATION ===
-const vehicleData = {
-  mileage: 72458,
-  batteryHealth: 78,
-  engineStatus: "Optimal",
-  lastService: "45 days ago",
-  brakePads: "Worn - 25%",
-  coolantLevel: "Good",
-  oilLife: "60%",
-  tireCondition: "Good"
+// === REAL VEHICLE DATA ===
+let vehicleData = {
+  mileage: 0,
+  batteryHealth: 0,
+  batteryVoltage: 0,
+  engineStatus: "Loading...",
+  lastService: "Loading...",
+  brakePads: 0,
+  coolantLevel: 0,
+  oilLife: 0,
+  tireCondition: "Loading...",
+  airFilterHealth: 0,
+  brakeFluidStatus: "Loading...",
+  transmissionFluidLevel: "Loading...",
+  fuelEfficiency: 0,
+  drivingScore: 0,
+  nextServiceKm: 0,
+  maintenanceHistory: [],
+  upcomingTasks: [],
+  criticalAlerts: [],
+  ecoTips: [],
+  vehicleId: "Loading..."
 };
+
+// Add current user data
+let currentUser = null;
 
 // === INITIALIZATION ===
 document.addEventListener('DOMContentLoaded', function() {
   initializeParticles();
   simulateLoading();
-  initializeAgents();
-  startLiveDataUpdates();
+  checkAuthAndLoadDashboard();
   setupEventListeners();
   initializeComponentTooltips();
 });
+
+// === AUTHENTICATION AND DATA LOADING ===
+async function checkAuthAndLoadDashboard() {
+  console.log('🔍 Checking authentication...', { 
+    currentPath: window.location.pathname,
+    href: window.location.href 
+  });
+  
+  // Check for token in multiple storage locations
+  let token = localStorage.getItem('token');
+  
+  // If not found, check in autocare360_auth format
+  if (!token) {
+    const authData = localStorage.getItem('autocare360_auth') || 
+                     sessionStorage.getItem('autocare360_auth');
+    if (authData) {
+      try {
+        const parsed = JSON.parse(authData);
+        token = parsed.token;
+        // Store in simple format for compatibility
+        if (token) {
+          localStorage.setItem('token', token);
+          console.log('✅ Token found in auth data and stored for compatibility');
+        }
+      } catch (err) {
+        console.error('❌ Invalid auth data:', err);
+      }
+    }
+  } else {
+    console.log('✅ Token found in localStorage');
+  }
+  
+  if (!token) {
+    console.log('❌ No token found, checking if we need to redirect...');
+    // Only redirect if we're actually on the dashboard page
+    if (window.location.pathname.includes('dashboard.html') || 
+        window.location.pathname === '/dashboard.html' || 
+        window.location.pathname === '/dashboard') {
+      console.log('🔄 Redirecting to login...');
+      window.location.href = 'login.html';
+    }
+    return;
+  }
+  
+  console.log('🔄 Loading dashboard data...');
+  try {
+    await loadDashboardData();
+    initializeAgents();
+    startLiveDataUpdates();
+    console.log('✅ Dashboard loaded successfully');
+  } catch (error) {
+    console.error('❌ Failed to load dashboard:', error);
+    if (error.message.includes('401') || error.message.includes('Unauthorized')) {
+      console.log('🔄 Token invalid, clearing auth and redirecting...');
+      // Clear invalid tokens
+      localStorage.removeItem('token');
+      localStorage.removeItem('autocare360_auth');
+      sessionStorage.removeItem('autocare360_auth');
+      window.location.href = 'login.html';
+    }
+  }
+}
+
+function logout() {
+  // Clear all authentication data
+  localStorage.removeItem('token');
+  localStorage.removeItem('autocare360_auth');
+  sessionStorage.removeItem('autocare360_auth');
+  
+  // Redirect to login page
+  window.location.href = 'login.html';
+}
+
+async function loadDashboardData() {
+  const token = localStorage.getItem('token');
+  
+  try {
+    const response = await fetch('http://localhost:3000/api/dashboard', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    
+    // Update global vehicle data
+    vehicleData = { ...vehicleData, ...data.vehicleData };
+    currentUser = data.user;
+    
+    // Update the UI with real data
+    updateDashboardUI();
+    
+    console.log('✅ Real vehicle data loaded:', vehicleData.vehicleId);
+    
+  } catch (error) {
+    console.error('❌ Error loading dashboard data:', error);
+    throw error;
+  }
+}
+
+function updateDashboardUI() {
+  console.log('🎨 Updating dashboard UI with vehicle data:', vehicleData.vehicleId);
+  
+  // Update vehicle info in header
+  const vehicleInfo = document.getElementById('vehicle-info');
+  if (vehicleInfo && currentUser) {
+    vehicleInfo.textContent = `${currentUser.firstName}'s Vehicle: ${vehicleData.vehicleId}`;
+  }
+  
+  // Update main data cards
+  document.getElementById('mileage').textContent = vehicleData.mileage.toLocaleString() + ' km';
+  document.getElementById('battery').textContent = vehicleData.batteryHealth + '%';
+  document.getElementById('engine').textContent = vehicleData.engineStatus;
+  
+  // Calculate days since last service
+  const lastServiceDate = new Date(vehicleData.lastService);
+  const today = new Date();
+  const daysSince = Math.floor((today - lastServiceDate) / (1000 * 60 * 60 * 24));
+  document.getElementById('last-service').textContent = daysSince + ' days ago';
+  
+  // Update battery status styling
+  const batteryElement = document.getElementById('battery');
+  if (vehicleData.batteryHealth < 50) {
+    batteryElement.className = 'data-value critical';
+  } else if (vehicleData.batteryHealth < 80) {
+    batteryElement.className = 'data-value warning';
+  } else {
+    batteryElement.className = 'data-value good';
+  }
+  
+  // Update engine status styling
+  const engineElement = document.getElementById('engine');
+  if (vehicleData.engineStatus === 'Critical') {
+    engineElement.className = 'data-value critical';
+  } else if (vehicleData.engineStatus === 'Check Required') {
+    engineElement.className = 'data-value warning';
+  } else {
+    engineElement.className = 'data-value good';
+  }
+  
+  // Update component analysis panel
+  updateComponentAnalysisPanel();
+  
+  // Update user info display
+  if (currentUser) {
+    console.log('👤 Current user:', currentUser.firstName, '- Vehicle:', vehicleData.vehicleId);
+  }
+}
+
+function updateComponentAnalysisPanel() {
+  // Engine System
+  const engineStatus = vehicleData.engineStatus === 'Optimal' ? 'good' : 
+                      vehicleData.engineStatus === 'Check Required' ? 'warning' : 'critical';
+  const engineBadge = document.getElementById('engine-status-badge');
+  const enginePerf = document.getElementById('engine-performance');
+  const engineIcon = document.querySelector('.component-item[data-component="engine"] .component-icon');
+  
+  engineBadge.textContent = vehicleData.engineStatus;
+  engineBadge.className = `status-badge ${engineStatus}`;
+  enginePerf.textContent = `Oil Life: ${vehicleData.oilLife}%`;
+  engineIcon.className = `component-icon engine-icon ${engineStatus === 'good' ? '' : engineStatus}`;
+  
+  // Battery System
+  const batteryStatus = vehicleData.batteryHealth >= 80 ? 'good' : 
+                       vehicleData.batteryHealth >= 50 ? 'warning' : 'critical';
+  const batteryBadge = document.getElementById('battery-status-badge');
+  const batteryVoltage = document.getElementById('battery-voltage');
+  const batteryIcon = document.querySelector('.component-item[data-component="battery"] .component-icon');
+  
+  batteryBadge.textContent = `${vehicleData.batteryHealth}%${batteryStatus !== 'good' ? ' - Replace Soon' : ''}`;
+  batteryBadge.className = `status-badge ${batteryStatus}`;
+  batteryVoltage.textContent = `Voltage: ${vehicleData.batteryVoltage}V`;
+  batteryIcon.className = `component-icon battery-icon ${batteryStatus === 'good' ? '' : batteryStatus}`;
+  
+  // Brake System
+  const brakeStatus = vehicleData.brakePads >= 50 ? 'good' : 
+                     vehicleData.brakePads >= 25 ? 'warning' : 'critical';
+  const brakeBadge = document.getElementById('brake-status-badge');
+  const brakeFluid = document.getElementById('brake-fluid');
+  const brakeIcon = document.querySelector('.component-item[data-component="brakes"] .component-icon');
+  
+  brakeBadge.textContent = `Pads ${vehicleData.brakePads}%${brakeStatus !== 'good' ? ' - Service Required' : ''}`;
+  brakeBadge.className = `status-badge ${brakeStatus}`;
+  brakeFluid.textContent = `Brake fluid: ${vehicleData.brakeFluidStatus}`;
+  brakeIcon.className = `component-icon brake-icon ${brakeStatus === 'good' ? '' : brakeStatus}`;
+  
+  // Transmission System
+  const transStatus = vehicleData.transmissionFluidLevel === 'Normal' ? 'good' : 'warning';
+  const transBadge = document.getElementById('transmission-status-badge');
+  const transFluid = document.getElementById('transmission-fluid');
+  const transIcon = document.querySelector('.component-item[data-component="transmission"] .component-icon');
+  
+  transBadge.textContent = vehicleData.transmissionFluidLevel === 'Normal' ? 'Excellent' : vehicleData.transmissionFluidLevel;
+  transBadge.className = `status-badge ${transStatus}`;
+  transFluid.textContent = `Fluid level: ${vehicleData.transmissionFluidLevel}`;
+  transIcon.className = `component-icon transmission-icon ${transStatus === 'good' ? '' : transStatus}`;
+  
+  // Cooling System
+  const coolingStatus = vehicleData.coolantLevel >= 80 ? 'good' : 'warning';
+  const coolingBadge = document.getElementById('cooling-status-badge');
+  const coolantLevel = document.getElementById('coolant-level');
+  const coolingIcon = document.querySelector('.component-item[data-component="cooling"] .component-icon');
+  
+  coolingBadge.textContent = 'Normal Temperature';
+  coolingBadge.className = `status-badge ${coolingStatus}`;
+  coolantLevel.textContent = `Coolant level: ${vehicleData.coolantLevel}%`;
+  coolingIcon.className = `component-icon cooling-icon ${coolingStatus === 'good' ? '' : coolingStatus}`;
+}
 
 // === PARTICLE BACKGROUND ===
 function initializeParticles() {
@@ -112,17 +340,180 @@ function simulateLoading() {
 
 // === AGENT MANAGEMENT ===
 function initializeAgents() {
-  updateAgentStatus('diagnostic', 'active', 'Analyzing vehicle systems... 2 issues detected.');
-  updateAgentStatus('maintenance', 'standby', 'Next service due in 2,500 km. Brake pads need attention.');
-  updateAgentStatus('emergency', 'alert', 'Battery voltage low. Recommend immediate attention.');
-  updateAgentStatus('predictive', 'learning', 'Analyzing driving patterns... Fuel efficiency can improve by 12%.');
+  // Analyze real vehicle data for each agent
+  updateDiagnosticAgent();
+  updateMaintenanceAgent();
+  updateEmergencyAgent();
+  updatePredictiveAgent();
+  
+  // Update agents status count
+  updateAgentsStatusCount();
+}
+
+function updateAgentsStatusCount() {
+  const agentIds = ['diagnostic', 'maintenance', 'emergency', 'predictive'];
+  const activeStates = ['active', 'alert', 'warning']; // Define what counts as active
+
+  let activeCount = 0;
+
+  agentIds.forEach(agentId => {
+    const agentElement = document.getElementById(`${agentId}-agent`);
+    if (!agentElement) {
+      console.warn(`Agent DOM not found: #${agentId}-agent`);
+      return;
+    }
+
+    const statusElement = agentElement.querySelector('.agent-status');
+    if (!statusElement) {
+      console.warn(`Status element missing in #${agentId}-agent`);
+      return;
+    }
+
+    const statusText = statusElement.textContent?.trim().toLowerCase();
+    if (activeStates.includes(statusText)) {
+      activeCount++;
+    }
+  });
+
+  const statusTextEl = document.getElementById('agents-status-text');
+  if (statusTextEl) {
+    statusTextEl.textContent = `${activeCount} of ${agentIds.length} Agents Active`;
+  } else {
+    console.warn("Status text element '#agents-status-text' not found.");
+  }
+}
+
+
+function updateDiagnosticAgent() {
+  const issues = [];
+
+  // 🔍 Analyze vehicle data for potential issues
+  if (vehicleData.batteryHealth < 80) issues.push('Battery health below 80%');
+  if (vehicleData.brakePads < 30) issues.push('Brake pads worn (<30%)');
+  if (['Check Required', 'Critical'].includes(vehicleData.engineStatus)) issues.push(`Engine status: ${vehicleData.engineStatus}`);
+  if (vehicleData.oilLife < 20) issues.push('Low oil life (<20%)');
+  if (vehicleData.airFilterHealth < 50) issues.push('Air filter needs attention (<50%)');
+  if (vehicleData.brakeFluidStatus === 'Needs Replacement') issues.push('Brake fluid needs replacement');
+  if (vehicleData.coolantLevel < 50) issues.push('Coolant level is low (<50%)');
+
+  const issueCount = issues.length;
+
+  let status = issueCount > 0 ? 'alert' : 'active';
+  let message = '';
+
+  if (issueCount === 0) {
+    message = `Vehicle ${vehicleData.vehicleId}: All systems optimal`;
+  } else {
+    message = `Vehicle ${vehicleData.vehicleId}: ${issueCount} issue${issueCount > 1 ? 's' : ''} detected.\n- ${issues.join('\n- ')}`;
+  }
+
+  updateAgentStatus('diagnostic', status, message);
+}
+
+
+function updateMaintenanceAgent() {
+  let status = 'standby';
+  const messages = [];
+  const needs = [];
+
+  // 🔧 Service due soon?
+  if (vehicleData.nextServiceKm < 1000) {
+    status = 'warning';
+    messages.push(`Next service due in ${vehicleData.nextServiceKm} km.`);
+  } else {
+    messages.push(`Next service in ${vehicleData.nextServiceKm} km.`);
+  }
+
+  // 🔍 Check for known maintenance needs
+  if (vehicleData.brakePads < 40) {
+    needs.push('Brake pads need attention');
+  }
+  if (vehicleData.oilLife < 30) {
+    needs.push('Oil change needed');
+  }
+  if (vehicleData.airFilterHealth < 60) {
+    needs.push('Air filter replacement recommended');
+  }
+  if (vehicleData.brakeFluidStatus === 'Needs Replacement') {
+    needs.push('Brake fluid replacement needed');
+  }
+
+  if (needs.length > 0) {
+    status = 'active';
+    messages.push(...needs.map(n => `- ${n}`));
+  }
+
+  // 📝 Show upcoming tasks (from dataset)
+  if (vehicleData.upcomingTasks?.length > 0) {
+    messages.push(...vehicleData.upcomingTasks.map(task => `Upcoming: ${task}`));
+  }
+
+  const finalMessage = `Vehicle ${vehicleData.vehicleId}:\n` + messages.join('\n');
+  updateAgentStatus('maintenance', status, finalMessage);
+}
+
+
+function updateEmergencyAgent() {
+  let status = 'standby';
+  let message = `Vehicle ${vehicleData.vehicleId}: No emergency alerts`;
+  
+  // Check for critical issues
+  if (vehicleData.criticalAlerts && vehicleData.criticalAlerts.length > 0) {
+    status = 'alert';
+    message = `CRITICAL: ${vehicleData.criticalAlerts[0]}`;
+  } else if (vehicleData.batteryVoltage < 11.8) {
+    status = 'alert';
+    message = `CRITICAL: Battery voltage low (${vehicleData.batteryVoltage}V)`;
+  } else if (vehicleData.batteryHealth < 30) {
+    status = 'alert';
+    message = `CRITICAL: Battery health critical (${vehicleData.batteryHealth}%)`;
+  } else if (vehicleData.brakePads < 15) {
+    status = 'alert';
+    message = `CRITICAL: Brake pads worn (${vehicleData.brakePads}%)`;
+  } else if (vehicleData.brakeFluidStatus === 'Needs Replacement') {
+    status = 'warning';
+    message = `WARNING: Brake fluid needs replacement`;
+  } else if (vehicleData.batteryHealth < 50) {
+    status = 'warning';
+    message = `WARNING: Battery health low (${vehicleData.batteryHealth}%)`;
+  }
+  
+  updateAgentStatus('emergency', status, message);
+}
+
+function updatePredictiveAgent() {
+  let status = 'learning';
+  let message = `Vehicle ${vehicleData.vehicleId}: Analyzing patterns...`;
+  
+  // Generate predictions based on current data
+  if (vehicleData.fuelEfficiency && vehicleData.drivingScore) {
+    const optimalEfficiency = 20; // Assume 20 L/100km as baseline
+    const improvementPotential = Math.max(0, vehicleData.fuelEfficiency - optimalEfficiency);
+    
+    if (improvementPotential > 3) {
+      message = `Fuel efficiency can improve by ${improvementPotential.toFixed(1)} L/100km. `;
+    } else {
+      message = `Fuel efficiency optimized. `;
+    }
+    
+    if (vehicleData.drivingScore < 7) {
+      message += `Driving score: ${vehicleData.drivingScore}/10 - Improvement recommended.`;
+    } else {
+      message += `Driving score: ${vehicleData.drivingScore}/10 - Excellent!`;
+    }
+  }
+  
+  updateAgentStatus('predictive', status, message);
 }
 
 function updateAgentStatus(agentId, status, message) {
   const agent = document.getElementById(agentId + '-agent');
+  if (!agent) return;
+  
   const statusElement = agent.querySelector('.agent-status');
   const suggestionElement = agent.querySelector('.agent-suggestion');
   
+  // Update text content
   statusElement.textContent = status.charAt(0).toUpperCase() + status.slice(1);
   statusElement.className = 'agent-status ' + status;
   suggestionElement.textContent = message;
@@ -131,13 +522,43 @@ function updateAgentStatus(agentId, status, message) {
   const avatar = agent.querySelector('.agent-avatar');
   const pulseRing = agent.querySelector('.pulse-ring');
   
-  if (status === 'alert' || status === 'warning') {
+  // Reset all status classes
+  avatar.classList.remove('warning', 'alert', 'critical');
+  pulseRing.classList.remove('warning', 'alert', 'critical');
+  
+  // Apply new status classes
+  if (status === 'alert' || status === 'critical') {
     avatar.classList.add('warning');
     pulseRing.classList.add('warning');
-  } else {
-    avatar.classList.remove('warning');
-    pulseRing.classList.remove('warning');
+  } else if (status === 'warning') {
+    avatar.classList.add('warning');
+    pulseRing.classList.add('warning');
   }
+  
+  // Update progress bar for emergency agent
+  if (agentId === 'emergency') {
+    const progressFill = agent.querySelector('.progress-fill');
+    const progressText = agent.querySelector('.progress-text');
+    
+    if (status === 'alert' || status === 'critical') {
+      progressFill.className = 'progress-fill warning';
+      progressFill.style.width = '90%';
+      progressText.textContent = 'Critical Level';
+    } else if (status === 'warning') {
+      progressFill.className = 'progress-fill warning';
+      progressFill.style.width = '60%';
+      progressText.textContent = 'Warning Level';
+    } else {
+      progressFill.className = 'progress-fill';
+      progressFill.style.width = '30%';
+      progressText.textContent = 'Normal';
+    }
+  }
+  
+  console.log(`🤖 ${agentId} agent updated:`, { status, message });
+  
+  // Update agents count after any status change
+  updateAgentsStatusCount();
 }
 
 function selectAgent(agentType) {
@@ -453,29 +874,36 @@ function toggleFeed() {
 
 // === LIVE DATA UPDATES ===
 function startLiveDataUpdates() {
-  // Simulate real-time data updates
+  // Refresh vehicle data every 30 seconds
+  setInterval(async () => {
+    try {
+      await loadDashboardData();
+      initializeAgents(); // Re-analyze with updated data
+      updateAgentProgress();
+    } catch (error) {
+      console.error('Failed to update data:', error);
+    }
+  }, 30000);
+  
+  // Update agent progress more frequently
   setInterval(() => {
-    updateVehicleData();
     updateAgentProgress();
   }, 5000);
 }
 
 function updateVehicleData() {
-  // Simulate slight changes in vehicle data
-  vehicleData.mileage += Math.floor(Math.random() * 5);
-  vehicleData.batteryHealth += (Math.random() - 0.5) * 2;
-  vehicleData.batteryHealth = Math.max(0, Math.min(100, vehicleData.batteryHealth));
-  
-  // Update UI
-  document.getElementById('mileage').textContent = vehicleData.mileage.toLocaleString() + ' km';
-  document.getElementById('battery').textContent = Math.round(vehicleData.batteryHealth) + '%';
-  
-  // Update battery status class
-  const batteryElement = document.getElementById('battery');
-  if (vehicleData.batteryHealth < 80) {
-    batteryElement.className = 'data-value warning';
-  } else {
-    batteryElement.className = 'data-value good';
+  // This function is now handled by loadDashboardData()
+  // But we can still simulate minor fluctuations for demo purposes
+  if (vehicleData.batteryVoltage) {
+    // Simulate minor voltage fluctuations
+    const baseVoltage = vehicleData.batteryVoltage;
+    const fluctuation = (Math.random() - 0.5) * 0.1;
+    const currentVoltage = Math.max(10.5, Math.min(14.0, baseVoltage + fluctuation));
+    
+    // Update battery display if significant change
+    if (Math.abs(currentVoltage - baseVoltage) > 0.05) {
+      addToAnalysisFeed(`Battery voltage: ${currentVoltage.toFixed(2)}V`);
+    }
   }
 }
 
@@ -604,7 +1032,7 @@ function closeModal() {
 
 function handlePrimaryAction() {
   // Simulate taking action based on the current modal context
-  addFeedItem("System: Action acknowledged and processed");
+  addToAnalysisFeed("System: Action acknowledged and processed");
   closeModal();
 }
 
@@ -614,134 +1042,295 @@ function runDiagnostic(event) {
   
   // Simulate diagnostic process
   const diagnosticAgent = document.getElementById('diagnostic-agent');
-  const suggestion = document.getElementById('diagnostic-suggestion');
+  const suggestion = diagnosticAgent.querySelector('.agent-suggestion');
   
   // Update agent status
   suggestion.textContent = "Running comprehensive diagnostic...";
   
   setTimeout(() => {
-    const mockResults = [
-      "Battery voltage: 11.8V (Low - Replace recommended)",
-      "Brake pads: 25% remaining (Service in 2 weeks)",
-      "Engine oil: Good condition",
-      "Tire pressure: All within normal range",
-      "Air filter: 75% efficiency (Good)"
-    ];
+    // Generate real diagnostic results based on current vehicle data
+    const diagnosticResults = [];
+    const recommendations = [];
     
-    const recommendations = [
-      "Replace battery within 1 week",
-      "Schedule brake service in 2 weeks",
-      "Continue regular maintenance schedule"
-    ];
+    // Battery analysis
+    if (vehicleData.batteryHealth < 80) {
+      diagnosticResults.push(`Battery health: ${vehicleData.batteryHealth}% (${vehicleData.batteryHealth < 50 ? 'Critical' : 'Low'} - Replace recommended)`);
+      recommendations.push(`Replace battery within ${vehicleData.batteryHealth < 50 ? '1 week' : '1 month'}`);
+    } else {
+      diagnosticResults.push(`Battery health: ${vehicleData.batteryHealth}% (Good condition)`);
+    }
+    
+    // Brake analysis
+    if (vehicleData.brakePads < 30) {
+      diagnosticResults.push(`Brake pads: ${vehicleData.brakePads}% remaining (${vehicleData.brakePads < 15 ? 'Critical' : 'Service needed'})`);
+      recommendations.push(`Schedule brake service ${vehicleData.brakePads < 15 ? 'immediately' : 'within 2 weeks'}`);
+    } else {
+      diagnosticResults.push(`Brake pads: ${vehicleData.brakePads}% remaining (Good condition)`);
+    }
+    
+    // Engine analysis
+    diagnosticResults.push(`Engine status: ${vehicleData.engineStatus}`);
+    if (vehicleData.engineStatus === 'Check Required') {
+      recommendations.push("Schedule engine diagnostic within 1 week");
+    }
+    
+    // Oil analysis
+    diagnosticResults.push(`Oil life: ${vehicleData.oilLife}% remaining`);
+    if (vehicleData.oilLife < 20) {
+      recommendations.push("Oil change required within 500 km");
+    }
+    
+    // Air filter analysis
+    diagnosticResults.push(`Air filter: ${vehicleData.airFilterHealth}% efficiency`);
+    if (vehicleData.airFilterHealth < 50) {
+      recommendations.push("Replace air filter");
+    }
+    
+    // Determine urgency level
+    let urgency = 'normal';
+    if (vehicleData.batteryHealth < 50 || vehicleData.brakePads < 15 || vehicleData.criticalAlerts.length > 0) {
+      urgency = 'critical';
+    } else if (vehicleData.batteryHealth < 80 || vehicleData.brakePads < 30 || vehicleData.engineStatus === 'Check Required') {
+      urgency = 'warning';
+    }
+    
+    const issueCount = recommendations.length;
+    const message = issueCount > 0 ? 
+      `Diagnostic completed. ${issueCount} issue${issueCount > 1 ? 's' : ''} require${issueCount === 1 ? 's' : ''} attention.` :
+      "Diagnostic completed. All systems are functioning normally.";
     
     showModal(
       "Diagnostic AI Report", 
-      "Full system diagnostic completed. 2 issues require attention.", 
+      message, 
       "diagnostic",
-      recommendations,
-      "warning"
+      recommendations.length > 0 ? recommendations : ["All systems operating within normal parameters"],
+      urgency
     );
     
-    suggestion.textContent = "Diagnostic complete - 2 issues detected.";
-    addFeedItem("Diagnostic AI: Full system scan completed");
+    suggestion.textContent = `Diagnostic complete - ${issueCount} issue${issueCount > 1 ? 's' : ''} detected.`;
+    addToAnalysisFeed(`Diagnostic AI: Full system scan completed - Vehicle ${vehicleData.vehicleId}`);
   }, 2000);
 }
 
 function scheduleService(event) {
   event.stopPropagation();
   
-  const recommendations = [
-    "Oil change due in 500 km",
-    "Brake inspection recommended",
-    "Battery replacement suggested",
-    "Next service: Engine tune-up"
-  ];
+  // Generate maintenance recommendations based on real data
+  const recommendations = [];
+  
+  if (vehicleData.nextServiceKm < 1000) {
+    recommendations.push(`Regular service due in ${vehicleData.nextServiceKm} km`);
+  }
+  
+  if (vehicleData.oilLife < 30) {
+    recommendations.push(`Oil change required (${vehicleData.oilLife}% life remaining)`);
+  }
+  
+  if (vehicleData.brakePads < 40) {
+    recommendations.push(`Brake inspection recommended (${vehicleData.brakePads}% pads remaining)`);
+  }
+  
+  if (vehicleData.batteryHealth < 80) {
+    recommendations.push(`Battery replacement suggested (${vehicleData.batteryHealth}% health)`);
+  }
+  
+  if (vehicleData.airFilterHealth < 60) {
+    recommendations.push(`Air filter replacement (${vehicleData.airFilterHealth}% efficiency)`);
+  }
+  
+  // Add upcoming tasks from vehicle data
+  vehicleData.upcomingTasks.forEach(task => {
+    recommendations.push(task);
+  });
+  
+  if (recommendations.length === 0) {
+    recommendations.push("No immediate maintenance required");
+    recommendations.push("Continue regular maintenance schedule");
+  }
   
   showModal(
     "Maintenance AI Scheduler",
-    "Service appointment has been scheduled for next Tuesday at 10:00 AM.",
+    "Service appointment has been scheduled based on your vehicle's current condition.",
     "maintenance",
     recommendations,
-    "normal"
+    recommendations.length > 2 ? "warning" : "normal"
   );
   
-  addFeedItem("Maintenance AI: Service appointment scheduled");
+  addToAnalysisFeed(`Maintenance AI: Service scheduled for vehicle ${vehicleData.vehicleId}`);
 }
 
 function emergencyMode(event) {
   event.stopPropagation();
   
-  const recommendations = [
-    "Pull over safely if driving",
-    "Turn off non-essential electronics",
-    "Contact roadside assistance",
-    "Do not attempt to restart if engine fails"
-  ];
+  // Generate emergency recommendations based on real critical issues
+  const recommendations = [];
+  let urgency = 'warning';
+  let message = "System monitoring active.";
+  
+  // Check for critical alerts from vehicle data
+  if (vehicleData.criticalAlerts.length > 0) {
+    urgency = 'critical';
+    message = `CRITICAL: ${vehicleData.criticalAlerts[0]}`;
+    recommendations.push("Pull over safely if driving");
+    recommendations.push("Contact emergency roadside assistance");
+    recommendations.push("Do not continue driving");
+  } else if (vehicleData.batteryVoltage < 11.8) {
+    urgency = 'critical';
+    message = `CRITICAL: Battery voltage critically low (${vehicleData.batteryVoltage}V). Immediate action required!`;
+    recommendations.push("Turn off non-essential electronics");
+    recommendations.push("Avoid restarting the engine unnecessarily");
+    recommendations.push("Contact roadside assistance");
+  } else if (vehicleData.batteryHealth < 30) {
+    urgency = 'critical';
+    message = `CRITICAL: Battery health critically low (${vehicleData.batteryHealth}%). Risk of failure!`;
+    recommendations.push("Schedule immediate battery replacement");
+    recommendations.push("Carry emergency jump starter");
+    recommendations.push("Limit non-essential electrical usage");
+  } else if (vehicleData.brakeFluidStatus === 'Needs Replacement') {
+    urgency = 'critical';
+    message = "CRITICAL: Brake fluid needs immediate replacement!";
+    recommendations.push("Drive cautiously to nearest service center");
+    recommendations.push("Avoid hard braking");
+    recommendations.push("Schedule immediate brake service");
+  } else {
+    message = "No critical alerts detected. System monitoring continues.";
+    recommendations.push("All emergency systems operational");
+    recommendations.push("Continue normal operation");
+  }
   
   showModal(
     "Emergency AI Alert",
-    "CRITICAL: Battery voltage critically low. Immediate action required!",
+    message,
     "emergency",
     recommendations,
-    "critical"
+    urgency
   );
   
-  addFeedItem("Emergency AI: CRITICAL ALERT - Battery failure imminent");
+  addToAnalysisFeed(`Emergency AI: ${urgency.toUpperCase()} status for vehicle ${vehicleData.vehicleId}`);
 }
 
 function runPrediction(event) {
   event.stopPropagation();
   
-  const predictions = [
-    "Fuel efficiency can improve by 12% with optimized driving",
-    "Next major service recommended in 3,200 km",
-    "Battery replacement needed within 30 days",
-    "Tire replacement suggested in 6 months"
-  ];
+  // Generate predictions based on real vehicle data and driving patterns
+  const predictions = [];
+  
+  // Fuel efficiency predictions
+  const currentEfficiency = vehicleData.fuelEfficiency;
+  const optimalEfficiency = 22; // Assume optimal for vehicle type
+  const improvementPotential = ((optimalEfficiency - currentEfficiency) / currentEfficiency * 100).toFixed(1);
+  
+  if (improvementPotential > 5) {
+    predictions.push(`Fuel efficiency can improve by ${improvementPotential}% with optimized driving habits`);
+  } else {
+    predictions.push(`Fuel efficiency is near optimal (${currentEfficiency} L/100km)`);
+  }
+  
+  // Maintenance predictions
+  const kmToService = vehicleData.nextServiceKm;
+  const avgKmPerDay = 50; // Assume average daily driving
+  const daysToService = Math.round(kmToService / avgKmPerDay);
+  predictions.push(`Next major service recommended in ${kmToService} km (approximately ${daysToService} days)`);
+  
+  // Component predictions based on current health
+  if (vehicleData.batteryHealth < 80) {
+    const monthsLeft = Math.round((vehicleData.batteryHealth - 50) / 5); // Rough estimation
+    predictions.push(`Battery replacement needed within ${Math.max(1, monthsLeft)} month${monthsLeft !== 1 ? 's' : ''}`);
+  }
+  
+  if (vehicleData.brakePads < 50) {
+    const kmLeft = vehicleData.brakePads * 200; // Rough estimation: 200km per 1% of pad life
+    predictions.push(`Brake pad replacement suggested in ${kmLeft} km`);
+  }
+  
+  if (vehicleData.tireCondition === 'Worn') {
+    predictions.push("Tire replacement recommended within 6 months");
+  }
+  
+  // Driving score analysis
+  if (vehicleData.drivingScore < 7) {
+    predictions.push(`Driving score improvement potential: Current ${vehicleData.drivingScore}/10 - Target 8.5/10`);
+  } else {
+    predictions.push(`Excellent driving score: ${vehicleData.drivingScore}/10 - Keep up the good work!`);
+  }
+  
+  // Add eco tips from vehicle data
+  vehicleData.ecoTips.forEach(tip => {
+    predictions.push(`Eco tip: ${tip}`);
+  });
   
   showModal(
     "Predictive AI Analysis",
-    "Based on your driving patterns and vehicle data, here are the predictions:",
+    `Based on your driving patterns and vehicle data (${vehicleData.vehicleId}), here are the predictions:`,
     "predictive",
     predictions,
     "normal"
   );
   
-  addFeedItem("Predictive AI: Future maintenance analysis completed");
+  addToAnalysisFeed(`Predictive AI: Future maintenance analysis completed for ${vehicleData.vehicleId}`);
 }
 
 function viewReport(event) {
   event.stopPropagation();
   
+  // Generate comprehensive report from real vehicle data
   const reportData = [
-    "Overall vehicle health: 78%",
-    "Performance efficiency: 85%",
-    "Safety systems: 92%",
-    "Maintenance compliance: 70%"
+    `Overall vehicle health: ${calculateVehicleHealth()}%`,
+    `Performance efficiency: ${Math.round(vehicleData.fuelEfficiency * 4)}%`, // Convert L/100km to efficiency %
+    `Safety systems: ${calculateSafetyScore()}%`,
+    `Maintenance compliance: ${calculateMaintenanceCompliance()}%`,
+    `Battery voltage: ${vehicleData.batteryVoltage}V`,
+    `Oil life remaining: ${vehicleData.oilLife}%`,
+    `Coolant level: ${vehicleData.coolantLevel}%`,
+    `Next service in: ${vehicleData.nextServiceKm} km`
   ];
   
   showModal(
     "Vehicle Health Report",
-    "Comprehensive vehicle analysis report generated.",
+    `Comprehensive analysis report for vehicle ${vehicleData.vehicleId}:`,
     "diagnostic",
     reportData,
-    "normal"
+    calculateVehicleHealth() < 70 ? "warning" : "normal"
   );
 }
 
 function viewInsights(event) {
   event.stopPropagation();
   
-  const insights = [
-    "Your acceleration patterns suggest 8% fuel savings potential",
-    "Optimal service intervals can extend engine life by 15%",
-    "Current driving score: 8.2/10",
-    "Recommended eco-driving techniques available"
-  ];
+  // Generate insights based on real driving and vehicle data
+  const insights = [];
+  
+  // Driving efficiency insights
+  if (vehicleData.drivingScore < 8) {
+    insights.push(`Your driving score is ${vehicleData.drivingScore}/10. Focus on smoother acceleration and braking.`);
+  } else {
+    insights.push(`Excellent driving score: ${vehicleData.drivingScore}/10! You're an eco-friendly driver.`);
+  }
+  
+  // Fuel efficiency insights
+  const fuelSavings = Math.max(0, 22 - vehicleData.fuelEfficiency);
+  if (fuelSavings > 2) {
+    insights.push(`Potential fuel savings: ${fuelSavings.toFixed(1)} L/100km through optimized driving`);
+  } else {
+    insights.push(`Your fuel efficiency (${vehicleData.fuelEfficiency} L/100km) is excellent!`);
+  }
+  
+  // Maintenance insights
+  const maintenanceScore = calculateMaintenanceCompliance();
+  if (maintenanceScore < 80) {
+    insights.push(`Maintenance score: ${maintenanceScore}% - Stay on top of scheduled services`);
+  } else {
+    insights.push(`Great maintenance compliance: ${maintenanceScore}%`);
+  }
+  
+  // Add eco tips from vehicle data
+  vehicleData.ecoTips.forEach(tip => {
+    insights.push(`💡 ${tip}`);
+  });
   
   showModal(
     "AI Driving Insights",
-    "Personalized insights based on your driving behavior:",
+    `Personalized insights for vehicle ${vehicleData.vehicleId}:`,
     "predictive",
     insights,
     "normal"
@@ -751,20 +1340,83 @@ function viewInsights(event) {
 function viewMaintenance(event) {
   event.stopPropagation();
   
-  const history = [
-    "Last oil change: 2,500 km ago",
-    "Brake service: 6 months ago",
-    "Tire rotation: 1 month ago",
-    "Battery test: Overdue"
-  ];
+  // Generate maintenance history and upcoming tasks from real data
+  const maintenanceInfo = [];
+  
+  // Add maintenance history
+  if (vehicleData.maintenanceHistory && vehicleData.maintenanceHistory.length > 0) {
+    maintenanceInfo.push("📋 Recent Maintenance:");
+    vehicleData.maintenanceHistory.forEach(item => {
+      maintenanceInfo.push(`• ${item}`);
+    });
+  }
+  
+  // Add upcoming tasks
+  if (vehicleData.upcomingTasks && vehicleData.upcomingTasks.length > 0) {
+    maintenanceInfo.push("🔧 Upcoming Tasks:");
+    vehicleData.upcomingTasks.forEach(task => {
+      maintenanceInfo.push(`• ${task}`);
+    });
+  }
+  
+  // Add service intervals
+  maintenanceInfo.push(`🛣️ Next service in: ${vehicleData.nextServiceKm} km`);
+  const lastServiceDate = new Date(vehicleData.lastService);
+  const daysSinceService = Math.floor((new Date() - lastServiceDate) / (1000 * 60 * 60 * 24));
+  maintenanceInfo.push(`📅 Last service: ${daysSinceService} days ago`);
+  
+  const urgency = vehicleData.nextServiceKm < 500 || vehicleData.upcomingTasks.length > 2 ? "warning" : "normal";
   
   showModal(
     "Maintenance History",
-    "Your vehicle's maintenance record:",
+    `Maintenance record for vehicle ${vehicleData.vehicleId}:`,
     "maintenance",
-    history,
-    "warning"
+    maintenanceInfo,
+    urgency
   );
+}
+
+// Helper functions for calculations
+function calculateVehicleHealth() {
+  const batteryWeight = 0.25;
+  const brakeWeight = 0.2;
+  const engineWeight = 0.3;
+  const oilWeight = 0.15;
+  const airFilterWeight = 0.1;
+  
+  let engineScore = vehicleData.engineStatus === 'Optimal' ? 100 : 
+                   vehicleData.engineStatus === 'Check Required' ? 60 : 30;
+  
+  const health = (
+    vehicleData.batteryHealth * batteryWeight +
+    vehicleData.brakePads * brakeWeight +
+    engineScore * engineWeight +
+    vehicleData.oilLife * oilWeight +
+    vehicleData.airFilterHealth * airFilterWeight
+  );
+  
+  return Math.round(health);
+}
+
+function calculateSafetyScore() {
+  const brakeScore = vehicleData.brakePads;
+  const tireScore = vehicleData.tireCondition === 'Good' ? 100 : 
+                   vehicleData.tireCondition === 'Worn' ? 60 : 30;
+  const fluidScore = vehicleData.brakeFluidStatus === 'Good' ? 100 : 50;
+  
+  return Math.round((brakeScore + tireScore + fluidScore) / 3);
+}
+
+function calculateMaintenanceCompliance() {
+  let score = 100;
+  
+  if (vehicleData.oilLife < 20) score -= 20;
+  if (vehicleData.airFilterHealth < 50) score -= 15;
+  if (vehicleData.nextServiceKm < 500) score -= 15;
+  if (vehicleData.brakeFluidStatus === 'Needs Replacement') score -= 25;
+  if (vehicleData.upcomingTasks.length > 2) score -= 10;
+  
+  return Math.max(0, score);
 }
 
 function contactService(event) {
@@ -778,7 +1430,7 @@ function contactService(event) {
     "critical"
   );
   
-  addFeedItem("Emergency AI: Service center contacted");
+  addToAnalysisFeed("Emergency AI: Service center contacted");
 }
 
 // === DEMO CONTROL FUNCTIONS ===
@@ -801,7 +1453,7 @@ function simulateBatteryIssue() {
     emergencyMode({ stopPropagation: () => {} });
   }, 1000);
   
-  addFeedItem("Demo: Battery issue simulation activated");
+  addToAnalysisFeed("Demo: Battery issue simulation activated");
 }
 
 function simulateEngineCheck() {
@@ -820,17 +1472,17 @@ function simulateEngineCheck() {
     runDiagnostic({ stopPropagation: () => {} });
   }, 1500);
   
-  addFeedItem("Demo: Engine diagnostic simulation started");
+  addToAnalysisFeed("Demo: Engine diagnostic simulation started");
 }
 
 function simulateServiceAlert() {
   scheduleService({ stopPropagation: () => {} });
-  addFeedItem("Demo: Service alert simulation triggered");
+  addToAnalysisFeed("Demo: Service alert simulation triggered");
 }
 
 function generatePrediction() {
   runPrediction({ stopPropagation: () => {} });
-  addFeedItem("Demo: Predictive analysis simulation started");
+  addToAnalysisFeed("Demo: Predictive analysis simulation started");
 }
 
 function toggleDemoPanel() {
