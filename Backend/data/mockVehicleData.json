@@ -1,0 +1,3154 @@
+[
+  {
+    "vehicleId": "VX-101",
+    "mileage": 38789,
+    "batteryHealth": 91,
+    "batteryVoltage": 12.47,
+    "engineStatus": "Check Required",
+    "oilLife": 98,
+    "tireCondition": "Good",
+    "airFilterHealth": 50,
+    "lastService": "2025-04-26",
+    "coolantLevel": 93,
+    "brakePads": 20,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 18.9,
+    "drivingScore": 8.6,
+    "nextServiceKm": 3067,
+    "maintenanceHistory": [
+      "Tire rotation - 7152 km ago",
+      "Battery replacement - 11 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 16 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-102",
+    "mileage": 67888,
+    "batteryHealth": 74,
+    "batteryVoltage": 12.01,
+    "engineStatus": "Check Required",
+    "oilLife": 55,
+    "tireCondition": "Worn",
+    "airFilterHealth": 97,
+    "lastService": "2025-06-21",
+    "coolantLevel": 82,
+    "brakePads": 53,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 19.0,
+    "drivingScore": 6.4,
+    "nextServiceKm": 665,
+    "maintenanceHistory": [
+      "Oil change - 1345 km ago",
+      "Air filter change - 12 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 18 days"
+    ],
+    "criticalAlerts": [
+      "Oil pressure low",
+      "Tire pressure abnormal"
+    ],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Avoid hard acceleration"
+    ]
+  },
+  {
+    "vehicleId": "VX-103",
+    "mileage": 31276,
+    "batteryHealth": 68,
+    "batteryVoltage": 11.86,
+    "engineStatus": "Optimal",
+    "oilLife": 85,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 78,
+    "lastService": "2025-06-30",
+    "coolantLevel": 67,
+    "brakePads": 73,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 15.7,
+    "drivingScore": 6.5,
+    "nextServiceKm": 4900,
+    "maintenanceHistory": [
+      "Tire rotation - 7572 km ago",
+      "Battery replacement - 5 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 7 days"
+    ],
+    "criticalAlerts": [
+      "Oil pressure low",
+      "Tire pressure abnormal"
+    ],
+    "ecoTips": [
+      "Use cruise control",
+      "Avoid hard acceleration"
+    ]
+  },
+  {
+    "vehicleId": "VX-104",
+    "mileage": 79507,
+    "batteryHealth": 61,
+    "batteryVoltage": 12.14,
+    "engineStatus": "Check Required",
+    "oilLife": 98,
+    "tireCondition": "Worn",
+    "airFilterHealth": 62,
+    "lastService": "2025-06-20",
+    "coolantLevel": 93,
+    "brakePads": 45,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 16.4,
+    "drivingScore": 9.2,
+    "nextServiceKm": 4473,
+    "maintenanceHistory": [
+      "Brake inspection - 8743 km ago",
+      "Battery replacement - 6 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 30 days"
+    ],
+    "criticalAlerts": [
+      "Tire pressure abnormal",
+      "Brake wear detected"
+    ],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Minimize idling"
+    ]
+  },
+  {
+    "vehicleId": "VX-105",
+    "mileage": 105914,
+    "batteryHealth": 100,
+    "batteryVoltage": 12.0,
+    "engineStatus": "Check Required",
+    "oilLife": 88,
+    "tireCondition": "Good",
+    "airFilterHealth": 88,
+    "lastService": "2025-05-31",
+    "coolantLevel": 93,
+    "brakePads": 77,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 11.8,
+    "drivingScore": 5.5,
+    "nextServiceKm": 3912,
+    "maintenanceHistory": [
+      "Oil change - 6952 km ago",
+      "Battery replacement - 2 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 20 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-106",
+    "mileage": 29048,
+    "batteryHealth": 64,
+    "batteryVoltage": 12.03,
+    "engineStatus": "Optimal",
+    "oilLife": 48,
+    "tireCondition": "Worn",
+    "airFilterHealth": 78,
+    "lastService": "2025-04-26",
+    "coolantLevel": 98,
+    "brakePads": 39,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 17.8,
+    "drivingScore": 6.9,
+    "nextServiceKm": 2811,
+    "maintenanceHistory": [
+      "Brake inspection - 8665 km ago",
+      "Battery replacement - 4 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 12 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Use cruise control",
+      "Minimize idling"
+    ]
+  },
+  {
+    "vehicleId": "VX-107",
+    "mileage": 30509,
+    "batteryHealth": 65,
+    "batteryVoltage": 12.0,
+    "engineStatus": "Check Required",
+    "oilLife": 86,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 74,
+    "lastService": "2025-05-26",
+    "coolantLevel": 62,
+    "brakePads": 10,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 17.9,
+    "drivingScore": 6.4,
+    "nextServiceKm": 3288,
+    "maintenanceHistory": [
+      "Tire rotation - 5099 km ago",
+      "Battery replacement - 3 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 15 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Minimize idling"
+    ]
+  },
+  {
+    "vehicleId": "VX-108",
+    "mileage": 108086,
+    "batteryHealth": 84,
+    "batteryVoltage": 11.8,
+    "engineStatus": "Optimal",
+    "oilLife": 92,
+    "tireCondition": "Worn",
+    "airFilterHealth": 96,
+    "lastService": "2025-07-02",
+    "coolantLevel": 85,
+    "brakePads": 52,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 18.1,
+    "drivingScore": 6.3,
+    "nextServiceKm": 1843,
+    "maintenanceHistory": [
+      "Oil change - 8600 km ago",
+      "Air filter change - 5 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 11 days"
+    ],
+    "criticalAlerts": [
+      "Brake wear detected"
+    ],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-109",
+    "mileage": 70923,
+    "batteryHealth": 92,
+    "batteryVoltage": 12.59,
+    "engineStatus": "Check Required",
+    "oilLife": 76,
+    "tireCondition": "Worn",
+    "airFilterHealth": 50,
+    "lastService": "2025-06-19",
+    "coolantLevel": 60,
+    "brakePads": 58,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 16.5,
+    "drivingScore": 9.6,
+    "nextServiceKm": 3307,
+    "maintenanceHistory": [
+      "Brake inspection - 4334 km ago",
+      "Air filter change - 12 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 8 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-110",
+    "mileage": 118570,
+    "batteryHealth": 84,
+    "batteryVoltage": 11.63,
+    "engineStatus": "Optimal",
+    "oilLife": 47,
+    "tireCondition": "Good",
+    "airFilterHealth": 64,
+    "lastService": "2025-06-23",
+    "coolantLevel": 63,
+    "brakePads": 86,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 17.5,
+    "drivingScore": 6.6,
+    "nextServiceKm": 2165,
+    "maintenanceHistory": [
+      "Oil change - 6499 km ago",
+      "Battery replacement - 7 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 18 days"
+    ],
+    "criticalAlerts": [
+      "Brake wear detected",
+      "Tire pressure abnormal"
+    ],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Minimize idling"
+    ]
+  },
+  {
+    "vehicleId": "VX-111",
+    "mileage": 104526,
+    "batteryHealth": 73,
+    "batteryVoltage": 11.7,
+    "engineStatus": "Check Required",
+    "oilLife": 58,
+    "tireCondition": "Worn",
+    "airFilterHealth": 53,
+    "lastService": "2025-04-13",
+    "coolantLevel": 67,
+    "brakePads": 25,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 9.1,
+    "drivingScore": 6.6,
+    "nextServiceKm": 4628,
+    "maintenanceHistory": [
+      "Brake inspection - 6435 km ago",
+      "Air filter change - 6 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 23 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Use cruise control"
+    ]
+  },
+  {
+    "vehicleId": "VX-112",
+    "mileage": 55851,
+    "batteryHealth": 70,
+    "batteryVoltage": 12.47,
+    "engineStatus": "Check Required",
+    "oilLife": 31,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 87,
+    "lastService": "2025-05-02",
+    "coolantLevel": 83,
+    "brakePads": 60,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 15.9,
+    "drivingScore": 9.8,
+    "nextServiceKm": 3980,
+    "maintenanceHistory": [
+      "Tire rotation - 6592 km ago",
+      "Battery replacement - 3 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 7 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Use cruise control",
+      "Avoid hard acceleration"
+    ]
+  },
+  {
+    "vehicleId": "VX-113",
+    "mileage": 62681,
+    "batteryHealth": 79,
+    "batteryVoltage": 12.4,
+    "engineStatus": "Optimal",
+    "oilLife": 64,
+    "tireCondition": "Good",
+    "airFilterHealth": 99,
+    "lastService": "2025-06-20",
+    "coolantLevel": 95,
+    "brakePads": 15,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 16.3,
+    "drivingScore": 8.9,
+    "nextServiceKm": 4216,
+    "maintenanceHistory": [
+      "Tire rotation - 3166 km ago",
+      "Battery replacement - 6 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 21 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-114",
+    "mileage": 25803,
+    "batteryHealth": 75,
+    "batteryVoltage": 12.5,
+    "engineStatus": "Check Required",
+    "oilLife": 55,
+    "tireCondition": "Good",
+    "airFilterHealth": 91,
+    "lastService": "2025-07-09",
+    "coolantLevel": 71,
+    "brakePads": 29,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 12.2,
+    "drivingScore": 9.2,
+    "nextServiceKm": 2956,
+    "maintenanceHistory": [
+      "Oil change - 7605 km ago",
+      "Air filter change - 12 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 26 days"
+    ],
+    "criticalAlerts": [
+      "Tire pressure abnormal",
+      "Brake wear detected"
+    ],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-115",
+    "mileage": 26567,
+    "batteryHealth": 85,
+    "batteryVoltage": 12.51,
+    "engineStatus": "Optimal",
+    "oilLife": 38,
+    "tireCondition": "Good",
+    "airFilterHealth": 85,
+    "lastService": "2025-05-23",
+    "coolantLevel": 88,
+    "brakePads": 79,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 9.3,
+    "drivingScore": 4.5,
+    "nextServiceKm": 4796,
+    "maintenanceHistory": [
+      "Brake inspection - 4158 km ago",
+      "Battery replacement - 7 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 16 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Use cruise control"
+    ]
+  },
+  {
+    "vehicleId": "VX-116",
+    "mileage": 85534,
+    "batteryHealth": 93,
+    "batteryVoltage": 12.3,
+    "engineStatus": "Optimal",
+    "oilLife": 99,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 66,
+    "lastService": "2025-04-11",
+    "coolantLevel": 92,
+    "brakePads": 52,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 19.2,
+    "drivingScore": 6.4,
+    "nextServiceKm": 2729,
+    "maintenanceHistory": [
+      "Tire rotation - 8282 km ago",
+      "Air filter change - 4 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 17 days"
+    ],
+    "criticalAlerts": [
+      "Battery voltage low"
+    ],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Avoid hard acceleration"
+    ]
+  },
+  {
+    "vehicleId": "VX-117",
+    "mileage": 114659,
+    "batteryHealth": 67,
+    "batteryVoltage": 11.54,
+    "engineStatus": "Optimal",
+    "oilLife": 82,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 95,
+    "lastService": "2025-05-30",
+    "coolantLevel": 68,
+    "brakePads": 72,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 19.6,
+    "drivingScore": 6.9,
+    "nextServiceKm": 4996,
+    "maintenanceHistory": [
+      "Brake inspection - 3174 km ago",
+      "Air filter change - 6 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 11 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Minimize idling",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-118",
+    "mileage": 94418,
+    "batteryHealth": 72,
+    "batteryVoltage": 12.73,
+    "engineStatus": "Optimal",
+    "oilLife": 77,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 64,
+    "lastService": "2025-05-10",
+    "coolantLevel": 62,
+    "brakePads": 81,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 15.2,
+    "drivingScore": 6.6,
+    "nextServiceKm": 4129,
+    "maintenanceHistory": [
+      "Brake inspection - 7712 km ago",
+      "Battery replacement - 11 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 14 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Use cruise control",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-119",
+    "mileage": 66508,
+    "batteryHealth": 68,
+    "batteryVoltage": 11.61,
+    "engineStatus": "Optimal",
+    "oilLife": 57,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 90,
+    "lastService": "2025-06-04",
+    "coolantLevel": 86,
+    "brakePads": 80,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 8.6,
+    "drivingScore": 9.1,
+    "nextServiceKm": 3288,
+    "maintenanceHistory": [
+      "Tire rotation - 3093 km ago",
+      "Air filter change - 6 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 15 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical",
+      "Oil pressure low"
+    ],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Use cruise control"
+    ]
+  },
+  {
+    "vehicleId": "VX-120",
+    "mileage": 28597,
+    "batteryHealth": 99,
+    "batteryVoltage": 12.13,
+    "engineStatus": "Check Required",
+    "oilLife": 98,
+    "tireCondition": "Good",
+    "airFilterHealth": 73,
+    "lastService": "2025-05-28",
+    "coolantLevel": 66,
+    "brakePads": 10,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 16.0,
+    "drivingScore": 9.1,
+    "nextServiceKm": 759,
+    "maintenanceHistory": [
+      "Tire rotation - 5967 km ago",
+      "Air filter change - 11 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 22 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Minimize idling",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-121",
+    "mileage": 109061,
+    "batteryHealth": 89,
+    "batteryVoltage": 12.3,
+    "engineStatus": "Optimal",
+    "oilLife": 99,
+    "tireCondition": "Good",
+    "airFilterHealth": 83,
+    "lastService": "2025-04-09",
+    "coolantLevel": 84,
+    "brakePads": 18,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 14.8,
+    "drivingScore": 4.5,
+    "nextServiceKm": 777,
+    "maintenanceHistory": [
+      "Brake inspection - 2092 km ago",
+      "Air filter change - 11 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 20 days"
+    ],
+    "criticalAlerts": [
+      "Oil pressure low",
+      "Tire pressure abnormal"
+    ],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Minimize idling"
+    ]
+  },
+  {
+    "vehicleId": "VX-122",
+    "mileage": 94050,
+    "batteryHealth": 65,
+    "batteryVoltage": 11.55,
+    "engineStatus": "Optimal",
+    "oilLife": 59,
+    "tireCondition": "Good",
+    "airFilterHealth": 50,
+    "lastService": "2025-05-05",
+    "coolantLevel": 61,
+    "brakePads": 90,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 14.3,
+    "drivingScore": 9.2,
+    "nextServiceKm": 1867,
+    "maintenanceHistory": [
+      "Oil change - 7899 km ago",
+      "Air filter change - 12 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 28 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Use cruise control"
+    ]
+  },
+  {
+    "vehicleId": "VX-123",
+    "mileage": 72528,
+    "batteryHealth": 69,
+    "batteryVoltage": 11.58,
+    "engineStatus": "Optimal",
+    "oilLife": 51,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 93,
+    "lastService": "2025-05-23",
+    "coolantLevel": 60,
+    "brakePads": 77,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 11.1,
+    "drivingScore": 6.2,
+    "nextServiceKm": 2563,
+    "maintenanceHistory": [
+      "Oil change - 2624 km ago",
+      "Battery replacement - 9 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 26 days"
+    ],
+    "criticalAlerts": [
+      "Brake wear detected",
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Use cruise control"
+    ]
+  },
+  {
+    "vehicleId": "VX-124",
+    "mileage": 48730,
+    "batteryHealth": 68,
+    "batteryVoltage": 12.32,
+    "engineStatus": "Optimal",
+    "oilLife": 85,
+    "tireCondition": "Worn",
+    "airFilterHealth": 84,
+    "lastService": "2025-06-25",
+    "coolantLevel": 66,
+    "brakePads": 19,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 13.3,
+    "drivingScore": 7.1,
+    "nextServiceKm": 1361,
+    "maintenanceHistory": [
+      "Brake inspection - 9872 km ago",
+      "Air filter change - 5 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 12 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-125",
+    "mileage": 78829,
+    "batteryHealth": 66,
+    "batteryVoltage": 12.53,
+    "engineStatus": "Check Required",
+    "oilLife": 48,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 71,
+    "lastService": "2025-04-07",
+    "coolantLevel": 97,
+    "brakePads": 50,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 18.6,
+    "drivingScore": 6.0,
+    "nextServiceKm": 2292,
+    "maintenanceHistory": [
+      "Oil change - 5493 km ago",
+      "Battery replacement - 3 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 27 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Use cruise control",
+      "Minimize idling"
+    ]
+  },
+  {
+    "vehicleId": "VX-126",
+    "mileage": 88061,
+    "batteryHealth": 99,
+    "batteryVoltage": 12.39,
+    "engineStatus": "Check Required",
+    "oilLife": 48,
+    "tireCondition": "Worn",
+    "airFilterHealth": 92,
+    "lastService": "2025-06-30",
+    "coolantLevel": 70,
+    "brakePads": 15,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 8.8,
+    "drivingScore": 7.3,
+    "nextServiceKm": 4869,
+    "maintenanceHistory": [
+      "Oil change - 9291 km ago",
+      "Air filter change - 6 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 25 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Use cruise control",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-127",
+    "mileage": 113048,
+    "batteryHealth": 96,
+    "batteryVoltage": 12.7,
+    "engineStatus": "Optimal",
+    "oilLife": 55,
+    "tireCondition": "Good",
+    "airFilterHealth": 52,
+    "lastService": "2025-06-14",
+    "coolantLevel": 92,
+    "brakePads": 74,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 16.1,
+    "drivingScore": 5.7,
+    "nextServiceKm": 2637,
+    "maintenanceHistory": [
+      "Tire rotation - 9735 km ago",
+      "Battery replacement - 4 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 19 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Use cruise control"
+    ]
+  },
+  {
+    "vehicleId": "VX-128",
+    "mileage": 66662,
+    "batteryHealth": 78,
+    "batteryVoltage": 11.72,
+    "engineStatus": "Check Required",
+    "oilLife": 68,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 88,
+    "lastService": "2025-05-19",
+    "coolantLevel": 75,
+    "brakePads": 55,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 15.0,
+    "drivingScore": 6.0,
+    "nextServiceKm": 848,
+    "maintenanceHistory": [
+      "Oil change - 4707 km ago",
+      "Air filter change - 9 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 18 days"
+    ],
+    "criticalAlerts": [
+      "Battery voltage low"
+    ],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Use cruise control"
+    ]
+  },
+  {
+    "vehicleId": "VX-129",
+    "mileage": 74332,
+    "batteryHealth": 100,
+    "batteryVoltage": 11.91,
+    "engineStatus": "Check Required",
+    "oilLife": 79,
+    "tireCondition": "Good",
+    "airFilterHealth": 83,
+    "lastService": "2025-06-05",
+    "coolantLevel": 87,
+    "brakePads": 65,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 14.3,
+    "drivingScore": 5.1,
+    "nextServiceKm": 1719,
+    "maintenanceHistory": [
+      "Brake inspection - 1135 km ago",
+      "Air filter change - 12 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 10 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-130",
+    "mileage": 72133,
+    "batteryHealth": 80,
+    "batteryVoltage": 11.98,
+    "engineStatus": "Optimal",
+    "oilLife": 84,
+    "tireCondition": "Good",
+    "airFilterHealth": 65,
+    "lastService": "2025-07-03",
+    "coolantLevel": 92,
+    "brakePads": 87,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 14.5,
+    "drivingScore": 6.3,
+    "nextServiceKm": 1353,
+    "maintenanceHistory": [
+      "Oil change - 4847 km ago",
+      "Air filter change - 12 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 28 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Use cruise control",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-131",
+    "mileage": 55687,
+    "batteryHealth": 68,
+    "batteryVoltage": 12.69,
+    "engineStatus": "Optimal",
+    "oilLife": 57,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 94,
+    "lastService": "2025-05-24",
+    "coolantLevel": 70,
+    "brakePads": 87,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 13.6,
+    "drivingScore": 6.4,
+    "nextServiceKm": 1140,
+    "maintenanceHistory": [
+      "Tire rotation - 3942 km ago",
+      "Air filter change - 10 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 17 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-132",
+    "mileage": 83080,
+    "batteryHealth": 70,
+    "batteryVoltage": 11.65,
+    "engineStatus": "Check Required",
+    "oilLife": 53,
+    "tireCondition": "Worn",
+    "airFilterHealth": 51,
+    "lastService": "2025-06-06",
+    "coolantLevel": 89,
+    "brakePads": 24,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 9.8,
+    "drivingScore": 6.1,
+    "nextServiceKm": 3205,
+    "maintenanceHistory": [
+      "Tire rotation - 6330 km ago",
+      "Air filter change - 2 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 25 days"
+    ],
+    "criticalAlerts": [
+      "Tire pressure abnormal"
+    ],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Minimize idling"
+    ]
+  },
+  {
+    "vehicleId": "VX-133",
+    "mileage": 52598,
+    "batteryHealth": 89,
+    "batteryVoltage": 11.67,
+    "engineStatus": "Check Required",
+    "oilLife": 44,
+    "tireCondition": "Worn",
+    "airFilterHealth": 73,
+    "lastService": "2025-06-24",
+    "coolantLevel": 83,
+    "brakePads": 21,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 10.4,
+    "drivingScore": 6.8,
+    "nextServiceKm": 3628,
+    "maintenanceHistory": [
+      "Brake inspection - 4340 km ago",
+      "Air filter change - 12 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 27 days"
+    ],
+    "criticalAlerts": [
+      "Brake wear detected",
+      "Tire pressure abnormal"
+    ],
+    "ecoTips": [
+      "Minimize idling",
+      "Avoid hard acceleration"
+    ]
+  },
+  {
+    "vehicleId": "VX-134",
+    "mileage": 55551,
+    "batteryHealth": 79,
+    "batteryVoltage": 12.05,
+    "engineStatus": "Check Required",
+    "oilLife": 98,
+    "tireCondition": "Worn",
+    "airFilterHealth": 81,
+    "lastService": "2025-06-11",
+    "coolantLevel": 99,
+    "brakePads": 32,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 9.8,
+    "drivingScore": 7.0,
+    "nextServiceKm": 867,
+    "maintenanceHistory": [
+      "Tire rotation - 4131 km ago",
+      "Air filter change - 7 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 25 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Minimize idling",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-135",
+    "mileage": 44326,
+    "batteryHealth": 61,
+    "batteryVoltage": 12.48,
+    "engineStatus": "Check Required",
+    "oilLife": 61,
+    "tireCondition": "Good",
+    "airFilterHealth": 91,
+    "lastService": "2025-04-14",
+    "coolantLevel": 98,
+    "brakePads": 10,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 16.0,
+    "drivingScore": 5.0,
+    "nextServiceKm": 2356,
+    "maintenanceHistory": [
+      "Oil change - 9728 km ago",
+      "Air filter change - 7 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 27 days"
+    ],
+    "criticalAlerts": [
+      "Tire pressure abnormal"
+    ],
+    "ecoTips": [
+      "Minimize idling",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-136",
+    "mileage": 51520,
+    "batteryHealth": 67,
+    "batteryVoltage": 11.61,
+    "engineStatus": "Check Required",
+    "oilLife": 32,
+    "tireCondition": "Worn",
+    "airFilterHealth": 66,
+    "lastService": "2025-06-10",
+    "coolantLevel": 90,
+    "brakePads": 36,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 8.6,
+    "drivingScore": 8.3,
+    "nextServiceKm": 3784,
+    "maintenanceHistory": [
+      "Tire rotation - 4849 km ago",
+      "Battery replacement - 10 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 9 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-137",
+    "mileage": 108454,
+    "batteryHealth": 69,
+    "batteryVoltage": 11.77,
+    "engineStatus": "Optimal",
+    "oilLife": 98,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 68,
+    "lastService": "2025-07-10",
+    "coolantLevel": 89,
+    "brakePads": 45,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 18.3,
+    "drivingScore": 9.2,
+    "nextServiceKm": 1810,
+    "maintenanceHistory": [
+      "Tire rotation - 1255 km ago",
+      "Battery replacement - 12 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 30 days"
+    ],
+    "criticalAlerts": [
+      "Battery voltage low",
+      "Oil pressure low"
+    ],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Minimize idling"
+    ]
+  },
+  {
+    "vehicleId": "VX-138",
+    "mileage": 53389,
+    "batteryHealth": 99,
+    "batteryVoltage": 12.59,
+    "engineStatus": "Check Required",
+    "oilLife": 69,
+    "tireCondition": "Worn",
+    "airFilterHealth": 84,
+    "lastService": "2025-07-04",
+    "coolantLevel": 61,
+    "brakePads": 12,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 15.1,
+    "drivingScore": 8.3,
+    "nextServiceKm": 3503,
+    "maintenanceHistory": [
+      "Oil change - 9374 km ago",
+      "Air filter change - 3 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 30 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-139",
+    "mileage": 115121,
+    "batteryHealth": 79,
+    "batteryVoltage": 12.07,
+    "engineStatus": "Optimal",
+    "oilLife": 84,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 72,
+    "lastService": "2025-05-19",
+    "coolantLevel": 63,
+    "brakePads": 83,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 8.5,
+    "drivingScore": 5.2,
+    "nextServiceKm": 1447,
+    "maintenanceHistory": [
+      "Oil change - 6046 km ago",
+      "Air filter change - 1 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 23 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Use cruise control"
+    ]
+  },
+  {
+    "vehicleId": "VX-140",
+    "mileage": 76085,
+    "batteryHealth": 88,
+    "batteryVoltage": 11.93,
+    "engineStatus": "Optimal",
+    "oilLife": 60,
+    "tireCondition": "Worn",
+    "airFilterHealth": 65,
+    "lastService": "2025-07-16",
+    "coolantLevel": 83,
+    "brakePads": 20,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 13.3,
+    "drivingScore": 8.7,
+    "nextServiceKm": 2909,
+    "maintenanceHistory": [
+      "Brake inspection - 6364 km ago",
+      "Battery replacement - 10 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 22 days"
+    ],
+    "criticalAlerts": [
+      "Oil pressure low",
+      "Battery voltage low"
+    ],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Minimize idling"
+    ]
+  },
+  {
+    "vehicleId": "VX-141",
+    "mileage": 28530,
+    "batteryHealth": 83,
+    "batteryVoltage": 11.93,
+    "engineStatus": "Check Required",
+    "oilLife": 59,
+    "tireCondition": "Good",
+    "airFilterHealth": 62,
+    "lastService": "2025-04-08",
+    "coolantLevel": 95,
+    "brakePads": 11,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 19.0,
+    "drivingScore": 5.0,
+    "nextServiceKm": 3173,
+    "maintenanceHistory": [
+      "Oil change - 7531 km ago",
+      "Air filter change - 10 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 15 days"
+    ],
+    "criticalAlerts": [
+      "Oil pressure low"
+    ],
+    "ecoTips": [
+      "Use cruise control",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-142",
+    "mileage": 33524,
+    "batteryHealth": 61,
+    "batteryVoltage": 12.13,
+    "engineStatus": "Check Required",
+    "oilLife": 48,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 76,
+    "lastService": "2025-06-10",
+    "coolantLevel": 71,
+    "brakePads": 79,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 13.9,
+    "drivingScore": 8.8,
+    "nextServiceKm": 518,
+    "maintenanceHistory": [
+      "Brake inspection - 7971 km ago",
+      "Air filter change - 7 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 18 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-143",
+    "mileage": 35180,
+    "batteryHealth": 87,
+    "batteryVoltage": 12.41,
+    "engineStatus": "Check Required",
+    "oilLife": 38,
+    "tireCondition": "Worn",
+    "airFilterHealth": 70,
+    "lastService": "2025-06-26",
+    "coolantLevel": 73,
+    "brakePads": 75,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 10.5,
+    "drivingScore": 6.1,
+    "nextServiceKm": 2125,
+    "maintenanceHistory": [
+      "Tire rotation - 6217 km ago",
+      "Battery replacement - 2 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 29 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Use cruise control"
+    ]
+  },
+  {
+    "vehicleId": "VX-144",
+    "mileage": 41671,
+    "batteryHealth": 90,
+    "batteryVoltage": 11.6,
+    "engineStatus": "Optimal",
+    "oilLife": 84,
+    "tireCondition": "Worn",
+    "airFilterHealth": 66,
+    "lastService": "2025-06-06",
+    "coolantLevel": 62,
+    "brakePads": 10,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 16.6,
+    "drivingScore": 5.3,
+    "nextServiceKm": 1246,
+    "maintenanceHistory": [
+      "Brake inspection - 9352 km ago",
+      "Air filter change - 1 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 11 days"
+    ],
+    "criticalAlerts": [
+      "Oil pressure low"
+    ],
+    "ecoTips": [
+      "Minimize idling",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-145",
+    "mileage": 112111,
+    "batteryHealth": 87,
+    "batteryVoltage": 11.97,
+    "engineStatus": "Check Required",
+    "oilLife": 94,
+    "tireCondition": "Good",
+    "airFilterHealth": 64,
+    "lastService": "2025-07-10",
+    "coolantLevel": 60,
+    "brakePads": 12,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 18.8,
+    "drivingScore": 8.2,
+    "nextServiceKm": 4178,
+    "maintenanceHistory": [
+      "Brake inspection - 3060 km ago",
+      "Battery replacement - 8 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 13 days"
+    ],
+    "criticalAlerts": [
+      "Brake wear detected"
+    ],
+    "ecoTips": [
+      "Minimize idling",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-146",
+    "mileage": 68462,
+    "batteryHealth": 64,
+    "batteryVoltage": 12.47,
+    "engineStatus": "Optimal",
+    "oilLife": 54,
+    "tireCondition": "Worn",
+    "airFilterHealth": 78,
+    "lastService": "2025-04-04",
+    "coolantLevel": 89,
+    "brakePads": 71,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 14.0,
+    "drivingScore": 7.5,
+    "nextServiceKm": 4918,
+    "maintenanceHistory": [
+      "Brake inspection - 7429 km ago",
+      "Air filter change - 1 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 20 days"
+    ],
+    "criticalAlerts": [
+      "Tire pressure abnormal",
+      "Battery voltage low"
+    ],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Minimize idling"
+    ]
+  },
+  {
+    "vehicleId": "VX-147",
+    "mileage": 96361,
+    "batteryHealth": 80,
+    "batteryVoltage": 12.22,
+    "engineStatus": "Optimal",
+    "oilLife": 70,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 88,
+    "lastService": "2025-04-17",
+    "coolantLevel": 83,
+    "brakePads": 74,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 20.0,
+    "drivingScore": 6.6,
+    "nextServiceKm": 573,
+    "maintenanceHistory": [
+      "Tire rotation - 5620 km ago",
+      "Battery replacement - 11 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 23 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Use cruise control"
+    ]
+  },
+  {
+    "vehicleId": "VX-148",
+    "mileage": 114925,
+    "batteryHealth": 69,
+    "batteryVoltage": 12.35,
+    "engineStatus": "Check Required",
+    "oilLife": 90,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 98,
+    "lastService": "2025-06-08",
+    "coolantLevel": 85,
+    "brakePads": 74,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 9.5,
+    "drivingScore": 8.6,
+    "nextServiceKm": 4015,
+    "maintenanceHistory": [
+      "Oil change - 8685 km ago",
+      "Air filter change - 5 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 25 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical",
+      "Battery voltage low"
+    ],
+    "ecoTips": [
+      "Minimize idling",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-149",
+    "mileage": 31396,
+    "batteryHealth": 97,
+    "batteryVoltage": 12.35,
+    "engineStatus": "Optimal",
+    "oilLife": 96,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 62,
+    "lastService": "2025-07-03",
+    "coolantLevel": 96,
+    "brakePads": 71,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 14.9,
+    "drivingScore": 8.0,
+    "nextServiceKm": 3324,
+    "maintenanceHistory": [
+      "Oil change - 4063 km ago",
+      "Battery replacement - 6 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 16 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Minimize idling"
+    ]
+  },
+  {
+    "vehicleId": "VX-150",
+    "mileage": 104821,
+    "batteryHealth": 98,
+    "batteryVoltage": 11.73,
+    "engineStatus": "Check Required",
+    "oilLife": 83,
+    "tireCondition": "Worn",
+    "airFilterHealth": 96,
+    "lastService": "2025-04-19",
+    "coolantLevel": 63,
+    "brakePads": 47,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 16.2,
+    "drivingScore": 5.1,
+    "nextServiceKm": 2151,
+    "maintenanceHistory": [
+      "Tire rotation - 4870 km ago",
+      "Air filter change - 2 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 25 days"
+    ],
+    "criticalAlerts": [
+      "Oil pressure low",
+      "Tire pressure abnormal"
+    ],
+    "ecoTips": [
+      "Minimize idling",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-151",
+    "mileage": 109914,
+    "batteryHealth": 75,
+    "batteryVoltage": 12.54,
+    "engineStatus": "Optimal",
+    "oilLife": 44,
+    "tireCondition": "Good",
+    "airFilterHealth": 74,
+    "lastService": "2025-07-07",
+    "coolantLevel": 91,
+    "brakePads": 44,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 13.2,
+    "drivingScore": 5.1,
+    "nextServiceKm": 4632,
+    "maintenanceHistory": [
+      "Brake inspection - 4219 km ago",
+      "Air filter change - 9 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 29 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Use cruise control",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-152",
+    "mileage": 21161,
+    "batteryHealth": 90,
+    "batteryVoltage": 11.93,
+    "engineStatus": "Optimal",
+    "oilLife": 30,
+    "tireCondition": "Good",
+    "airFilterHealth": 64,
+    "lastService": "2025-04-16",
+    "coolantLevel": 89,
+    "brakePads": 71,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 13.3,
+    "drivingScore": 6.0,
+    "nextServiceKm": 2638,
+    "maintenanceHistory": [
+      "Oil change - 1049 km ago",
+      "Battery replacement - 3 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 29 days"
+    ],
+    "criticalAlerts": [
+      "Battery voltage low",
+      "Brake wear detected"
+    ],
+    "ecoTips": [
+      "Use cruise control",
+      "Avoid hard acceleration"
+    ]
+  },
+  {
+    "vehicleId": "VX-153",
+    "mileage": 63046,
+    "batteryHealth": 89,
+    "batteryVoltage": 12.12,
+    "engineStatus": "Optimal",
+    "oilLife": 66,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 56,
+    "lastService": "2025-04-29",
+    "coolantLevel": 97,
+    "brakePads": 86,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 10.6,
+    "drivingScore": 5.4,
+    "nextServiceKm": 573,
+    "maintenanceHistory": [
+      "Brake inspection - 1204 km ago",
+      "Air filter change - 6 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 13 days"
+    ],
+    "criticalAlerts": [
+      "Oil pressure low"
+    ],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-154",
+    "mileage": 60965,
+    "batteryHealth": 87,
+    "batteryVoltage": 11.52,
+    "engineStatus": "Optimal",
+    "oilLife": 51,
+    "tireCondition": "Good",
+    "airFilterHealth": 99,
+    "lastService": "2025-04-22",
+    "coolantLevel": 93,
+    "brakePads": 25,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 15.2,
+    "drivingScore": 7.8,
+    "nextServiceKm": 3465,
+    "maintenanceHistory": [
+      "Brake inspection - 2635 km ago",
+      "Air filter change - 11 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 15 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Minimize idling"
+    ]
+  },
+  {
+    "vehicleId": "VX-155",
+    "mileage": 71436,
+    "batteryHealth": 78,
+    "batteryVoltage": 12.07,
+    "engineStatus": "Check Required",
+    "oilLife": 59,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 65,
+    "lastService": "2025-05-30",
+    "coolantLevel": 64,
+    "brakePads": 17,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 18.3,
+    "drivingScore": 9.8,
+    "nextServiceKm": 1474,
+    "maintenanceHistory": [
+      "Tire rotation - 4991 km ago",
+      "Air filter change - 10 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 24 days"
+    ],
+    "criticalAlerts": [
+      "Tire pressure abnormal"
+    ],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-156",
+    "mileage": 36740,
+    "batteryHealth": 74,
+    "batteryVoltage": 11.91,
+    "engineStatus": "Optimal",
+    "oilLife": 46,
+    "tireCondition": "Worn",
+    "airFilterHealth": 67,
+    "lastService": "2025-06-20",
+    "coolantLevel": 79,
+    "brakePads": 89,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 16.9,
+    "drivingScore": 4.9,
+    "nextServiceKm": 3908,
+    "maintenanceHistory": [
+      "Brake inspection - 2746 km ago",
+      "Air filter change - 4 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 27 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Use cruise control",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-157",
+    "mileage": 85437,
+    "batteryHealth": 62,
+    "batteryVoltage": 11.77,
+    "engineStatus": "Optimal",
+    "oilLife": 42,
+    "tireCondition": "Worn",
+    "airFilterHealth": 62,
+    "lastService": "2025-06-15",
+    "coolantLevel": 95,
+    "brakePads": 55,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 12.7,
+    "drivingScore": 5.0,
+    "nextServiceKm": 3542,
+    "maintenanceHistory": [
+      "Oil change - 4611 km ago",
+      "Battery replacement - 8 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 11 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Use cruise control"
+    ]
+  },
+  {
+    "vehicleId": "VX-158",
+    "mileage": 52684,
+    "batteryHealth": 92,
+    "batteryVoltage": 12.03,
+    "engineStatus": "Optimal",
+    "oilLife": 38,
+    "tireCondition": "Worn",
+    "airFilterHealth": 95,
+    "lastService": "2025-05-05",
+    "coolantLevel": 85,
+    "brakePads": 21,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 11.4,
+    "drivingScore": 5.0,
+    "nextServiceKm": 3352,
+    "maintenanceHistory": [
+      "Tire rotation - 1886 km ago",
+      "Battery replacement - 6 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 27 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-159",
+    "mileage": 47027,
+    "batteryHealth": 93,
+    "batteryVoltage": 11.87,
+    "engineStatus": "Optimal",
+    "oilLife": 78,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 87,
+    "lastService": "2025-07-10",
+    "coolantLevel": 72,
+    "brakePads": 89,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 17.3,
+    "drivingScore": 6.5,
+    "nextServiceKm": 4950,
+    "maintenanceHistory": [
+      "Tire rotation - 5905 km ago",
+      "Battery replacement - 3 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 23 days"
+    ],
+    "criticalAlerts": [
+      "Brake wear detected"
+    ],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Avoid hard acceleration"
+    ]
+  },
+  {
+    "vehicleId": "VX-160",
+    "mileage": 66819,
+    "batteryHealth": 94,
+    "batteryVoltage": 11.88,
+    "engineStatus": "Optimal",
+    "oilLife": 77,
+    "tireCondition": "Good",
+    "airFilterHealth": 59,
+    "lastService": "2025-06-19",
+    "coolantLevel": 63,
+    "brakePads": 44,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 18.6,
+    "drivingScore": 8.6,
+    "nextServiceKm": 1905,
+    "maintenanceHistory": [
+      "Tire rotation - 4368 km ago",
+      "Battery replacement - 11 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 11 days"
+    ],
+    "criticalAlerts": [
+      "Battery voltage low",
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-161",
+    "mileage": 36457,
+    "batteryHealth": 83,
+    "batteryVoltage": 12.62,
+    "engineStatus": "Optimal",
+    "oilLife": 61,
+    "tireCondition": "Good",
+    "airFilterHealth": 89,
+    "lastService": "2025-05-04",
+    "coolantLevel": 86,
+    "brakePads": 41,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 19.8,
+    "drivingScore": 8.4,
+    "nextServiceKm": 1924,
+    "maintenanceHistory": [
+      "Tire rotation - 6969 km ago",
+      "Battery replacement - 3 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 15 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical",
+      "Oil pressure low"
+    ],
+    "ecoTips": [
+      "Minimize idling",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-162",
+    "mileage": 82238,
+    "batteryHealth": 87,
+    "batteryVoltage": 12.01,
+    "engineStatus": "Check Required",
+    "oilLife": 36,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 94,
+    "lastService": "2025-05-06",
+    "coolantLevel": 73,
+    "brakePads": 48,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 18.3,
+    "drivingScore": 5.6,
+    "nextServiceKm": 2947,
+    "maintenanceHistory": [
+      "Tire rotation - 4965 km ago",
+      "Battery replacement - 9 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 29 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Minimize idling"
+    ]
+  },
+  {
+    "vehicleId": "VX-163",
+    "mileage": 16901,
+    "batteryHealth": 81,
+    "batteryVoltage": 11.87,
+    "engineStatus": "Check Required",
+    "oilLife": 93,
+    "tireCondition": "Worn",
+    "airFilterHealth": 67,
+    "lastService": "2025-06-03",
+    "coolantLevel": 66,
+    "brakePads": 76,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 11.8,
+    "drivingScore": 9.2,
+    "nextServiceKm": 2973,
+    "maintenanceHistory": [
+      "Brake inspection - 4475 km ago",
+      "Air filter change - 2 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 8 days"
+    ],
+    "criticalAlerts": [
+      "Tire pressure abnormal"
+    ],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-164",
+    "mileage": 33887,
+    "batteryHealth": 80,
+    "batteryVoltage": 12.3,
+    "engineStatus": "Optimal",
+    "oilLife": 63,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 100,
+    "lastService": "2025-06-10",
+    "coolantLevel": 65,
+    "brakePads": 75,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 10.8,
+    "drivingScore": 9.6,
+    "nextServiceKm": 3796,
+    "maintenanceHistory": [
+      "Brake inspection - 7157 km ago",
+      "Air filter change - 3 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 22 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Use cruise control",
+      "Avoid hard acceleration"
+    ]
+  },
+  {
+    "vehicleId": "VX-165",
+    "mileage": 88043,
+    "batteryHealth": 67,
+    "batteryVoltage": 12.72,
+    "engineStatus": "Check Required",
+    "oilLife": 35,
+    "tireCondition": "Worn",
+    "airFilterHealth": 75,
+    "lastService": "2025-07-13",
+    "coolantLevel": 66,
+    "brakePads": 33,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 14.1,
+    "drivingScore": 9.5,
+    "nextServiceKm": 1127,
+    "maintenanceHistory": [
+      "Brake inspection - 5250 km ago",
+      "Battery replacement - 7 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 11 days"
+    ],
+    "criticalAlerts": [
+      "Battery voltage low",
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-166",
+    "mileage": 110877,
+    "batteryHealth": 83,
+    "batteryVoltage": 12.13,
+    "engineStatus": "Check Required",
+    "oilLife": 99,
+    "tireCondition": "Worn",
+    "airFilterHealth": 87,
+    "lastService": "2025-04-13",
+    "coolantLevel": 73,
+    "brakePads": 83,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 16.3,
+    "drivingScore": 5.7,
+    "nextServiceKm": 2187,
+    "maintenanceHistory": [
+      "Tire rotation - 8471 km ago",
+      "Air filter change - 7 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 29 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Minimize idling"
+    ]
+  },
+  {
+    "vehicleId": "VX-167",
+    "mileage": 114264,
+    "batteryHealth": 100,
+    "batteryVoltage": 11.8,
+    "engineStatus": "Optimal",
+    "oilLife": 45,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 63,
+    "lastService": "2025-06-24",
+    "coolantLevel": 66,
+    "brakePads": 27,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 18.0,
+    "drivingScore": 7.2,
+    "nextServiceKm": 1462,
+    "maintenanceHistory": [
+      "Oil change - 9714 km ago",
+      "Battery replacement - 9 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 16 days"
+    ],
+    "criticalAlerts": [
+      "Tire pressure abnormal",
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-168",
+    "mileage": 95734,
+    "batteryHealth": 66,
+    "batteryVoltage": 12.8,
+    "engineStatus": "Optimal",
+    "oilLife": 41,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 64,
+    "lastService": "2025-05-05",
+    "coolantLevel": 79,
+    "brakePads": 55,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 12.8,
+    "drivingScore": 8.8,
+    "nextServiceKm": 3232,
+    "maintenanceHistory": [
+      "Oil change - 5696 km ago",
+      "Air filter change - 3 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 25 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-169",
+    "mileage": 85699,
+    "batteryHealth": 86,
+    "batteryVoltage": 12.39,
+    "engineStatus": "Check Required",
+    "oilLife": 77,
+    "tireCondition": "Worn",
+    "airFilterHealth": 92,
+    "lastService": "2025-05-22",
+    "coolantLevel": 87,
+    "brakePads": 89,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 8.7,
+    "drivingScore": 5.9,
+    "nextServiceKm": 4153,
+    "maintenanceHistory": [
+      "Oil change - 4698 km ago",
+      "Air filter change - 11 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 11 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical",
+      "Tire pressure abnormal"
+    ],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Avoid hard acceleration"
+    ]
+  },
+  {
+    "vehicleId": "VX-170",
+    "mileage": 55384,
+    "batteryHealth": 67,
+    "batteryVoltage": 12.07,
+    "engineStatus": "Check Required",
+    "oilLife": 49,
+    "tireCondition": "Good",
+    "airFilterHealth": 95,
+    "lastService": "2025-04-15",
+    "coolantLevel": 95,
+    "brakePads": 19,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 13.5,
+    "drivingScore": 5.9,
+    "nextServiceKm": 4340,
+    "maintenanceHistory": [
+      "Brake inspection - 6988 km ago",
+      "Air filter change - 11 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 21 days"
+    ],
+    "criticalAlerts": [
+      "Oil pressure low"
+    ],
+    "ecoTips": [
+      "Use cruise control",
+      "Avoid hard acceleration"
+    ]
+  },
+  {
+    "vehicleId": "VX-171",
+    "mileage": 73835,
+    "batteryHealth": 83,
+    "batteryVoltage": 12.56,
+    "engineStatus": "Check Required",
+    "oilLife": 63,
+    "tireCondition": "Good",
+    "airFilterHealth": 98,
+    "lastService": "2025-07-16",
+    "coolantLevel": 98,
+    "brakePads": 28,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 17.5,
+    "drivingScore": 8.4,
+    "nextServiceKm": 4382,
+    "maintenanceHistory": [
+      "Oil change - 9777 km ago",
+      "Battery replacement - 7 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 22 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Avoid hard acceleration"
+    ]
+  },
+  {
+    "vehicleId": "VX-172",
+    "mileage": 18196,
+    "batteryHealth": 61,
+    "batteryVoltage": 12.63,
+    "engineStatus": "Optimal",
+    "oilLife": 74,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 95,
+    "lastService": "2025-06-18",
+    "coolantLevel": 93,
+    "brakePads": 42,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 13.2,
+    "drivingScore": 5.6,
+    "nextServiceKm": 3315,
+    "maintenanceHistory": [
+      "Brake inspection - 5218 km ago",
+      "Battery replacement - 7 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 21 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Minimize idling",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-173",
+    "mileage": 60046,
+    "batteryHealth": 63,
+    "batteryVoltage": 11.86,
+    "engineStatus": "Optimal",
+    "oilLife": 90,
+    "tireCondition": "Worn",
+    "airFilterHealth": 71,
+    "lastService": "2025-05-05",
+    "coolantLevel": 85,
+    "brakePads": 82,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 18.1,
+    "drivingScore": 5.7,
+    "nextServiceKm": 1971,
+    "maintenanceHistory": [
+      "Oil change - 7523 km ago",
+      "Air filter change - 3 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 8 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Minimize idling",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-174",
+    "mileage": 100981,
+    "batteryHealth": 82,
+    "batteryVoltage": 11.85,
+    "engineStatus": "Check Required",
+    "oilLife": 60,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 76,
+    "lastService": "2025-04-15",
+    "coolantLevel": 67,
+    "brakePads": 24,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 13.8,
+    "drivingScore": 7.5,
+    "nextServiceKm": 3742,
+    "maintenanceHistory": [
+      "Tire rotation - 4639 km ago",
+      "Battery replacement - 12 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 29 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Minimize idling",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-175",
+    "mileage": 63948,
+    "batteryHealth": 70,
+    "batteryVoltage": 11.5,
+    "engineStatus": "Check Required",
+    "oilLife": 80,
+    "tireCondition": "Worn",
+    "airFilterHealth": 93,
+    "lastService": "2025-05-22",
+    "coolantLevel": 97,
+    "brakePads": 69,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 18.7,
+    "drivingScore": 8.7,
+    "nextServiceKm": 1504,
+    "maintenanceHistory": [
+      "Brake inspection - 7817 km ago",
+      "Air filter change - 2 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 26 days"
+    ],
+    "criticalAlerts": [
+      "Oil pressure low",
+      "Brake wear detected"
+    ],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-176",
+    "mileage": 58718,
+    "batteryHealth": 60,
+    "batteryVoltage": 12.44,
+    "engineStatus": "Optimal",
+    "oilLife": 73,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 79,
+    "lastService": "2025-04-24",
+    "coolantLevel": 82,
+    "brakePads": 52,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 14.2,
+    "drivingScore": 8.0,
+    "nextServiceKm": 4480,
+    "maintenanceHistory": [
+      "Tire rotation - 6463 km ago",
+      "Battery replacement - 2 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 9 days"
+    ],
+    "criticalAlerts": [
+      "Oil pressure low",
+      "Battery voltage low"
+    ],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-177",
+    "mileage": 85501,
+    "batteryHealth": 98,
+    "batteryVoltage": 11.9,
+    "engineStatus": "Check Required",
+    "oilLife": 81,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 95,
+    "lastService": "2025-04-27",
+    "coolantLevel": 70,
+    "brakePads": 75,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 9.3,
+    "drivingScore": 5.6,
+    "nextServiceKm": 3527,
+    "maintenanceHistory": [
+      "Oil change - 1171 km ago",
+      "Battery replacement - 10 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 9 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Minimize idling"
+    ]
+  },
+  {
+    "vehicleId": "VX-178",
+    "mileage": 67843,
+    "batteryHealth": 97,
+    "batteryVoltage": 12.47,
+    "engineStatus": "Check Required",
+    "oilLife": 45,
+    "tireCondition": "Worn",
+    "airFilterHealth": 55,
+    "lastService": "2025-06-21",
+    "coolantLevel": 94,
+    "brakePads": 33,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 10.9,
+    "drivingScore": 6.5,
+    "nextServiceKm": 1357,
+    "maintenanceHistory": [
+      "Tire rotation - 7215 km ago",
+      "Battery replacement - 4 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 22 days"
+    ],
+    "criticalAlerts": [
+      "Oil pressure low",
+      "Battery voltage low"
+    ],
+    "ecoTips": [
+      "Minimize idling",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-179",
+    "mileage": 45534,
+    "batteryHealth": 83,
+    "batteryVoltage": 12.47,
+    "engineStatus": "Check Required",
+    "oilLife": 54,
+    "tireCondition": "Worn",
+    "airFilterHealth": 75,
+    "lastService": "2025-07-23",
+    "coolantLevel": 76,
+    "brakePads": 65,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 16.0,
+    "drivingScore": 9.2,
+    "nextServiceKm": 4857,
+    "maintenanceHistory": [
+      "Brake inspection - 8096 km ago",
+      "Battery replacement - 6 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 26 days"
+    ],
+    "criticalAlerts": [
+      "Tire pressure abnormal",
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Avoid hard acceleration"
+    ]
+  },
+  {
+    "vehicleId": "VX-180",
+    "mileage": 78643,
+    "batteryHealth": 96,
+    "batteryVoltage": 12.0,
+    "engineStatus": "Check Required",
+    "oilLife": 89,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 100,
+    "lastService": "2025-06-13",
+    "coolantLevel": 99,
+    "brakePads": 18,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 11.6,
+    "drivingScore": 6.2,
+    "nextServiceKm": 3105,
+    "maintenanceHistory": [
+      "Oil change - 5627 km ago",
+      "Battery replacement - 1 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 24 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Plan trips to reduce cold starts",
+      "Avoid hard acceleration"
+    ]
+  },
+  {
+    "vehicleId": "VX-181",
+    "mileage": 77889,
+    "batteryHealth": 94,
+    "batteryVoltage": 11.77,
+    "engineStatus": "Optimal",
+    "oilLife": 41,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 58,
+    "lastService": "2025-07-07",
+    "coolantLevel": 68,
+    "brakePads": 34,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 15.6,
+    "drivingScore": 8.3,
+    "nextServiceKm": 3754,
+    "maintenanceHistory": [
+      "Oil change - 1380 km ago",
+      "Air filter change - 8 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 21 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Minimize idling",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-182",
+    "mileage": 113406,
+    "batteryHealth": 95,
+    "batteryVoltage": 12.55,
+    "engineStatus": "Check Required",
+    "oilLife": 42,
+    "tireCondition": "Worn",
+    "airFilterHealth": 62,
+    "lastService": "2025-04-30",
+    "coolantLevel": 85,
+    "brakePads": 16,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 11.5,
+    "drivingScore": 9.4,
+    "nextServiceKm": 1638,
+    "maintenanceHistory": [
+      "Tire rotation - 9315 km ago",
+      "Battery replacement - 5 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 24 days"
+    ],
+    "criticalAlerts": [
+      "Battery voltage low"
+    ],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-183",
+    "mileage": 40647,
+    "batteryHealth": 80,
+    "batteryVoltage": 12.72,
+    "engineStatus": "Check Required",
+    "oilLife": 52,
+    "tireCondition": "Worn",
+    "airFilterHealth": 57,
+    "lastService": "2025-04-04",
+    "coolantLevel": 75,
+    "brakePads": 29,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 13.4,
+    "drivingScore": 8.1,
+    "nextServiceKm": 952,
+    "maintenanceHistory": [
+      "Brake inspection - 9954 km ago",
+      "Air filter change - 8 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 7 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Use cruise control",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-184",
+    "mileage": 81914,
+    "batteryHealth": 73,
+    "batteryVoltage": 12.37,
+    "engineStatus": "Optimal",
+    "oilLife": 53,
+    "tireCondition": "Good",
+    "airFilterHealth": 52,
+    "lastService": "2025-06-19",
+    "coolantLevel": 68,
+    "brakePads": 79,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 10.3,
+    "drivingScore": 7.5,
+    "nextServiceKm": 1543,
+    "maintenanceHistory": [
+      "Brake inspection - 9914 km ago",
+      "Air filter change - 10 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 8 days"
+    ],
+    "criticalAlerts": [
+      "Battery voltage low"
+    ],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Minimize idling"
+    ]
+  },
+  {
+    "vehicleId": "VX-185",
+    "mileage": 90461,
+    "batteryHealth": 60,
+    "batteryVoltage": 11.66,
+    "engineStatus": "Optimal",
+    "oilLife": 56,
+    "tireCondition": "Worn",
+    "airFilterHealth": 73,
+    "lastService": "2025-05-14",
+    "coolantLevel": 69,
+    "brakePads": 90,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 19.8,
+    "drivingScore": 6.5,
+    "nextServiceKm": 3312,
+    "maintenanceHistory": [
+      "Oil change - 6711 km ago",
+      "Battery replacement - 1 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 9 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical",
+      "Brake wear detected"
+    ],
+    "ecoTips": [
+      "Use cruise control",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-186",
+    "mileage": 114406,
+    "batteryHealth": 86,
+    "batteryVoltage": 12.66,
+    "engineStatus": "Optimal",
+    "oilLife": 75,
+    "tireCondition": "Worn",
+    "airFilterHealth": 75,
+    "lastService": "2025-07-07",
+    "coolantLevel": 74,
+    "brakePads": 69,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 11.0,
+    "drivingScore": 4.6,
+    "nextServiceKm": 1814,
+    "maintenanceHistory": [
+      "Tire rotation - 5351 km ago",
+      "Battery replacement - 4 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 15 days"
+    ],
+    "criticalAlerts": [
+      "Brake wear detected"
+    ],
+    "ecoTips": [
+      "Minimize idling",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-187",
+    "mileage": 90423,
+    "batteryHealth": 91,
+    "batteryVoltage": 12.64,
+    "engineStatus": "Check Required",
+    "oilLife": 94,
+    "tireCondition": "Good",
+    "airFilterHealth": 65,
+    "lastService": "2025-06-28",
+    "coolantLevel": 94,
+    "brakePads": 67,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 18.2,
+    "drivingScore": 8.1,
+    "nextServiceKm": 1350,
+    "maintenanceHistory": [
+      "Brake inspection - 6997 km ago",
+      "Battery replacement - 2 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 21 days"
+    ],
+    "criticalAlerts": [
+      "Brake wear detected"
+    ],
+    "ecoTips": [
+      "Minimize idling",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-188",
+    "mileage": 99366,
+    "batteryHealth": 92,
+    "batteryVoltage": 12.25,
+    "engineStatus": "Optimal",
+    "oilLife": 49,
+    "tireCondition": "Worn",
+    "airFilterHealth": 94,
+    "lastService": "2025-05-12",
+    "coolantLevel": 63,
+    "brakePads": 57,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 9.5,
+    "drivingScore": 9.3,
+    "nextServiceKm": 4572,
+    "maintenanceHistory": [
+      "Oil change - 4013 km ago",
+      "Battery replacement - 4 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 29 days"
+    ],
+    "criticalAlerts": [
+      "Tire pressure abnormal"
+    ],
+    "ecoTips": [
+      "Minimize idling",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-189",
+    "mileage": 82281,
+    "batteryHealth": 69,
+    "batteryVoltage": 12.53,
+    "engineStatus": "Optimal",
+    "oilLife": 76,
+    "tireCondition": "Good",
+    "airFilterHealth": 99,
+    "lastService": "2025-07-17",
+    "coolantLevel": 96,
+    "brakePads": 33,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 17.5,
+    "drivingScore": 6.8,
+    "nextServiceKm": 2162,
+    "maintenanceHistory": [
+      "Oil change - 3241 km ago",
+      "Air filter change - 7 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 28 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-190",
+    "mileage": 44947,
+    "batteryHealth": 96,
+    "batteryVoltage": 12.15,
+    "engineStatus": "Check Required",
+    "oilLife": 33,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 78,
+    "lastService": "2025-07-06",
+    "coolantLevel": 81,
+    "brakePads": 52,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Normal",
+    "fuelEfficiency": 10.1,
+    "drivingScore": 4.8,
+    "nextServiceKm": 4122,
+    "maintenanceHistory": [
+      "Tire rotation - 1916 km ago",
+      "Battery replacement - 12 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 9 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-191",
+    "mileage": 43728,
+    "batteryHealth": 72,
+    "batteryVoltage": 12.22,
+    "engineStatus": "Check Required",
+    "oilLife": 93,
+    "tireCondition": "Good",
+    "airFilterHealth": 70,
+    "lastService": "2025-07-17",
+    "coolantLevel": 65,
+    "brakePads": 71,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 10.2,
+    "drivingScore": 8.5,
+    "nextServiceKm": 3234,
+    "maintenanceHistory": [
+      "Brake inspection - 3116 km ago",
+      "Air filter change - 2 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 11 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Avoid hard acceleration"
+    ]
+  },
+  {
+    "vehicleId": "VX-192",
+    "mileage": 113941,
+    "batteryHealth": 100,
+    "batteryVoltage": 12.5,
+    "engineStatus": "Optimal",
+    "oilLife": 83,
+    "tireCondition": "Worn",
+    "airFilterHealth": 50,
+    "lastService": "2025-04-24",
+    "coolantLevel": 92,
+    "brakePads": 85,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 19.4,
+    "drivingScore": 7.4,
+    "nextServiceKm": 2205,
+    "maintenanceHistory": [
+      "Tire rotation - 3060 km ago",
+      "Air filter change - 9 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 30 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-193",
+    "mileage": 111888,
+    "batteryHealth": 69,
+    "batteryVoltage": 11.84,
+    "engineStatus": "Check Required",
+    "oilLife": 52,
+    "tireCondition": "Worn",
+    "airFilterHealth": 76,
+    "lastService": "2025-04-25",
+    "coolantLevel": 62,
+    "brakePads": 56,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 15.5,
+    "drivingScore": 5.1,
+    "nextServiceKm": 817,
+    "maintenanceHistory": [
+      "Tire rotation - 7304 km ago",
+      "Air filter change - 4 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 24 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical",
+      "Tire pressure abnormal"
+    ],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-194",
+    "mileage": 87446,
+    "batteryHealth": 77,
+    "batteryVoltage": 12.09,
+    "engineStatus": "Check Required",
+    "oilLife": 70,
+    "tireCondition": "Good",
+    "airFilterHealth": 55,
+    "lastService": "2025-04-05",
+    "coolantLevel": 84,
+    "brakePads": 38,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 18.0,
+    "drivingScore": 9.3,
+    "nextServiceKm": 2275,
+    "maintenanceHistory": [
+      "Brake inspection - 2400 km ago",
+      "Battery replacement - 9 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 28 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Minimize idling",
+      "Use cruise control"
+    ]
+  },
+  {
+    "vehicleId": "VX-195",
+    "mileage": 95834,
+    "batteryHealth": 61,
+    "batteryVoltage": 11.67,
+    "engineStatus": "Optimal",
+    "oilLife": 80,
+    "tireCondition": "Good",
+    "airFilterHealth": 75,
+    "lastService": "2025-06-27",
+    "coolantLevel": 65,
+    "brakePads": 87,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 13.3,
+    "drivingScore": 5.8,
+    "nextServiceKm": 2348,
+    "maintenanceHistory": [
+      "Tire rotation - 3734 km ago",
+      "Air filter change - 6 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 16 days"
+    ],
+    "criticalAlerts": [
+      "Tire pressure abnormal"
+    ],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Minimize idling"
+    ]
+  },
+  {
+    "vehicleId": "VX-196",
+    "mileage": 102186,
+    "batteryHealth": 61,
+    "batteryVoltage": 11.53,
+    "engineStatus": "Check Required",
+    "oilLife": 68,
+    "tireCondition": "Worn",
+    "airFilterHealth": 61,
+    "lastService": "2025-07-19",
+    "coolantLevel": 87,
+    "brakePads": 49,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 9.3,
+    "drivingScore": 7.3,
+    "nextServiceKm": 1370,
+    "maintenanceHistory": [
+      "Tire rotation - 8380 km ago",
+      "Battery replacement - 9 months ago"
+    ],
+    "upcomingTasks": [
+      "Coolant top-up in 17 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical",
+      "Tire pressure abnormal"
+    ],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Plan trips to reduce cold starts"
+    ]
+  },
+  {
+    "vehicleId": "VX-197",
+    "mileage": 91535,
+    "batteryHealth": 99,
+    "batteryVoltage": 12.32,
+    "engineStatus": "Optimal",
+    "oilLife": 45,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 99,
+    "lastService": "2025-05-31",
+    "coolantLevel": 90,
+    "brakePads": 20,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 18.5,
+    "drivingScore": 9.3,
+    "nextServiceKm": 3291,
+    "maintenanceHistory": [
+      "Brake inspection - 1790 km ago",
+      "Battery replacement - 10 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 25 days"
+    ],
+    "criticalAlerts": [],
+    "ecoTips": [
+      "Minimize idling",
+      "Use cruise control"
+    ]
+  },
+  {
+    "vehicleId": "VX-198",
+    "mileage": 73402,
+    "batteryHealth": 67,
+    "batteryVoltage": 11.68,
+    "engineStatus": "Check Required",
+    "oilLife": 30,
+    "tireCondition": "Worn",
+    "airFilterHealth": 97,
+    "lastService": "2025-05-11",
+    "coolantLevel": 96,
+    "brakePads": 20,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 14.7,
+    "drivingScore": 7.7,
+    "nextServiceKm": 822,
+    "maintenanceHistory": [
+      "Oil change - 8886 km ago",
+      "Battery replacement - 2 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 22 days"
+    ],
+    "criticalAlerts": [
+      "Battery voltage low"
+    ],
+    "ecoTips": [
+      "Use cruise control",
+      "Regularly check tire pressure"
+    ]
+  },
+  {
+    "vehicleId": "VX-199",
+    "mileage": 76581,
+    "batteryHealth": 66,
+    "batteryVoltage": 11.83,
+    "engineStatus": "Optimal",
+    "oilLife": 100,
+    "tireCondition": "Good",
+    "airFilterHealth": 93,
+    "lastService": "2025-07-09",
+    "coolantLevel": 90,
+    "brakePads": 86,
+    "brakeFluidStatus": "Needs Replacement",
+    "transmissionFluidLevel": "Low",
+    "fuelEfficiency": 9.7,
+    "drivingScore": 9.7,
+    "nextServiceKm": 4584,
+    "maintenanceHistory": [
+      "Tire rotation - 7581 km ago",
+      "Air filter change - 9 months ago"
+    ],
+    "upcomingTasks": [
+      "Oil change in 17 days"
+    ],
+    "criticalAlerts": [
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Regularly check tire pressure",
+      "Minimize idling"
+    ]
+  },
+  {
+    "vehicleId": "VX-200",
+    "mileage": 50791,
+    "batteryHealth": 79,
+    "batteryVoltage": 12.15,
+    "engineStatus": "Optimal",
+    "oilLife": 78,
+    "tireCondition": "Needs Replacement",
+    "airFilterHealth": 61,
+    "lastService": "2025-05-21",
+    "coolantLevel": 95,
+    "brakePads": 42,
+    "brakeFluidStatus": "Good",
+    "transmissionFluidLevel": "High",
+    "fuelEfficiency": 10.3,
+    "drivingScore": 9.5,
+    "nextServiceKm": 4069,
+    "maintenanceHistory": [
+      "Tire rotation - 7460 km ago",
+      "Battery replacement - 7 months ago"
+    ],
+    "upcomingTasks": [
+      "Brake pad replacement in 20 days"
+    ],
+    "criticalAlerts": [
+      "Battery voltage low",
+      "Coolant level critical"
+    ],
+    "ecoTips": [
+      "Avoid hard acceleration",
+      "Minimize idling"
+    ]
+  }
+]

@@ -2,6 +2,8 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const fs = require('fs');
+const path = require('path');
 
 const registerUser = async (req, res) => {
   try {
@@ -22,6 +24,13 @@ const registerUser = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    // 🎲 Assign random vehicle data from mockVehicleData.json
+    const mockDataPath = path.join(__dirname, '../data/mockVehicleData.json');
+    const mockVehicleData = JSON.parse(fs.readFileSync(mockDataPath, 'utf8'));
+    const randomIndex = Math.floor(Math.random() * mockVehicleData.length);
+    
+    console.log(`🎯 Assigned vehicle data index: ${randomIndex} (${mockVehicleData[randomIndex].vehicleId})`);
+
     const newUser = new User({
       firstName,
       lastName,
@@ -39,7 +48,8 @@ const registerUser = async (req, res) => {
         fuelType,
         currentMileage: parseInt(currentMileage, 10),
         color: vehicleColor
-      }
+      },
+      assignedVehicleIndex: randomIndex
     });
 
     console.log("📤 Saving user to DB...");

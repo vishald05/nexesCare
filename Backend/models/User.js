@@ -20,6 +20,8 @@ const UserSchema = new mongoose.Schema({
   securityQuestion: { type: String, required: true },
   securityAnswer: { type: String, required: true },
   vehicle: vehicleSchema,
+  // Add assigned vehicle data index
+  assignedVehicleIndex: { type: Number, required: true, default: 0 },
   createdAt: {
     type: Date,
     default: Date.now
