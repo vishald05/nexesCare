@@ -1,0 +1,2853 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap');
+
+/* === CORE STYLES === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  color: #ffffff;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* === PARTICLE BACKGROUND === */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, #0f0f23 0%, #16213e 100%);
+}
+
+/* === LOADING SCREEN === */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease-out;
+}
+
+.loading-content {
+  text-align: center;
+  color: #ffffff;
+}
+
+.hologram-loader {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 30px;
+}
+
+.loader-ring {
+  position: absolute;
+  border: 2px solid transparent;
+  border-top: 2px solid #00d4ff;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+.loader-ring:nth-child(1) {
+  width: 120px;
+  height: 120px;
+  animation-duration: 2s;
+}
+
+.loader-ring:nth-child(2) {
+  width: 90px;
+  height: 90px;
+  top: 15px;
+  left: 15px;
+  animation-duration: 1.5s;
+  border-top-color: #ff6b35;
+}
+
+.loader-ring:nth-child(3) {
+  width: 60px;
+  height: 60px;
+  top: 30px;
+  left: 30px;
+  animation-duration: 1s;
+  border-top-color: #4ecdc4;
+}
+
+.loading-progress {
+  width: 300px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #00d4ff, #ff6b35);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.3s ease;
+  animation: progress-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes progress-glow {
+  0% { box-shadow: 0 0 5px rgba(0, 212, 255, 0.5); }
+  100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.9); }
+}
+
+/* === HEADER === */
+header {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-icon {
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, #00d4ff, #ff6b35);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.title-section h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffffff, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title-section p {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.header-stats {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #00d4ff;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+.status-indicator.online {
+  color: #00ff00;
+}
+
+.auth-controls {
+  margin-left: 1rem;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  border-radius: 10px;
+  color: #ff6b35;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 107, 53, 0.2);
+  border-color: #ff6b35;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+/* === MAIN CONTENT === */
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === VEHICLE DATA PANEL === */
+.vehicle-data-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.data-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.data-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.data-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+  border-color: rgba(0, 212, 255, 0.5);
+}
+
+.data-card:hover::before {
+  left: 100%;
+}
+
+.data-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(45deg, #00d4ff, #ff6b35);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.data-content h4 {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.data-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.data-value.warning {
+  color: #ff6b35;
+  animation: pulse-warning 2s ease-in-out infinite;
+}
+
+.data-value.critical {
+  color: #e74c3c;
+  animation: pulse-critical 1s ease-in-out infinite;
+}
+
+.data-value.good {
+  color: #4ecdc4;
+}
+
+@keyframes pulse-warning {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes pulse-critical {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* === VEHICLE BLUEPRINT === */
+.vehicle-blueprint {
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.blueprint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.blueprint-header h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.view-modes {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mode-btn {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mode-btn:hover,
+.mode-btn.active {
+  background: linear-gradient(45deg, #00d4ff, #ff6b35);
+  border-color: transparent;
+}
+
+/* === NEW BLUEPRINT LAYOUT === */
+.blueprint-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* === COMPONENT ANALYSIS PANEL (LEFT SIDE) === */
+.component-analysis-panel {
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.component-analysis-panel h3 {
+  color: #00d4ff;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.component-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.component-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.component-item:hover {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.3);
+  transform: translateX(5px);
+}
+
+.component-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  position: relative;
+}
+
+.component-icon.engine-icon {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+}
+
+.component-icon.battery-icon {
+  background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
+}
+
+.component-icon.brake-icon {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.component-icon.transmission-icon {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+.component-icon.cooling-icon {
+  background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+}
+
+.component-icon.warning {
+  animation: pulse-warning 2s ease-in-out infinite;
+}
+
+.component-info h4 {
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+}
+
+.component-info p {
+  color: #888;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.status-badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.good {
+  background: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+  border: 1px solid #2ecc71;
+}
+
+.status-badge.warning {
+  background: rgba(241, 196, 15, 0.2);
+  color: #f1c40f;
+  border: 1px solid #f1c40f;
+}
+
+.status-badge.critical {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+}
+
+/* === 3D VEHICLE CONTAINER (RIGHT SIDE) === */
+.vehicle-3d-container {
+  position: relative;
+  height: 600px;
+  background: radial-gradient(circle at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.hologram-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: grid-move 10s linear infinite;
+}
+
+@keyframes grid-move {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(20px, 20px); }
+}
+
+.vehicle-3d-scene {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  perspective: 1200px;
+}
+
+/* === REALISTIC 3D CAR MODEL === */
+.car-3d {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation: rotate-car-3d 25s linear infinite;
+}
+
+.car-chassis-3d {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+/* === CAR BODY === */
+.car-body-main {
+  position: absolute;
+  width: 350px;
+  height: 120px;
+  left: 25px;
+  top: 40px;
+}
+
+.hood-3d {
+  position: absolute;
+  width: 100px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.3) 0%, rgba(0, 119, 255, 0.3) 100%);
+  border: 2px solid rgba(0, 212, 255, 0.6);
+  border-radius: 8px 8px 0 0;
+  left: 0;
+  top: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.roof-3d {
+  position: absolute;
+  width: 200px;
+  height: 60px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.3) 0%, rgba(0, 119, 255, 0.3) 100%);
+  border: 2px solid rgba(0, 212, 255, 0.6);
+  border-radius: 12px;
+  left: 75px;
+  top: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.trunk-3d {
+  position: absolute;
+  width: 75px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.3) 0%, rgba(0, 119, 255, 0.3) 100%);
+  border: 2px solid rgba(0, 212, 255, 0.6);
+  border-radius: 0 0 8px 8px;
+  right: 0;
+  top: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.windshield-3d, .rear-window-3d {
+  position: absolute;
+  background: rgba(135, 206, 235, 0.3);
+  border: 1px solid rgba(135, 206, 235, 0.6);
+}
+
+.windshield-3d {
+  width: 90px;
+  height: 50px;
+  left: 90px;
+  top: 10px;
+  border-radius: 8px 8px 0 0;
+}
+
+.rear-window-3d {
+  width: 70px;
+  height: 50px;
+  right: 5px;
+  top: 10px;
+  border-radius: 0 0 8px 8px;
+}
+
+/* === DOORS === */
+.doors-3d {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.door-fl-3d, .door-fr-3d, .door-rl-3d, .door-rr-3d {
+  position: absolute;
+  width: 80px;
+  height: 100px;
+  background: rgba(0, 212, 255, 0.2);
+  border: 1px solid rgba(0, 212, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.door-fl-3d {
+  left: 25px;
+  top: 30px;
+  border-radius: 8px 0 0 8px;
+}
+
+.door-fr-3d {
+  right: 100px;
+  top: 30px;
+  border-radius: 0 8px 8px 0;
+}
+
+.door-rl-3d {
+  left: 105px;
+  top: 30px;
+}
+
+.door-rr-3d {
+  right: 25px;
+  top: 30px;
+}
+
+/* === WHEELS === */
+.wheels-3d {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.wheel-fl-3d, .wheel-fr-3d, .wheel-rl-3d, .wheel-rr-3d {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.wheel-fl-3d {
+  left: 40px;
+  bottom: -20px;
+}
+
+.wheel-fr-3d {
+  right: 40px;
+  bottom: -20px;
+}
+
+.wheel-rl-3d {
+  left: 140px;
+  bottom: -20px;
+}
+
+.wheel-rr-3d {
+  right: 140px;
+  bottom: -20px;
+}
+
+.tire-3d {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, #333 30%, #222 100%);
+  border: 3px solid #444;
+  border-radius: 50%;
+  animation: wheel-spin 2s linear infinite;
+}
+
+.rim-3d {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 10px;
+  left: 10px;
+  background: radial-gradient(circle, #silver 20%, #999 100%);
+  border: 2px solid #888;
+  border-radius: 50%;
+}
+
+.brake-disc-3d {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 12.5px;
+  left: 12.5px;
+  background: radial-gradient(circle, #666 30%, #555 100%);
+  border: 1px solid #777;
+  border-radius: 50%;
+}
+
+.brake-disc-3d.warning {
+  border-color: #f39c12;
+  box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+}
+
+@keyframes wheel-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === ENGINE BAY === */
+.engine-bay-3d {
+  position: absolute;
+  width: 120px;
+  height: 80px;
+  left: 0;
+  top: 50px;
+}
+
+.engine-3d {
+  position: absolute;
+  width: 80px;
+  height: 60px;
+  left: 20px;
+  top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.engine-block {
+  width: 100%;
+  height: 70%;
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  border: 2px solid #2ecc71;
+  border-radius: 8px;
+  position: relative;
+}
+
+.engine-pistons {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  width: 60px;
+  height: 20px;
+  background: linear-gradient(90deg, #34495e 0%, #2c3e50 100%);
+  border: 1px solid #34495e;
+  border-radius: 4px;
+}
+
+.battery-3d {
+  position: absolute;
+  width: 40px;
+  height: 30px;
+  right: 10px;
+  top: 5px;
+  background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
+  border: 2px solid #f39c12;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.battery-3d[data-status="warning"] {
+  animation: pulse-warning 2s ease-in-out infinite;
+}
+
+.battery-terminals {
+  position: absolute;
+  top: -5px;
+  left: 5px;
+  width: 8px;
+  height: 8px;
+  background: #e74c3c;
+  border-radius: 50%;
+}
+
+.battery-terminals::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  width: 8px;
+  height: 8px;
+  background: #2ecc71;
+  border-radius: 50%;
+}
+
+.radiator-3d, .air-filter-3d {
+  position: absolute;
+  width: 30px;
+  height: 25px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.radiator-3d {
+  left: 0;
+  bottom: 0;
+}
+
+.air-filter-3d {
+  right: 0;
+  bottom: 0;
+}
+
+/* === LIGHTS === */
+.lights-3d {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.headlight-l-3d, .headlight-r-3d {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: radial-gradient(circle, #fff 30%, #f1c40f 100%);
+  border: 2px solid #f1c40f;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.headlight-l-3d {
+  left: 0;
+  top: 60px;
+}
+
+.headlight-r-3d {
+  left: 0;
+  top: 90px;
+}
+
+.taillight-l-3d, .taillight-r-3d {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #e74c3c 30%, #c0392b 100%);
+  border: 2px solid #e74c3c;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.taillight-l-3d {
+  right: 0;
+  top: 60px;
+}
+
+.taillight-r-3d {
+  right: 0;
+  top: 90px;
+}
+
+/* === SCAN EFFECTS === */
+.scan-effects-3d {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.scan-beam {
+  position: absolute;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 212, 255, 0.6) 50%, transparent 100%);
+  animation: scan-sweep 3s ease-in-out infinite;
+}
+
+.scan-beam.horizontal {
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  animation-delay: 0s;
+}
+
+.scan-beam.vertical {
+  width: 2px;
+  height: 100%;
+  left: 50%;
+  animation-delay: 1.5s;
+}
+
+@keyframes scan-sweep {
+  0%, 100% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.scan-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(0, 212, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255, 107, 53, 0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(78, 205, 196, 0.8), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(0, 212, 255, 0.6), transparent);
+  background-repeat: no-repeat;
+  animation: particles-float 4s ease-in-out infinite;
+}
+
+@keyframes particles-float {
+  0%, 100% { opacity: 0.3; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-10px); }
+}
+
+/* === COMPONENT HIGHLIGHTS === */
+.component-highlights {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.highlight-ring {
+  position: absolute;
+  border: 2px solid;
+  border-radius: 50%;
+  animation: pulse-highlight 2s ease-in-out infinite;
+  opacity: 0;
+}
+
+.highlight-ring.engine-highlight {
+  width: 100px;
+  height: 80px;
+  border-color: #2ecc71;
+  left: 20px;
+  top: 60px;
+  border-radius: 12px;
+}
+
+.highlight-ring.battery-highlight {
+  width: 50px;
+  height: 40px;
+  border-color: #f39c12;
+  right: 10px;
+  top: 55px;
+  border-radius: 8px;
+}
+
+.highlight-ring.brake-highlight {
+  width: 70px;
+  height: 70px;
+  border-color: #e74c3c;
+  border-radius: 50%;
+}
+
+@keyframes pulse-highlight {
+  0%, 100% { opacity: 0; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+/* === REALISTIC 3D CAR MODEL === */
+.car-3d {
+  position: relative;
+  width: 450px;
+  height: 220px;
+  transform-style: preserve-3d;
+  animation: rotate-vehicle 30s linear infinite;
+}
+
+.car-structure {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+/* === CAR BODY FRAME === */
+.car-body-frame {
+  position: relative;
+  width: 400px;
+  height: 160px;
+  left: 25px;
+  top: 30px;
+  transform-style: preserve-3d;
+}
+
+.chassis-base {
+  position: absolute;
+  width: 380px;
+  height: 20px;
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  border: 2px solid #34495e;
+  border-radius: 10px;
+  bottom: 0;
+  left: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* === BODY PANELS === */
+.body-panel {
+  position: absolute;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.front-panel {
+  width: 120px;
+  height: 100px;
+  left: 0;
+  top: 30px;
+}
+
+.roof-panel {
+  width: 220px;
+  height: 80px;
+  left: 90px;
+  top: 0;
+}
+
+.rear-panel {
+  width: 90px;
+  height: 100px;
+  right: 0;
+  top: 30px;
+}
+
+.panel-surface {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.4) 0%, rgba(0, 119, 255, 0.4) 100%);
+  border: 2px solid rgba(0, 212, 255, 0.7);
+  border-radius: 12px;
+  position: relative;
+  backdrop-filter: blur(5px);
+}
+
+.panel-edge {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 12px;
+  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.1) 50%, transparent 60%);
+}
+
+.sunroof {
+  position: absolute;
+  width: 150px;
+  height: 50px;
+  top: 15px;
+  left: 35px;
+  background: rgba(135, 206, 235, 0.3);
+  border: 1px solid rgba(135, 206, 235, 0.6);
+  border-radius: 8px;
+}
+
+/* === WINDOW ASSEMBLY === */
+.window-assembly {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.windshield, .rear-window {
+  position: absolute;
+  background: linear-gradient(135deg, rgba(135, 206, 235, 0.4) 0%, rgba(70, 130, 180, 0.4) 100%);
+  border: 2px solid rgba(135, 206, 235, 0.7);
+  backdrop-filter: blur(3px);
+}
+
+.windshield {
+  width: 100px;
+  height: 70px;
+  left: 100px;
+  top: 15px;
+  border-radius: 8px 8px 0 0;
+  transform: rotateX(-10deg);
+}
+
+.rear-window {
+  width: 80px;
+  height: 70px;
+  right: 10px;
+  top: 15px;
+  border-radius: 0 0 8px 8px;
+  transform: rotateX(10deg);
+}
+
+.side-window {
+  position: absolute;
+  width: 80px;
+  height: 50px;
+  background: rgba(135, 206, 235, 0.3);
+  border: 1px solid rgba(135, 206, 235, 0.5);
+  border-radius: 6px;
+}
+
+.side-window.left {
+  left: 120px;
+  top: 25px;
+  transform: rotateY(-15deg);
+}
+
+.side-window.right {
+  right: 120px;
+  top: 25px;
+  transform: rotateY(15deg);
+}
+
+/* === DOOR ASSEMBLY === */
+.door-assembly {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.door {
+  position: absolute;
+  width: 90px;
+  height: 120px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.3) 0%, rgba(0, 119, 255, 0.3) 100%);
+  border: 2px solid rgba(0, 212, 255, 0.6);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  top: 20px;
+}
+
+.door.front-left {
+  left: 30px;
+  transform: rotateY(-5deg);
+}
+
+.door.front-right {
+  right: 150px;
+  transform: rotateY(5deg);
+}
+
+.door.rear-left {
+  left: 120px;
+  transform: rotateY(-5deg);
+}
+
+.door.rear-right {
+  right: 60px;
+  transform: rotateY(5deg);
+}
+
+.door-handle {
+  position: absolute;
+  width: 8px;
+  height: 20px;
+  background: linear-gradient(135deg, #c0c0c0 0%, #999 100%);
+  border: 1px solid #777;
+  border-radius: 4px;
+  right: 5px;
+  top: 40px;
+}
+
+.door-window {
+  position: absolute;
+  width: 70px;
+  height: 40px;
+  top: 10px;
+  left: 10px;
+  background: rgba(135, 206, 235, 0.3);
+  border: 1px solid rgba(135, 206, 235, 0.5);
+  border-radius: 4px;
+}
+
+/* === WHEEL ASSEMBLY === */
+.wheel-assembly {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.wheel-unit {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  bottom: -25px;
+}
+
+.wheel-unit.front-left {
+  left: 50px;
+}
+
+.wheel-unit.front-right {
+  right: 50px;
+}
+
+.wheel-unit.rear-left {
+  left: 150px;
+}
+
+.wheel-unit.rear-right {
+  right: 150px;
+}
+
+.tire-outer {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle, #1a1a1a 20%, #333 100%);
+  border: 4px solid #222;
+  border-radius: 50%;
+  animation: tire-rotation 3s linear infinite;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.rim-center {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  top: 12.5px;
+  left: 12.5px;
+  background: radial-gradient(circle, #e8e8e8 30%, #b0b0b0 100%);
+  border: 2px solid #999;
+  border-radius: 50%;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.rim-center::before {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 10px;
+  left: 10px;
+  background: radial-gradient(circle, #666 0%, #444 100%);
+  border-radius: 50%;
+}
+
+.brake-system {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 15px;
+  left: 15px;
+}
+
+.brake-disc {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #555 30%, #333 100%);
+  border: 2px solid #666;
+  border-radius: 50%;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.brake-caliper {
+  position: absolute;
+  width: 15px;
+  height: 25px;
+  background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+  border: 1px solid #a93226;
+  border-radius: 3px;
+  top: -5px;
+  right: -8px;
+}
+
+.brake-system.warning .brake-disc {
+  border-color: #f39c12;
+  box-shadow: 0 0 15px rgba(243, 156, 18, 0.6), inset 0 0 10px rgba(0, 0, 0, 0.5);
+  animation: brake-warning 2s ease-in-out infinite;
+}
+
+.suspension-strut {
+  position: absolute;
+  width: 8px;
+  height: 30px;
+  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+  border: 1px solid #2c3e50;
+  border-radius: 4px;
+  top: -35px;
+  left: 31px;
+}
+
+@keyframes tire-rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes brake-warning {
+  0%, 100% { box-shadow: 0 0 15px rgba(243, 156, 18, 0.6), inset 0 0 10px rgba(0, 0, 0, 0.5); }
+  50% { box-shadow: 0 0 25px rgba(243, 156, 18, 1), inset 0 0 10px rgba(0, 0, 0, 0.5); }
+}
+
+/* === ENGINE COMPARTMENT === */
+.engine-compartment {
+  position: absolute;
+  width: 140px;
+  height: 90px;
+  left: 0;
+  top: 60px;
+}
+
+.engine-block {
+  position: absolute;
+  width: 100px;
+  height: 80px;
+  left: 20px;
+  top: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.engine-head {
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+  border: 2px solid #27ae60;
+  border-radius: 8px 8px 0 0;
+  position: relative;
+}
+
+.engine-body {
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  border: 2px solid #34495e;
+  border-radius: 0 0 8px 8px;
+  border-top: none;
+}
+
+.cylinders {
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.cylinder {
+  width: 15px;
+  height: 20px;
+  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+  border: 1px solid #2c3e50;
+  border-radius: 3px;
+}
+
+.intake-manifold, .exhaust-manifold {
+  position: absolute;
+  width: 80px;
+  height: 8px;
+  background: linear-gradient(90deg, #7f8c8d 0%, #95a5a6 100%);
+  border: 1px solid #7f8c8d;
+  border-radius: 4px;
+}
+
+.intake-manifold {
+  top: 10px;
+  left: 10px;
+}
+
+.exhaust-manifold {
+  bottom: 10px;
+  left: 10px;
+}
+
+.battery-unit {
+  position: absolute;
+  width: 50px;
+  height: 35px;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.battery-case {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+  border: 2px solid #d68910;
+  border-radius: 6px;
+  position: relative;
+}
+
+.battery-unit[data-status="warning"] .battery-case {
+  animation: battery-warning 2s ease-in-out infinite;
+}
+
+.battery-terminals {
+  position: absolute;
+  top: -8px;
+  left: 8px;
+  display: flex;
+  gap: 25px;
+}
+
+.terminal {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #2c3e50;
+}
+
+.terminal.positive {
+  background: #e74c3c;
+}
+
+.terminal.negative {
+  background: #2ecc71;
+}
+
+.battery-cables {
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background: #2c3e50;
+  border-radius: 2px;
+  top: -12px;
+  left: 10px;
+}
+
+.cooling-system {
+  position: absolute;
+  width: 40px;
+  height: 30px;
+  left: 0;
+  bottom: 0;
+}
+
+.radiator {
+  width: 100%;
+  height: 25px;
+  background: linear-gradient(90deg, #bdc3c7 0%, #ecf0f1 100%);
+  border: 1px solid #95a5a6;
+  border-radius: 4px;
+  position: relative;
+}
+
+.radiator::before {
+  content: '';
+  position: absolute;
+  width: 90%;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, #7f8c8d 0px, #7f8c8d 3px, transparent 3px, transparent 6px);
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+}
+
+.cooling-fan {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #34495e 30%, #2c3e50 100%);
+  border: 1px solid #2c3e50;
+  border-radius: 50%;
+  top: 2.5px;
+  right: 5px;
+  animation: fan-spin 1s linear infinite;
+}
+
+.air-intake {
+  position: absolute;
+  width: 35px;
+  height: 25px;
+  right: 0;
+  bottom: 0;
+}
+
+.air-filter-box {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+  border: 1px solid #7f8c8d;
+  border-radius: 4px;
+}
+
+.intake-tube {
+  position: absolute;
+  width: 15px;
+  height: 3px;
+  background: #2c3e50;
+  border-radius: 2px;
+  top: 50%;
+  right: -10px;
+  transform: translateY(-50%);
+}
+
+@keyframes battery-warning {
+  0%, 100% { box-shadow: 0 0 10px rgba(243, 156, 18, 0.6); }
+  50% { box-shadow: 0 0 20px rgba(243, 156, 18, 1); }
+}
+
+@keyframes fan-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === TRANSMISSION UNIT === */
+.transmission-unit {
+  position: absolute;
+  width: 80px;
+  height: 40px;
+  left: 160px;
+  bottom: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.transmission-case {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+  border: 2px solid #2c3e50;
+  border-radius: 8px;
+}
+
+.drive-shaft {
+  position: absolute;
+  width: 60px;
+  height: 6px;
+  background: linear-gradient(90deg, #7f8c8d 0%, #95a5a6 100%);
+  border: 1px solid #7f8c8d;
+  border-radius: 3px;
+  bottom: -10px;
+  left: 10px;
+}
+
+.differential {
+  position: absolute;
+  width: 25px;
+  height: 15px;
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  border: 1px solid #2c3e50;
+  border-radius: 4px;
+  bottom: -8px;
+  right: 5px;
+}
+
+/* === LIGHTING SYSTEM === */
+.lighting-system {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.headlight-assembly {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.headlight-assembly.front-left {
+  left: 0;
+  top: 70px;
+}
+
+.headlight-assembly.front-right {
+  left: 0;
+  top: 110px;
+}
+
+.headlight-lens {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 0.6) 100%);
+  border: 2px solid #f1c40f;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 15px rgba(241, 196, 15, 0.8);
+}
+
+.headlight-housing {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  border: 1px solid #2c3e50;
+  border-radius: 50%;
+  top: -2.5px;
+  left: -2.5px;
+  z-index: -1;
+}
+
+.led-elements {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.led-strip {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #3498db 0%, #2980b9 100%);
+  border-radius: 1px;
+  margin: 2px 0;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.8);
+}
+
+.taillight-assembly {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.taillight-assembly.rear-left {
+  right: 0;
+  top: 70px;
+}
+
+.taillight-assembly.rear-right {
+  right: 0;
+  top: 110px;
+}
+
+.taillight-lens {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(231, 76, 60, 0.8) 30%, rgba(192, 57, 43, 0.6) 100%);
+  border: 2px solid #e74c3c;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(231, 76, 60, 0.6);
+}
+
+.brake-light {
+  position: absolute;
+  width: 15px;
+  height: 3px;
+  background: #e74c3c;
+  border-radius: 2px;
+  top: 6px;
+  left: 5px;
+}
+
+.turn-signal {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #f39c12;
+  border-radius: 50%;
+  bottom: 3px;
+  right: 3px;
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+/* === ADVANCED SCAN SYSTEM === */
+.advanced-scan-system {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.laser-scan {
+  position: absolute;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 255, 255, 0.8) 50%, transparent 100%);
+  animation: laser-sweep 4s ease-in-out infinite;
+}
+
+.laser-scan.horizontal {
+  width: 100%;
+  height: 3px;
+  top: 50%;
+  animation-delay: 0s;
+}
+
+.laser-scan.vertical {
+  width: 3px;
+  height: 100%;
+  left: 50%;
+  animation-delay: 2s;
+}
+
+.scan-grid-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.2) 1px, transparent 1px);
+  background-size: 25px 25px;
+  animation: grid-pulse 3s ease-in-out infinite;
+}
+
+.diagnostic-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #00ffff 0%, transparent 70%);
+  border-radius: 50%;
+  animation: particle-float 3s ease-in-out infinite;
+}
+
+.particle:nth-child(1) {
+  left: 20%;
+  top: 30%;
+  animation-delay: 0s;
+}
+
+.particle:nth-child(2) {
+  left: 60%;
+  top: 20%;
+  animation-delay: 0.6s;
+}
+
+.particle:nth-child(3) {
+  left: 80%;
+  top: 60%;
+  animation-delay: 1.2s;
+}
+
+.particle:nth-child(4) {
+  left: 30%;
+  top: 80%;
+  animation-delay: 1.8s;
+}
+
+.particle:nth-child(5) {
+  left: 70%;
+  top: 40%;
+  animation-delay: 2.4s;
+}
+
+@keyframes laser-sweep {
+  0%, 20% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+  80%, 100% { opacity: 0; transform: scale(0.8); }
+}
+
+@keyframes grid-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes particle-float {
+  0%, 100% { opacity: 0.5; transform: translateY(0) scale(1); }
+  50% { opacity: 1; transform: translateY(-20px) scale(1.3); }
+}
+
+/* === STATUS INDICATORS === */
+.status-indicators {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.status-ring {
+  position: absolute;
+  border: 3px solid;
+  border-radius: 50%;
+  animation: status-pulse 2s ease-in-out infinite;
+  opacity: 0;
+}
+
+.status-ring.engine-status {
+  width: 120px;
+  height: 100px;
+  border-color: #2ecc71;
+  left: 20px;
+  top: 65px;
+  border-radius: 15px;
+}
+
+.status-ring.battery-status {
+  width: 60px;
+  height: 45px;
+  border-color: #f39c12;
+  right: 10px;
+  top: 70px;
+  border-radius: 10px;
+}
+
+.status-ring.brake-status {
+  width: 80px;
+  height: 80px;
+  border-color: #e74c3c;
+  border-radius: 50%;
+}
+
+.status-ring.transmission-status {
+  width: 90px;
+  height: 50px;
+  border-color: #3498db;
+  left: 160px;
+  bottom: 15px;
+  border-radius: 12px;
+}
+
+.status-ring.good {
+  border-color: #2ecc71;
+}
+
+.status-ring.warning {
+  border-color: #f39c12;
+  animation: warning-pulse 1.5s ease-in-out infinite;
+}
+
+.status-ring.critical {
+  border-color: #e74c3c;
+  animation: critical-pulse 1s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+  0%, 70% { opacity: 0; transform: scale(1); }
+  80% { opacity: 0.7; transform: scale(1.05); }
+  90% { opacity: 0.4; transform: scale(1.1); }
+  100% { opacity: 0; transform: scale(1); }
+}
+
+@keyframes warning-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes critical-pulse {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+@keyframes rotate-vehicle {
+  0% { transform: rotateY(0deg) rotateX(15deg) rotateZ(2deg); }
+  100% { transform: rotateY(360deg) rotateX(15deg) rotateZ(2deg); }
+}
+
+/* === HOVER EFFECTS === */
+.car-3d [data-component]:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(0, 212, 255, 1);
+  z-index: 20;
+}
+
+.engine-block:hover {
+  box-shadow: 0 0 30px rgba(46, 204, 113, 1);
+}
+
+.battery-unit:hover {
+  box-shadow: 0 0 30px rgba(241, 196, 15, 1);
+}
+
+.wheel-unit:hover {
+  transform: scale(1.05);
+}
+
+.headlight-assembly:hover .headlight-lens {
+  box-shadow: 0 0 25px rgba(241, 196, 15, 1);
+}
+
+.taillight-assembly:hover .taillight-lens {
+  box-shadow: 0 0 20px rgba(231, 76, 60, 1);
+}
+
+/* === COMPONENT TOOLTIP === */
+  transform-style: preserve-3d;
+}
+
+.car-top {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  width: 200px;
+  height: 80px;
+  background: linear-gradient(45deg, rgba(0, 212, 255, 0.3), rgba(255, 107, 53, 0.3));
+  border: 2px solid #00d4ff;
+  border-radius: 10px;
+  transform: rotateX(-10deg);
+}
+
+.car-side {
+  position: absolute;
+  width: 280px;
+  height: 100px;
+  border: 2px solid #00d4ff;
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.car-side.left {
+  top: 25px;
+  left: 10px;
+  transform: rotateY(-15deg);
+}
+
+.car-side.right {
+  top: 25px;
+  right: 10px;
+  transform: rotateY(15deg);
+}
+
+.wheel {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 3px solid #ff6b35;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.3) 30%, transparent 70%);
+  animation: wheel-spin 1s linear infinite;
+}
+
+.wheel.front-left {
+  top: 80px;
+  left: 40px;
+}
+
+.wheel.front-right {
+  top: 80px;
+  right: 40px;
+}
+
+.wheel.rear-left {
+  top: 80px;
+  left: 120px;
+}
+
+.wheel.rear-right {
+  top: 80px;
+  right: 120px;
+}
+
+.wheel[data-status="warning"] {
+  border-color: #ff4444;
+  box-shadow: 0 0 20px rgba(255, 68, 68, 0.5);
+  animation: wheel-spin 1s linear infinite, warning-pulse 2s ease-in-out infinite;
+}
+
+.car-internals {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.engine,
+.transmission,
+.battery,
+.air-filter,
+.fuel-system {
+  position: absolute;
+  border: 1px solid #4ecdc4;
+  background: rgba(78, 205, 196, 0.1);
+  border-radius: 4px;
+}
+
+.engine {
+  top: 30px;
+  left: 40px;
+  width: 60px;
+  height: 40px;
+}
+
+.battery {
+  top: 30px;
+  right: 40px;
+  width: 40px;
+  height: 30px;
+}
+
+.battery[data-status="warning"] {
+  border-color: #ff6b35;
+  background: rgba(255, 107, 53, 0.2);
+  box-shadow: 0 0 15px rgba(255, 107, 53, 0.4);
+}
+
+.transmission {
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 30px;
+}
+
+/* === SCAN LINES === */
+.scan-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.scan-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+  opacity: 0.7;
+}
+
+.scan-line.horizontal {
+  width: 100%;
+  height: 2px;
+  animation: scan-horizontal 3s ease-in-out infinite;
+}
+
+.scan-line.vertical {
+  width: 2px;
+  height: 100%;
+  animation: scan-vertical 3s ease-in-out infinite 1.5s;
+}
+
+@keyframes scan-horizontal {
+  0%, 100% { top: -2px; opacity: 0; }
+  50% { top: 50%; opacity: 1; }
+}
+
+@keyframes scan-vertical {
+  0%, 100% { left: -2px; opacity: 0; }
+  50% { left: 50%; opacity: 1; }
+}
+
+@keyframes rotate-car {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+@keyframes wheel-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes warning-pulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(255, 68, 68, 0.5); }
+  50% { box-shadow: 0 0 25px rgba(255, 68, 68, 0.9); }
+}
+
+/* === COMPONENT TOOLTIP === */
+.component-tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid #00d4ff;
+  border-radius: 8px;
+  padding: 1rem;
+  color: white;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+  max-width: 200px;
+}
+
+.component-tooltip.show {
+  opacity: 1;
+}
+
+/* === VEHICLE CONTROLS === */
+.vehicle-controls {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.control-group label {
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.control-btn {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-btn:hover {
+  background: linear-gradient(45deg, #00d4ff, #ff6b35);
+  border-color: transparent;
+  transform: scale(1.1);
+}
+
+/* === AI AGENTS PANEL === */
+.ai-agents-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.agents-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.agents-header h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.agents-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #888;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #4ecdc4;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.agents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.agent-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.agent-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+  border-color: rgba(0, 212, 255, 0.5);
+}
+
+.agent-card.active {
+  border-color: #00d4ff;
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.agent-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.agent-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #00d4ff, #4ecdc4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  position: relative;
+}
+
+.agent-avatar.warning {
+  background: linear-gradient(45deg, #ff6b35, #ff4444);
+}
+
+.pulse-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #00d4ff;
+  border-radius: 50%;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+.pulse-ring.warning {
+  border-color: #ff6b35;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.agent-info h3 {
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.agent-status {
+  font-size: 0.8rem;
+  color: #4ecdc4;
+}
+
+.agent-status.warning {
+  color: #ff6b35;
+}
+
+.agent-suggestion {
+  color: #888;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.agent-progress {
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00d4ff, #4ecdc4);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-fill.warning {
+  background: linear-gradient(90deg, #ff6b35, #ff4444);
+}
+
+.progress-text {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.agent-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.action-btn.primary {
+  background: linear-gradient(45deg, #00d4ff, #4ecdc4);
+  color: white;
+}
+
+.action-btn.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.action-btn.danger {
+  background: linear-gradient(45deg, #ff6b35, #ff4444);
+  color: white;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* === ANALYSIS FEED === */
+.analysis-feed {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.feed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.feed-header h3 {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.feed-toggle {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feed-toggle:hover {
+  background: linear-gradient(45deg, #00d4ff, #ff6b35);
+}
+
+.feed-content {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.feed-item {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border-left: 3px solid #00d4ff;
+  animation: slide-in-right 0.5s ease-out;
+}
+
+.timestamp {
+  color: #888;
+  font-size: 0.8rem;
+  min-width: 80px;
+}
+
+.message {
+  color: #ffffff;
+  flex: 1;
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* === FOOTER === */
+footer {
+  background: rgba(0, 0, 0, 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-stats {
+  margin-top: 1rem;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* === ANIMATIONS === */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .header-stats {
+    gap: 1rem;
+  }
+  
+  .data-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .agents-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .vehicle-controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .control-group {
+    flex-direction: row;
+  }
+}
+
+/* === UTILITY CLASSES === */
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fade-out {
+  animation: fade-out 0.5s ease-out forwards;
+}
+
+@keyframes fade-out {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* === MODAL STYLES === */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(16, 33, 62, 0.95) 100%);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+  box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+}
+
+.modal-overlay.active .modal-content {
+  transform: scale(1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+  padding-bottom: 1rem;
+}
+
+.modal-header h3 {
+  color: #00d4ff;
+  font-family: 'Orbitron', monospace;
+  font-size: 1.5rem;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+  color: #ff4757;
+}
+
+.modal-body {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.agent-avatar-large {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00d4ff 0%, #0077ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+}
+
+.modal-details {
+  flex: 1;
+}
+
+.modal-details p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.recommendation-card {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.recommendation-card.hidden {
+  display: none;
+}
+
+.recommendation-card h4 {
+  color: #00d4ff;
+  margin-bottom: 0.5rem;
+}
+
+.recommendation-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.recommendation-card li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.recommendation-card li:last-child {
+  border-bottom: none;
+}
+
+.urgency-indicator {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.urgency-level {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.urgency-level.normal {
+  background: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+  border: 1px solid #2ecc71;
+}
+
+.urgency-level.warning {
+  background: rgba(241, 196, 15, 0.2);
+  color: #f1c40f;
+  border: 1px solid #f1c40f;
+}
+
+.urgency-level.critical {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+/* === DEMO PANEL STYLES === */
+.demo-panel {
+  position: fixed;
+  right: -300px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 320px;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(16, 33, 62, 0.95) 100%);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 20px 0 0 20px;
+  padding: 1.5rem;
+  z-index: 1000;
+  transition: right 0.3s ease;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.demo-panel.active {
+  right: 0;
+}
+
+.demo-panel h4 {
+  color: #00d4ff;
+  margin-bottom: 1rem;
+  font-family: 'Orbitron', monospace;
+}
+
+.demo-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.demo-btn {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(0, 119, 255, 0.2) 100%);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  color: #ffffff;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.demo-btn:hover {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.3) 0%, rgba(0, 119, 255, 0.3) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+}
+
+.demo-toggle {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 60px;
+  background: linear-gradient(135deg, #00d4ff 0%, #0077ff 100%);
+  border: none;
+  border-radius: 10px 0 0 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.demo-toggle:hover {
+  background: linear-gradient(135deg, #0077ff 0%, #00d4ff 100%);
+  box-shadow: -5px 0 15px rgba(0, 212, 255, 0.5);
+}
+
+.demo-panel.active .demo-toggle {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* === RESPONSIVE MODAL === */
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 1.5rem;
+    max-width: 95%;
+  }
+  
+  .modal-body {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .agent-avatar-large {
+    align-self: center;
+  }
+  
+  .demo-panel {
+    width: 280px;
+    right: -280px;
+  }
+}
+
+/* === RESPONSIVE DESIGN FOR NEW 3D CAR === */
+@media (max-width: 1200px) {
+  .blueprint-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .vehicle-3d-container {
+    height: 500px;
+  }
+  
+  .car-3d {
+    width: 350px;
+    height: 175px;
+  }
+  
+  .car-body-frame {
+    width: 320px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vehicle-blueprint {
+    padding: 1rem;
+  }
+  
+  .blueprint-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .view-modes {
+    justify-content: center;
+  }
+  
+  .component-analysis-panel {
+    padding: 1rem;
+  }
+  
+  .component-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .vehicle-3d-container {
+    height: 400px;
+  }
+  
+  .car-3d {
+    width: 280px;
+    height: 140px;
+  }
+  
+  .car-body-frame {
+    width: 250px;
+    height: 120px;
+  }
+  
+  .front-panel {
+    width: 90px;
+    height: 80px;
+  }
+  
+  .roof-panel {
+    width: 160px;
+    height: 60px;
+  }
+  
+  .rear-panel {
+    width: 70px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .car-3d {
+    width: 200px;
+    height: 100px;
+  }
+  
+  .car-body-frame {
+    width: 180px;
+    height: 90px;
+  }
+  
+  .component-tooltip {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    transform: none;
+    max-width: none;
+  }
+  
+  .wheel-unit {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .engine-compartment {
+    width: 100px;
+    height: 70px;
+  }
+}

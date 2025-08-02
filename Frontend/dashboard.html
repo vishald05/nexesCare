@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoCare360 - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            margin-top: 2rem;
+        }
+        
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .dashboard-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            color: #ffffff;
+        }
+        
+        .card-icon {
+            font-size: 2rem;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+        }
+        
+        .logout-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .logout-btn:hover {
+            background: #cc3333;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Particles -->
+    <div id="particles-js"></div>
+    
+    <!-- Neural Network Background -->
+    <div class="neural-network">
+        <div class="neural-node" style="top: 10%; left: 15%;"></div>
+        <div class="neural-node" style="top: 20%; left: 80%;"></div>
+        <div class="neural-node" style="top: 60%; left: 10%;"></div>
+        <div class="neural-node" style="top: 70%; left: 85%;"></div>
+        <div class="neural-node" style="top: 30%; left: 50%;"></div>
+        <div class="neural-connection" style="top: 15%; left: 20%; width: 300px; transform: rotate(25deg);"></div>
+        <div class="neural-connection" style="top: 45%; left: 30%; width: 250px; transform: rotate(-15deg);"></div>
+        <div class="neural-connection" style="top: 65%; left: 40%; width: 200px; transform: rotate(45deg);"></div>
+    </div>
+
+    <button class="logout-btn" onclick="logout()">
+        <i class="fas fa-sign-out-alt"></i> Logout
+    </button>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Welcome to AutoCare360 Dashboard</h1>
+            <p id="welcomeMessage">Loading...</p>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <div class="card-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h3>Profile Information</h3>
+                <div id="profileInfo">Loading...</div>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <h3>Vehicle Information</h3>
+                <div id="vehicleInfo">Loading...</div>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Vehicle Status</h3>
+                <div id="vehicleStatus">Loading...</div>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-icon">
+                    <i class="fas fa-wrench"></i>
+                </div>
+                <h3>Maintenance</h3>
+                <div id="maintenanceInfo">Loading...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize particles
+        if (typeof particlesJS !== 'undefined') {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 40, density: { enable: true, value_area: 800 } },
+                    color: { value: "#00d4ff" },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.3, random: true },
+                    size: { value: 2, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#00d4ff",
+                        opacity: 0.2,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "repulse" },
+                        onclick: { enable: true, mode: "push" },
+                        resize: true
+                    },
+                    modes: {
+                        repulse: { distance: 100, duration: 0.4 },
+                        push: { particles_nb: 2 }
+                    }
+                },
+                retina_detect: true
+            });
+        }
+
+        // Dashboard functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAuthentication();
+            loadDashboardData();
+        });
+
+        function checkAuthentication() {
+            const authData = localStorage.getItem('autocare360_auth') || 
+                            sessionStorage.getItem('autocare360_auth');
+            
+            if (!authData) {
+                window.location.href = '/login';
+                return;
+            }
+
+            try {
+                const parsed = JSON.parse(authData);
+                if (!parsed.token || !parsed.user) {
+                    throw new Error('Invalid auth data');
+                }
+
+                // Display welcome message
+                const welcomeMsg = document.getElementById('welcomeMessage');
+                if (welcomeMsg) {
+                    welcomeMsg.textContent = `Welcome back, ${parsed.user.firstName} ${parsed.user.lastName}!`;
+                }
+
+                // Display profile info
+                const profileInfo = document.getElementById('profileInfo');
+                if (profileInfo) {
+                    profileInfo.innerHTML = `
+                        <p><strong>Name:</strong> ${parsed.user.firstName} ${parsed.user.lastName}</p>
+                        <p><strong>Email:</strong> ${parsed.user.email}</p>
+                    `;
+                }
+
+                // Display vehicle info
+                const vehicleInfo = document.getElementById('vehicleInfo');
+                if (vehicleInfo && parsed.user.vehicle) {
+                    vehicleInfo.innerHTML = `
+                        <p><strong>Vehicle:</strong> ${parsed.user.vehicle.year} ${parsed.user.vehicle.make} ${parsed.user.vehicle.model}</p>
+                        <p><strong>Type:</strong> ${parsed.user.vehicle.type}</p>
+                        <p><strong>Fuel:</strong> ${parsed.user.vehicle.fuelType}</p>
+                        <p><strong>Mileage:</strong> ${parsed.user.vehicle.currentMileage.toLocaleString()} miles</p>
+                    `;
+                }
+
+            } catch (err) {
+                console.error('Auth error:', err);
+                logout();
+            }
+        }
+
+        async function loadDashboardData() {
+            try {
+                const authData = localStorage.getItem('autocare360_auth') || 
+                                sessionStorage.getItem('autocare360_auth');
+                
+                if (!authData) return;
+
+                const parsed = JSON.parse(authData);
+                
+                const response = await fetch('/api/dashboard', {
+                    headers: {
+                        'Authorization': `Bearer ${parsed.token}`
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    // Update vehicle status
+                    const statusEl = document.getElementById('vehicleStatus');
+                    if (statusEl) {
+                        statusEl.innerHTML = `
+                            <p><strong>Status:</strong> <span style="color: #00ff88;">${data.dashboardData.vehicleStatus}</span></p>
+                            <p><strong>Last Check:</strong> Today</p>
+                        `;
+                    }
+
+                    // Update maintenance info
+                    const maintenanceEl = document.getElementById('maintenanceInfo');
+                    if (maintenanceEl) {
+                        maintenanceEl.innerHTML = `
+                            <p><strong>Next Service:</strong> ${new Date(data.dashboardData.nextMaintenance).toLocaleDateString()}</p>
+                            <p><strong>Status:</strong> <span style="color: #00d4ff;">On Schedule</span></p>
+                        `;
+                    }
+                }
+            } catch (err) {
+                console.error('Dashboard load error:', err);
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('autocare360_auth');
+            sessionStorage.removeItem('autocare360_auth');
+            window.location.href = '/login';
+        }
+    </script>
+</body>
+</html>

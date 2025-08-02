@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AutoCare360 - New User Registration</title>
+
+
+
+
+<style>/* ================== AUTOCARE360 REGISTRATION STYLES ================== */
+
+/* === RESET AND BASE === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* === BACKGROUND ELEMENTS === */
+.neural-network {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.neural-node {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, #00d4ff 0%, transparent 70%);
+    border-radius: 50%;
+    animation: nodePulse 3s ease-in-out infinite;
+}
+
+.neural-node:nth-child(1) { top: 10%; left: 15%; }
+.neural-node:nth-child(2) { top: 20%; left: 80%; }
+.neural-node:nth-child(3) { top: 60%; left: 10%; }
+.neural-node:nth-child(4) { top: 70%; left: 85%; }
+.neural-node:nth-child(5) { top: 30%; left: 50%; }
+
+.neural-connection {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #00d4ff 50%, transparent 100%);
+    opacity: 0.3;
+    animation: connectionFlow 4s linear infinite;
+}
+
+.neural-connection:nth-child(6) { 
+    top: 15%; left: 20%; width: 300px; transform: rotate(25deg);
+}
+.neural-connection:nth-child(7) { 
+    top: 45%; left: 30%; width: 250px; transform: rotate(-15deg);
+}
+.neural-connection:nth-child(8) { 
+    top: 65%; left: 40%; width: 200px; transform: rotate(45deg);
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+@keyframes nodePulse {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.5); opacity: 1; }
+}
+
+@keyframes connectionFlow {
+    0% { opacity: 0.1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 0.1; }
+}
+
+/* === MAIN CONTAINER === */
+.register-container {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+/* === HEADER === */
+.register-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeInDown 1s ease-out;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.logo-icon {
+    position: relative;
+    font-size: 3rem;
+    color: #00d4ff;
+    margin-bottom: 1rem;
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+.logo-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border: 2px solid #00d4ff;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+    opacity: 0.3;
+}
+
+.register-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(45deg, #00d4ff, #ffffff, #00ff88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.auto { color: #00d4ff; }
+.care { color: #ffffff; }
+.ai { color: #00ff88; }
+
+.register-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+}
+
+/* === PROGRESS BAR === */
+.progress-container {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 2rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00d4ff, #00ff88);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+    width: 33.33%;
+}
+
+.progress-text {
+    text-align: center;
+    color: #00d4ff;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.step-current {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* === FORM CONTAINER === */
+.register-form-container {
+    width: 100%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+/* === FORM STEPS === */
+.form-step {
+    display: none;
+    animation: slideIn 0.5s ease-out;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.step-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.step-header h2 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.step-header h2 i {
+    color: #00d4ff;
+}
+
+.step-header p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+}
+
+/* === FORM GRID === */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    position: relative;
+    z-index: 15;
+}
+
+.input-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    z-index: 20;
+    pointer-events: auto !important;
+    cursor: text !important;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    color: #00d4ff;
+    font-size: 1.1rem;
+    z-index: 25;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-wrapper input,
+.input-wrapper select {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    /* color: #ffffff; */
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 100 !important;
+    position: relative !important;
+    pointer-events: auto !important;
+    cursor: text !important;
+}
+
+.input-wrapper select {
+    cursor: pointer !important;
+}
+
+.input-wrapper input:focus,
+.input-wrapper select:focus {
+    outline: none;
+    border-color: #00d4ff;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    z-index: 35;
+}
+
+.input-wrapper label {
+    position: absolute;
+    left: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    background: transparent;
+    z-index: 20;
+}
+
+.input-wrapper label.date-label,
+.input-wrapper label.select-label {
+    top: -8px;
+    left: 3rem;
+    font-size: 0.8rem;
+    color: #00d4ff;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 20, 40, 0.9) 10%, rgba(0, 20, 40, 0.9) 90%, transparent 100%);
+    padding: 1 0.5rem;
+    transform: none;
+}
+
+.input-wrapper input:focus + label,
+.input-wrapper input:not(:placeholder-shown) + label,
+.input-wrapper select:focus + label {
+    top: -8px;
+    left: 3rem;
+    font-size: 0.8rem;
+    color: #00d4ff;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 20, 40, 0.9) 10%, rgba(0, 20, 40, 0.9) 90%, transparent 100%);
+    padding: 0 0.5rem;
+    transform: none;
+}
+
+.input-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00d4ff, #00ff88);
+    transition: width 0.3s ease;
+}
+
+.input-wrapper input:focus ~ .input-underline,
+.input-wrapper select:focus ~ .input-underline {
+    width: 100%;
+}
+
+/* === PASSWORD TOGGLE === */
+.password-toggle {
+    position: absolute;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    z-index: 40;
+}
+
+.password-toggle:hover {
+    color: #00d4ff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* === INPUT HELP === */
+.input-help {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+}
+
+/* === PASSWORD STRENGTH === */
+.password-strength {
+    margin: 1rem 0;
+}
+
+.strength-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.5rem;
+}
+
+.strength-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.strength-fill {
+    height: 100%;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.strength-text {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* === PREFERENCES SECTION === */
+.preferences-section,
+.terms-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+}
+
+.preferences-section h3,
+.terms-section h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.preferences-section h3 i,
+.terms-section h3 i {
+    color: #00d4ff;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    display: none;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    position: relative;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    margin-top: 2px;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + .checkmark {
+    background: linear-gradient(45deg, #00d4ff, #00ff88);
+    border-color: #00d4ff;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + .checkmark::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.checkbox-wrapper.required {
+    color: #ffffff;
+}
+
+.checkbox-wrapper a {
+    color: #00d4ff;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.checkbox-wrapper a:hover {
+    border-bottom-color: #00d4ff;
+}
+
+/* === BUTTONS === */
+.step-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    min-width: 150px;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #00d4ff, #0099ff);
+    color: #000;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #0099ff, #00d4ff);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background: linear-gradient(45deg, #00ff88, #00d4ff);
+    color: #000;
+}
+
+.btn-success:hover {
+    background: linear-gradient(45deg, #00d4ff, #00ff88);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 255, 136, 0.4);
+}
+
+.btn-loader {
+    display: none;
+    width: 20px;
+    height: 20px;
+}
+
+.loader-circle {
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    animation: spin 1s linear infinite;
+}
+
+.btn.loading .btn-text {
+    opacity: 0;
+}
+
+.btn.loading .btn-loader {
+    display: block;
+}
+
+.btn.loading .btn-icon {
+    display: none;
+}
+
+/* === LOGIN LINK === */
+.login-link {
+    margin-top: 2rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.login-link a {
+    color: #00d4ff;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.login-link a:hover {
+    border-bottom-color: #00d4ff;
+}
+
+/* === LOADING OVERLAY === */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.loading-content {
+    text-align: center;
+    color: #ffffff;
+}
+
+.spinner-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 2rem;
+}
+
+.spinner-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-top: 3px solid #00d4ff;
+    border-radius: 50%;
+    animation: spinRing 1.5s linear infinite;
+}
+
+.spinner-ring:nth-child(2) {
+    animation-delay: 0.5s;
+    border-top-color: #00ff88;
+}
+
+.spinner-ring:nth-child(3) {
+    animation-delay: 1s;
+    border-top-color: #ff6b35;
+}
+
+.loading-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #00d4ff;
+}
+
+.loading-content p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* === SUCCESS MODAL === */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    animation: modalSlideIn 0.5s ease-out;
+}
+
+.modal-header {
+    margin-bottom: 1.5rem;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: #00ff88;
+    margin-bottom: 1rem;
+    animation: successPulse 1s ease-in-out;
+}
+
+.modal-header h3 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-body {
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.account-summary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.account-summary h4 {
+    color: #00d4ff;
+    margin-bottom: 0.5rem;
+}
+
+.account-summary p {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+    50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes spinRing {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes successPulse {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* === VALIDATION STATES === */
+.input-wrapper.error input,
+.input-wrapper.error select {
+    border-color: #ff4444;
+    box-shadow: 0 0 0 3px rgba(255, 68, 68, 0.1);
+}
+
+.input-wrapper.error .input-underline {
+    background: #ff4444;
+    width: 100%;
+}
+
+.input-wrapper.error label {
+    color: #ff4444;
+}
+
+.input-wrapper.success input,
+.input-wrapper.success select {
+    border-color: #00ff88;
+    box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+}
+
+.input-wrapper.success .input-underline {
+    background: #00ff88;
+    width: 100%;
+}
+
+.error-message {
+    color: #ff4444;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+    .register-container {
+        padding: 1rem;
+    }
+    
+    .register-form-container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .input-group.full-width {
+        grid-column: 1;
+    }
+    
+    .step-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    .register-title {
+        font-size: 2rem;
+    }
+    
+    .logo-icon {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-form-container {
+        padding: 1.5rem 1rem;
+    }
+    
+    .input-wrapper input,
+    .input-wrapper select {
+        padding: 0.8rem 0.8rem 0.8rem 2.5rem;
+        pointer-events: auto !important;
+        cursor: text !important;
+    }
+    
+    .input-wrapper select {
+        cursor: pointer !important;
+    }
+    
+    .input-icon {
+        left: 0.8rem;
+    }
+    
+    .password-toggle {
+        right: 0.8rem;
+    }
+}
+
+/* === ACCESSIBILITY FIXES FOR INPUT INTERACTION === */
+/* Force all inputs to be interactive */
+input, select, textarea {
+    pointer-events: auto !important;
+    z-index: 100 !important;
+    position: relative !important;
+}
+
+/* Ensure wrappers don't block input interaction */
+.input-wrapper {
+    pointer-events: auto !important;
+    z-index: 50 !important;
+}
+
+/* Force text cursor on text inputs */
+input[type="text"], 
+input[type="email"], 
+input[type="tel"], 
+input[type="password"], 
+input[type="date"], 
+input[type="number"], 
+textarea {
+    cursor: text !important;
+}
+
+/* Force pointer cursor on selects */
+select {
+    cursor: pointer !important;
+}
+
+/* Prevent icons from blocking inputs */
+.input-icon {
+    pointer-events: none !important;
+}
+
+/* Make labels not interfere with clicking */
+label {
+    pointer-events: none !important;
+}
+
+/* Ensure password toggles work */
+.password-toggle {
+    pointer-events: auto !important;
+    z-index: 200 !important;
+}
+</style></head>
+<body>
+<!-- Background Particles -->
+<div id="particles-js"></div>
+<!-- Neural Network Background -->
+<div class="neural-network">
+<div class="neural-node" style="top: 10%; left: 15%;"></div>
+<div class="neural-node" style="top: 20%; left: 80%;"></div>
+<div class="neural-node" style="top: 60%; left: 10%;"></div>
+<div class="neural-node" style="top: 70%; left: 85%;"></div>
+<div class="neural-node" style="top: 30%; left: 50%;"></div>
+<div class="neural-connection" style="top: 15%; left: 20%; width: 300px; transform: rotate(25deg);"></div>
+<div class="neural-connection" style="top: 45%; left: 30%; width: 250px; transform: rotate(-15deg);"></div>
+<div class="neural-connection" style="top: 65%; left: 40%; width: 200px; transform: rotate(45deg);"></div>
+</div>
+<!-- Main Registration Container -->
+<div class="register-container">
+<!-- Header -->
+<div class="register-header">
+<div class="logo-container">
+<div class="logo-icon">
+<i class="fas fa-car"></i>
+<div class="logo-pulse"></div>
+</div>
+<h1 class="register-title">
+<span class="auto">Auto</span><span class="care">Care</span><span class="ai">360</span>
+</h1>
+<p class="register-subtitle">Create Your Vehicle Intelligence Account</p>
+</div>
+<div class="progress-container">
+<div class="progress-bar">
+<div class="progress-fill" id="registrationProgress"></div>
+</div>
+<div class="progress-text">
+<span class="step-current" id="currentStep">1</span> of <span class="step-total">3</span> - Personal Information
+                </div>
+</div>
+</div>
+<!-- Registration Form -->
+<div class="register-form-container">
+<form class="register-form" id="registrationForm">
+<!-- Step 1: Personal Information -->
+<div class="form-step active" id="step1">
+<div class="step-header">
+<h2><i class="fas fa-user"></i> Personal Information</h2>
+<p>Tell us about yourself to personalize your experience</p>
+</div>
+<div class="form-grid">
+<div class="input-group">
+<div class="input-wrapper">
+<i class="fas fa-user input-icon"></i>
+<input autocomplete="given-name" id="firstName" name="firstName" placeholder=" " required tabindex="1" type="text"/>
+<label for="firstName">First Name</label>
+<div class="input-underline"></div>
+</div>
+</div>
+<div class="input-group">
+<div class="input-wrapper">
+<i class="fas fa-user input-icon"></i>
+<input autocomplete="family-name" id="lastName" name="lastName" placeholder=" " required tabindex="2" type="text"/>
+<label for="lastName">Last Name</label>
+<div class="input-underline"></div>
+</div>
+</div>
+<div class="input-group full-width">
+<div class="input-wrapper">
+<i class="fas fa-envelope input-icon"></i>
+<input autocomplete="email" id="email" name="email" placeholder=" " required tabindex="3" type="email"/>
+<label for="email">Email Address</label>
+<div class="input-underline"></div>
+</div>
+<small class="input-help">This will be your login username</small>
+</div>
+<div class="input-group">
+<div class="input-wrapper">
+<i class="fas fa-phone input-icon"></i>
+<input autocomplete="tel" id="phone" name="phone" placeholder=" " required tabindex="4" type="tel"/>
+<label for="phone">Phone Number</label>
+<div class="input-underline"></div>
+</div>
+</div>
+<div class="input-group">
+<div class="input-wrapper">
+<i class="fas fa-calendar input-icon"></i>
+<input id="dateOfBirth" name="dateOfBirth" required tabindex="5" type="date"/>
+<div class="input-underline"></div>
+</div>
+</div>
+</div>
+<div class="step-actions">
+<button class="btn btn-primary" onclick="nextStep()" tabindex="10" type="button">
+                            Next Step <i class="fas fa-arrow-right"></i>
+</button>
+</div>
+</div>
+<!-- Step 2: Vehicle Information -->
+<div class="form-step" id="step2">
+<div class="step-header">
+<h2><i class="fas fa-car"></i> Vehicle Information</h2>
+<p>Add your vehicle details for AI-powered monitoring</p>
+</div>
+<div class="form-grid">
+<div class="input-group">
+<div class="input-wrapper">
+<i class="fas fa-industry input-icon"></i>
+<select id="vehicleMake" name="vehicleMake" required tabindex="11">
+<option value="Toyota">Toyota</option>
+<option value="Honda">Honda</option>
+<option value="Ford">Ford</option>
+<option value="Chevrolet">Chevrolet</option>
+<option value="BMW">BMW</option>
+<option value="Mercedes-Benz">Mercedes-Benz</option>
+<option value="Audi">Audi</option>
+<option value="Volkswagen">Volkswagen</option>
+<option value="Nissan">Nissan</option>
+<option value="Hyundai">Hyundai</option>
+<option value="Kia">Kia</option>
+<option value="Mazda">Mazda</option>
+<option value="Subaru">Subaru</option>
+<option value="Tesla">Tesla</option>
+<option value="Other">Other</option>
+</select>
+<div class="input-underline"></div>
+</div>
+</div>
+<div class="input-group">
+<div class="input-wrapper">
+<i class="fas fa-car-side input-icon"></i>
+<input id="vehicleModel" name="vehicleModel" placeholder="Car Name" required tabindex="12" type="text"/>
+<div class="input-underline"></div>
+</div>
+</div>
+<div class="input-group">
+<div class="input-wrapper">
+<i class="fas fa-calendar-alt input-icon"></i>
+<select id="vehicleYear" name="vehicleYear" required tabindex="13">
+<option value="">Select Year</option>
+<!-- Years will be populated by JavaScript -->
+</select>
+<div class="input-underline"></div>
+</div>
+</div>
+<div class="input-group">
+<div class="input-wrapper">
+<i class="fas fa-cogs input-icon"></i>
+<select id="vehicleType" name="vehicleType" required tabindex="14">
+<option value="">Select Type</option>
+<option value="sedan">Sedan</option>
+<option value="suv">SUV</option>
+<option value="hatchback">Hatchback</option>
+<option value="coupe">Coupe</option>
+<option value="truck">Truck</option>
+<option value="convertible">Convertible</option>
+<option value="wagon">Wagon</option>
+<option value="minivan">Minivan</option>
+<option value="electric">Electric Vehicle</option>
+<option value="hybrid">Hybrid</option>
+<option value="motorcycle">Motorcycle</option>
+</select>
+<div class="input-underline"></div>
+</div>
+</div>
+<div class="input-group">
+<div class="input-wrapper">
+<i class="fas fa-gas-pump input-icon"></i>
+<select id="fuelType" name="fuelType" required tabindex="15">
+<option value="">Select Fuel Type</option>
+<option value="gasoline">Gasoline</option>
+<option value="diesel">Diesel</option>
+<option value="electric">Electric</option>
+<option value="hybrid">Hybrid</option>
+<option value="plug-in-hybrid">Plug-in Hybrid</option>
+<option value="ethanol">Ethanol (E85)</option>
+<option value="cng">Compressed Natural Gas</option>
+</select>
+<div class="input-underline"></div>
+</div>
+</div>
+<div class="input-group">
+<div class="input-wrapper">
+<i class="fas fa-tachometer-alt input-icon"></i>
+<input id="currentMileage" name="currentMileage" placeholder=" " required tabindex="17" type="number"/>
+<label for="currentMileage">Current Mileage</label>
+<div class="input-underline"></div>
+</div>
+</div>
+<div class="input-group">
+<div class="input-wrapper">
+<i class="fas fa-palette input-icon"></i>
+<input id="vehicleColor" name="vehicleColor" placeholder=" " required tabindex="18" type="text"/>
+<label for="vehicleColor">Vehicle Color</label>
+<div class="input-underline"></div>
+</div>
+</div>
+</div>
+<div class="step-actions">
+<button class="btn btn-secondary" onclick="prevStep()" tabindex="19" type="button">
+<i class="fas fa-arrow-left"></i> Previous
+                        </button>
+<button class="btn btn-primary" onclick="nextStep()" tabindex="20" type="button">
+                            Next Step <i class="fas fa-arrow-right"></i>
+</button>
+</div>
+</div>
+<!-- Step 3: Account Security -->
+<div class="form-step" id="step3">
+<div class="step-header">
+<h2><i class="fas fa-shield-alt"></i> Account Security</h2>
+<p>Create a secure password and set up your preferences</p>
+</div>
+<div class="form-grid">
+<div class="input-group full-width">
+<div class="input-wrapper">
+<i class="fas fa-lock input-icon"></i>
+<input autocomplete="new-password" id="password" name="password" placeholder=" " required tabindex="21" type="password"/>
+<label for="password">Password</label>
+<div class="input-underline"></div>
+<button aria-label="Show password" class="password-toggle" onclick="togglePassword('password')" tabindex="-1" title="Toggle password visibility" type="button">
+<i class="fas fa-eye"></i>
+</button>
+</div>
+</div>
+<div class="input-group full-width">
+<div class="input-wrapper">
+<i class="fas fa-lock input-icon"></i>
+<input autocomplete="new-password" id="confirmPassword" name="confirmPassword" placeholder=" " required tabindex="22" type="password"/>
+<label for="confirmPassword">Confirm Password</label>
+<div class="input-underline"></div>
+<button aria-label="Show password" class="password-toggle" onclick="togglePassword('confirmPassword')" tabindex="-1" title="Toggle password visibility" type="button">
+<i class="fas fa-eye"></i>
+</button>
+</div>
+</div>
+<!-- Password Strength Indicator -->
+<div class="password-strength full-width">
+<div class="strength-label">Password Strength:</div>
+<div class="strength-bar">
+<div class="strength-fill" id="strengthFill"></div>
+</div>
+<div class="strength-text" id="strengthText">Enter password to check strength</div>
+</div>
+<div class="input-group full-width">
+<div class="input-wrapper">
+<i class="fas fa-question-circle input-icon"></i>
+<select id="securityQuestion" name="securityQuestion" required tabindex="23">
+<option value="">Select Security Question</option>
+<option value="pet">What was the name of your first pet?</option>
+<option value="school">What was the name of your elementary school?</option>
+<option value="city">In what city were you born?</option>
+<option value="mother">What is your mother's maiden name?</option>
+<option value="car">What was the make of your first car?</option>
+<option value="street">What street did you grow up on?</option>
+</select>
+<div class="input-underline"></div>
+</div>
+</div>
+<div class="input-group full-width">
+<div class="input-wrapper">
+<i class="fas fa-key input-icon"></i>
+<input id="securityAnswer" name="securityAnswer" placeholder=" " required tabindex="24" type="text"/>
+<label for="securityAnswer">Security Answer</label>
+<div class="input-underline"></div>
+</div>
+</div>
+</div>
+<div class="step-actions">
+<button class="btn btn-secondary" onclick="prevStep()" tabindex="31" type="button">
+<i class="fas fa-arrow-left"></i> Previous
+                        </button>
+<button class="btn btn-success" tabindex="32" type="submit">
+<span class="btn-text">Create Account</span>
+<div class="btn-loader">
+<div class="loader-circle"></div>
+</div>
+<i class="fas fa-check btn-icon"></i>
+</button>
+</div>
+</div>
+</form>
+</div>
+<!-- Login Link -->
+<div class="login-link">
+<p>Already have an account? <a href="login.html">Sign In</a></p>
+</div>
+</div>
+<!-- Loading Overlay -->
+<div class="loading-overlay" id="loadingOverlay">
+<div class="loading-content">
+<div class="spinner-container">
+<div class="spinner-ring"></div>
+<div class="spinner-ring"></div>
+<div class="spinner-ring"></div>
+</div>
+<h3>Creating Your Account...</h3>
+<p id="loadingMessage">Processing your information</p>
+</div>
+</div>
+<!-- Success Modal -->
+<div class="modal-overlay" id="successModal">
+<div class="modal-content success">
+<div class="modal-header">
+<div class="success-icon">
+<i class="fas fa-check-circle"></i>
+</div>
+<h3>Welcome to AutoCare360!</h3>
+</div>
+<div class="modal-body">
+<p>Your account has been created successfully. You can now access your personalized vehicle intelligence dashboard.</p>
+<div class="account-summary" id="accountSummary">
+<!-- Will be populated by JavaScript -->
+</div>
+</div>
+<div class="modal-actions">
+<button class="btn btn-primary" onclick="redirectToDashboard()">
+<i class="fas fa-tachometer-alt"></i> Go to Dashboard
+                </button>
+</div>
+</div>
+</div>
+<script>
+// ================== AUTOCARE360 REGISTRATION SYSTEM (FRONTEND ONLY) ==================
+
+// === GLOBAL VARIABLES ===
+let currentStep = 1;
+let totalSteps = 3;
+let formData = {};
+let passwordStrength = 0;
+let isSubmitting = false;
+
+// === INITIALIZATION ===
+document.addEventListener('DOMContentLoaded', function() {
+    initializeParticles();
+    initializeFormValidation();
+    initializePasswordStrength();
+    populateYearDropdown();
+    updateProgressBar();
+    setupFormNavigation();
+});
+
+// === PARTICLE BACKGROUND ===
+function initializeParticles() {
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 60, density: { enable: true, value_area: 800 } },
+                color: { value: "#00d4ff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.4, random: true },
+                size: { value: 2, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#00d4ff",
+                    opacity: 0.3,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 3,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 400, line_linked: { opacity: 1 } },
+                    bubble: { distance: 200, size: 15, duration: 2, opacity: 8, speed: 3 },
+                    repulse: { distance: 100, duration: 0.4 },
+                    push: { particles_nb: 2 },
+                    remove: { particles_nb: 1 }
+                }
+            },
+            retina_detect: true
+        });
+    }
+}
+
+// === FORM NAVIGATION ===
+function nextStep() {
+    if (validateCurrentStep()) {
+        if (currentStep < totalSteps) {
+            currentStep++;
+            showStep(currentStep);
+            updateProgressBar();
+            updateStepText();
+        }
+    }
+}
+
+function prevStep() {
+    if (currentStep > 1) {
+        currentStep--;
+        showStep(currentStep);
+        updateProgressBar();
+        updateStepText();
+    }
+}
+
+function showStep(step) {
+    document.querySelectorAll('.form-step').forEach(stepEl => {
+        stepEl.classList.remove('active');
+    });
+    const targetStep = document.getElementById(`step${step}`);
+    if (targetStep) {
+        targetStep.classList.add('active');
+        setTimeout(() => {
+            const firstInput = targetStep.querySelector('input, select');
+            if (firstInput) firstInput.focus();
+        }, 300);
+    }
+}
+
+function updateProgressBar() {
+    const progressFill = document.getElementById('registrationProgress');
+    const percentage = (currentStep / totalSteps) * 100;
+    if (progressFill) {
+        progressFill.style.width = percentage + '%';
+    }
+}
+
+function updateStepText() {
+    const currentStepEl = document.getElementById('currentStep');
+    const stepTexts = {
+        1: 'Personal Information',
+        2: 'Vehicle Information',
+        3: 'Account Security'
+    };
+    if (currentStepEl) {
+        currentStepEl.textContent = currentStep;
+    }
+    const progressText = document.querySelector('.progress-text');
+    if (progressText) {
+        progressText.innerHTML = `<span class="step-current">${currentStep}</span> of <span class="step-total">${totalSteps}</span> - ${stepTexts[currentStep]}`;
+    }
+}
+
+// === FORM VALIDATION ===
+function initializeFormValidation() {
+    const form = document.getElementById('registrationForm');
+    if (form) {
+        form.addEventListener('submit', handleRegistration);
+    }
+    const inputs = document.querySelectorAll('input, select');
+    inputs.forEach(input => {
+        input.style.pointerEvents = 'auto';
+        input.style.zIndex = '100';
+        input.style.position = 'relative';
+        input.style.cursor = 'text';
+        const wrapper = input.closest('.input-wrapper');
+        if (wrapper) {
+            wrapper.style.pointerEvents = 'auto';
+            wrapper.style.cursor = 'text';
+            wrapper.style.position = 'relative';
+            wrapper.style.zIndex = '50';
+            wrapper.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                input.focus();
+                input.click();
+            });
+            wrapper.addEventListener('mousedown', function(e) {
+                e.preventDefault();
+                input.focus();
+            });
+            wrapper.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                input.focus();
+            });
+        }
+        input.addEventListener('focus', function() {
+            this.style.outline = '2px solid #00d4ff';
+            this.style.backgroundColor = 'rgba(0, 212, 255, 0.05)';
+            this.style.pointerEvents = 'auto';
+            this.style.zIndex = '200';
+        });
+        input.addEventListener('blur', function() {
+            this.style.outline = '';
+            this.style.backgroundColor = '';
+            this.style.zIndex = '100';
+            validateField({ target: this });
+        });
+        input.addEventListener('input', function(e) {
+            clearFieldError(e);
+            if (input.type === 'tel') {
+                formatPhoneNumber(input);
+            }
+            if (input.type === 'email') {
+                input.value = input.value.toLowerCase();
+            }
+        });
+        input.addEventListener('mousedown', function(e) {
+            e.stopPropagation();
+            this.focus();
+        });
+        input.addEventListener('touchstart', function(e) {
+            e.stopPropagation();
+            this.focus();
+        });
+    });
+    const selects = document.querySelectorAll('select');
+    selects.forEach(select => {
+        select.style.pointerEvents = 'auto';
+        select.style.zIndex = '100';
+        select.style.cursor = 'pointer';
+        select.addEventListener('focus', function() {
+            this.style.outline = '2px solid #00d4ff';
+        });
+        select.addEventListener('change', function() {
+            validateField({ target: this });
+        });
+    });
+}
+
+function validateCurrentStep() {
+    const currentStepEl = document.getElementById(`step${currentStep}`);
+    if (!currentStepEl) return false;
+    const inputs = currentStepEl.querySelectorAll('input[required], select[required]');
+    let isValid = true;
+    inputs.forEach((input) => {
+        if (!validateField({ target: input })) {
+            isValid = false;
+        }
+    });
+    if (currentStep === 3) {
+        // Password confirmation
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        if (password !== confirmPassword) {
+            showFieldError(document.getElementById('confirmPassword'), 'Passwords do not match');
+            isValid = false;
+        }
+        if (passwordStrength < 60) {
+            showFieldError(document.getElementById('password'), 'Password is too weak');
+            isValid = false;
+        }
+    }
+    return isValid;
+}
+
+function validateField(event) {
+    const field = event.target;
+    const value = field.value ? field.value.trim() : '';
+    const fieldType = field.type;
+    const fieldId = field.id;
+    if (fieldType === 'checkbox') {
+        if (field.hasAttribute('required') && !field.checked) {
+            showError(`Please check the required ${fieldId} option`);
+            return false;
+        }
+        return true;
+    }
+    clearFieldError(event);
+    if (field.hasAttribute('required') && !value) {
+        showFieldError(field, 'This field is required');
+        return false;
+    }
+    if (!value) return true;
+    switch (fieldType) {
+        case 'email':
+            if (!isValidEmail(value)) {
+                showFieldError(field, 'Please enter a valid email address');
+                return false;
+            }
+            break;
+        case 'tel':
+            if (!isValidPhone(value)) {
+                showFieldError(field, 'Please enter a valid phone number');
+                return false;
+            }
+            break;
+        case 'password':
+            if (value.length < 8) {
+                showFieldError(field, 'Password must be at least 8 characters long');
+                return false;
+            }
+            break;
+        case 'text':
+            if (fieldId === 'firstName' || fieldId === 'lastName') {
+                if (value.length < 2) {
+                    showFieldError(field, 'Name must be at least 2 characters long');
+                    return false;
+                }
+                if (!/^[a-zA-Z\s'-]+$/.test(value)) {
+                    showFieldError(field, 'Name can only contain letters, spaces, hyphens, and apostrophes');
+                    return false;
+                }
+            }
+            break;
+        case 'number':
+            if (fieldId === 'currentMileage') {
+                if (value < 0 || value > 999999) {
+                    showFieldError(field, 'Please enter a valid mileage (0-999,999)');
+                    return false;
+                }
+            }
+            break;
+        case 'date':
+            if (fieldId === 'dateOfBirth') {
+                const birthDate = new Date(value);
+                const today = new Date();
+                const age = today.getFullYear() - birthDate.getFullYear();
+                if (age < 16 || age > 120) {
+                    showFieldError(field, 'Please enter a valid date of birth (must be 16+ years old)');
+                    return false;
+                }
+            }
+            break;
+    }
+    if (field.tagName === 'SELECT' && field.hasAttribute('required')) {
+        if (!value) {
+            showFieldError(field, 'Please make a selection');
+            return false;
+        }
+    }
+    showFieldSuccess(field);
+    return true;
+}
+
+function clearFieldError(event) {
+    const field = event.target;
+    const wrapper = field.closest('.input-wrapper');
+    if (!wrapper) return;
+    wrapper.classList.remove('error', 'success');
+    const errorMsg = wrapper.querySelector('.error-message');
+    if (errorMsg) errorMsg.remove();
+}
+
+function showFieldError(field, message) {
+    const wrapper = field.closest('.input-wrapper');
+    if (!wrapper) {
+        showError(message);
+        return;
+    }
+    wrapper.classList.add('error');
+    wrapper.classList.remove('success');
+    const existingError = wrapper.querySelector('.error-message');
+    if (existingError) existingError.remove();
+    const errorElement = document.createElement('div');
+    errorElement.className = 'error-message';
+    errorElement.textContent = message;
+    wrapper.appendChild(errorElement);
+}
+function showFieldSuccess(field) {
+    const wrapper = field.closest('.input-wrapper');
+    if (!wrapper) return;
+    wrapper.classList.add('success');
+    wrapper.classList.remove('error');
+}
+
+// === VALIDATION HELPERS ===
+function isValidEmail(email) {
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    return emailRegex.test(email) && email.length <= 254;
+}
+function isValidPhone(phone) {
+    const phoneRegex = /^[\+]?[1-9][\d]{9,15}$/;
+    const cleanPhone = phone.replace(/[\s\-\(\)]/g, '');
+    return phoneRegex.test(cleanPhone);
+}
+function formatPhoneNumber(input) {
+    let value = input.value.replace(/\D/g, '');
+    if (value.length > 0) {
+        if (value.length <= 3) {
+            value = value;
+        } else if (value.length <= 6) {
+            value = value.slice(0, 3) + '-' + value.slice(3);
+        } else {
+            value = value.slice(0, 3) + '-' + value.slice(3, 6) + '-' + value.slice(6, 10);
+        }
+        input.value = value;
+    }
+}
+
+// === PASSWORD FUNCTIONALITY ===
+function initializePasswordStrength() {
+    const passwordInput = document.getElementById('password');
+    if (passwordInput) {
+        passwordInput.addEventListener('input', updatePasswordStrength);
+    }
+}
+function updatePasswordStrength() {
+    const password = document.getElementById('password').value;
+    const strengthFill = document.getElementById('strengthFill');
+    const strengthText = document.getElementById('strengthText');
+    passwordStrength = calculatePasswordStrength(password);
+    if (strengthFill) {
+        strengthFill.style.width = passwordStrength + '%';
+        if (passwordStrength < 30) {
+            strengthFill.style.background = '#ff4444';
+            strengthText.textContent = 'Weak';
+            strengthText.style.color = '#ff4444';
+        } else if (passwordStrength < 60) {
+            strengthFill.style.background = '#ff6b35';
+            strengthText.textContent = 'Fair';
+            strengthText.style.color = '#ff6b35';
+        } else if (passwordStrength < 80) {
+            strengthFill.style.background = '#ffa500';
+            strengthText.textContent = 'Good';
+            strengthText.style.color = '#ffa500';
+        } else {
+            strengthFill.style.background = '#00ff88';
+            strengthText.textContent = 'Strong';
+            strengthText.style.color = '#00ff88';
+        }
+    }
+}
+function calculatePasswordStrength(password) {
+    let strength = 0;
+    if (password.length >= 8) strength += 20;
+    if (password.length >= 12) strength += 10;
+    if (/[a-z]/.test(password)) strength += 15;
+    if (/[A-Z]/.test(password)) strength += 15;
+    if (/[0-9]/.test(password)) strength += 15;
+    if (/[^a-zA-Z0-9]/.test(password)) strength += 20;
+    if (password.length >= 16) strength += 5;
+    return Math.min(100, strength);
+}
+function togglePassword(inputId) {
+    const input = document.getElementById(inputId);
+    const toggle = input.nextElementSibling.nextElementSibling;
+    if (input.type === 'password') {
+        input.type = 'text';
+        toggle.innerHTML = '<i class="fas fa-eye-slash"></i>';
+    } else {
+        input.type = 'password';
+        toggle.innerHTML = '<i class="fas fa-eye"></i>';
+    }
+}
+
+// === FORM UTILITIES ===
+function populateYearDropdown() {
+    const yearSelect = document.getElementById('vehicleYear');
+    if (yearSelect) {
+        const currentYear = new Date().getFullYear();
+        const startYear = 1990;
+        for (let year = currentYear; year >= startYear; year--) {
+            const option = document.createElement('option');
+            option.value = year;
+            option.textContent = year;
+            yearSelect.appendChild(option);
+        }
+    }
+}
+function setupFormNavigation() {
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' && !event.target.matches('textarea')) {
+            event.preventDefault();
+            if (currentStep < totalSteps) {
+                nextStep();
+            } else {
+                const submitBtn = document.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.click();
+                }
+            }
+        }
+    });
+}
+
+// === FORM SUBMISSION (FRONTEND ONLY) ===
+async function handleRegistration(event) {
+  event.preventDefault();
+  if (isSubmitting) return;
+
+  if (!validateCurrentStep()) {
+    showError('Please fix the errors above');
+    return;
+  }
+
+  isSubmitting = true;
+  formData = collectFormData();
+
+  showLoading('Creating your account...');
+  setButtonLoading(document.querySelector('button[type="submit"]'), true);
+
+  try {
+    const response = await fetch('/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+
+    const result = await response.json();
+    console.log("✅ Backend response:", result);
+
+    if (!response.ok) {
+      throw new Error(result.error || "Registration failed");
+    }
+
+    showSuccessModal();
+
+  } catch (error) {
+    console.error('❌ Registration failed:', error.message);
+    showError(error.message || 'Registration failed. Please try again.');
+    setButtonLoading(document.querySelector('button[type="submit"]'), false);
+  } finally {
+    hideLoading();
+    isSubmitting = false;
+  }
+}
+
+function collectFormData() {
+    const data = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        email: document.getElementById('email').value.toLowerCase(),
+        phone: document.getElementById('phone').value,
+        dateOfBirth: document.getElementById('dateOfBirth').value,
+        password: document.getElementById('password').value,
+        securityQuestion: document.getElementById('securityQuestion').value,
+        securityAnswer: document.getElementById('securityAnswer').value,
+        vehicleMake: document.getElementById('vehicleMake').value,
+        vehicleModel: document.getElementById('vehicleModel').value,
+        vehicleYear: document.getElementById('vehicleYear').value,
+        vehicleType: document.getElementById('vehicleType').value,
+        fuelType: document.getElementById('fuelType').value,
+        currentMileage: document.getElementById('currentMileage').value,
+        vehicleColor: document.getElementById('vehicleColor').value,
+        registrationDate: new Date().toISOString(),
+        registrationSource: 'web'
+    };
+    return data;
+}
+
+// === UI HELPERS ===
+function showLoading(message = 'Processing...') {
+    const overlay = document.getElementById('loadingOverlay');
+    const messageEl = document.getElementById('loadingMessage');
+    if (messageEl) messageEl.textContent = message;
+    if (overlay) overlay.style.display = 'flex';
+}
+function hideLoading() {
+    const overlay = document.getElementById('loadingOverlay');
+    if (overlay) overlay.style.display = 'none';
+}
+function setButtonLoading(button, loading) {
+    if (loading) {
+        button.classList.add('loading');
+        button.disabled = true;
+    } else {
+        button.classList.remove('loading');
+        button.disabled = false;
+    }
+}
+function showError(message) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-notification';
+    errorDiv.innerHTML = `
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>${message}</span>
+    `;
+    errorDiv.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #ff4444;
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(255, 68, 68, 0.3);
+        z-index: 3000;
+        animation: slideInRight 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        max-width: 300px;
+    `;
+    document.body.appendChild(errorDiv);
+    setTimeout(() => {
+        errorDiv.remove();
+    }, 5000);
+}
+function showSuccessModal() {
+    const modal = document.getElementById('successModal');
+    const summaryEl = document.getElementById('accountSummary');
+    if (summaryEl && formData) {
+        summaryEl.innerHTML = `
+            <h4>Account Details</h4>
+            <p><strong>Name:</strong> ${formData.firstName} ${formData.lastName}</p>
+            <p><strong>Email:</strong> ${formData.email}</p>
+            <p><strong>Vehicle:</strong> ${formData.vehicleYear} ${formData.vehicleMake} ${formData.vehicleModel}</p>
+            <p><strong>Registration Date:</strong> ${new Date().toLocaleDateString()}</p>
+        `;
+    }
+    if (modal) {
+        modal.style.display = 'flex';
+    }
+}
+function redirectToDashboard() {
+    localStorage.setItem('autocare360_user', JSON.stringify({
+        ...formData,
+        sessionStart: Date.now()
+    }));
+    setTimeout(() => {
+        alert('Registration successful! Please log in with your credentials.');
+        window.location.href = 'login.html';
+    }, 1000);
+}
+</script>
+<!-- Optionally include particles.js CDN if you want the effect -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script> -->
+</body>
+</html>
