@@ -189,73 +189,10 @@ function updateDashboardUI() {
     engineElement.className = 'data-value good';
   }
   
-  // Update component analysis panel
-  updateComponentAnalysisPanel();
-  
   // Update user info display
   if (currentUser) {
     console.log('👤 Current user:', currentUser.firstName, '- Vehicle:', vehicleData.vehicleId);
   }
-}
-
-function updateComponentAnalysisPanel() {
-  // Engine System
-  const engineStatus = vehicleData.engineStatus === 'Optimal' ? 'good' : 
-                      vehicleData.engineStatus === 'Check Required' ? 'warning' : 'critical';
-  const engineBadge = document.getElementById('engine-status-badge');
-  const enginePerf = document.getElementById('engine-performance');
-  const engineIcon = document.querySelector('.component-item[data-component="engine"] .component-icon');
-  
-  engineBadge.textContent = vehicleData.engineStatus;
-  engineBadge.className = `status-badge ${engineStatus}`;
-  enginePerf.textContent = `Oil Life: ${vehicleData.oilLife}%`;
-  engineIcon.className = `component-icon engine-icon ${engineStatus === 'good' ? '' : engineStatus}`;
-  
-  // Battery System
-  const batteryStatus = vehicleData.batteryHealth >= 80 ? 'good' : 
-                       vehicleData.batteryHealth >= 50 ? 'warning' : 'critical';
-  const batteryBadge = document.getElementById('battery-status-badge');
-  const batteryVoltage = document.getElementById('battery-voltage');
-  const batteryIcon = document.querySelector('.component-item[data-component="battery"] .component-icon');
-  
-  batteryBadge.textContent = `${vehicleData.batteryHealth}%${batteryStatus !== 'good' ? ' - Replace Soon' : ''}`;
-  batteryBadge.className = `status-badge ${batteryStatus}`;
-  batteryVoltage.textContent = `Voltage: ${vehicleData.batteryVoltage}V`;
-  batteryIcon.className = `component-icon battery-icon ${batteryStatus === 'good' ? '' : batteryStatus}`;
-  
-  // Brake System
-  const brakeStatus = vehicleData.brakePads >= 50 ? 'good' : 
-                     vehicleData.brakePads >= 25 ? 'warning' : 'critical';
-  const brakeBadge = document.getElementById('brake-status-badge');
-  const brakeFluid = document.getElementById('brake-fluid');
-  const brakeIcon = document.querySelector('.component-item[data-component="brakes"] .component-icon');
-  
-  brakeBadge.textContent = `Pads ${vehicleData.brakePads}%${brakeStatus !== 'good' ? ' - Service Required' : ''}`;
-  brakeBadge.className = `status-badge ${brakeStatus}`;
-  brakeFluid.textContent = `Brake fluid: ${vehicleData.brakeFluidStatus}`;
-  brakeIcon.className = `component-icon brake-icon ${brakeStatus === 'good' ? '' : brakeStatus}`;
-  
-  // Transmission System
-  const transStatus = vehicleData.transmissionFluidLevel === 'Normal' ? 'good' : 'warning';
-  const transBadge = document.getElementById('transmission-status-badge');
-  const transFluid = document.getElementById('transmission-fluid');
-  const transIcon = document.querySelector('.component-item[data-component="transmission"] .component-icon');
-  
-  transBadge.textContent = vehicleData.transmissionFluidLevel === 'Normal' ? 'Excellent' : vehicleData.transmissionFluidLevel;
-  transBadge.className = `status-badge ${transStatus}`;
-  transFluid.textContent = `Fluid level: ${vehicleData.transmissionFluidLevel}`;
-  transIcon.className = `component-icon transmission-icon ${transStatus === 'good' ? '' : transStatus}`;
-  
-  // Cooling System
-  const coolingStatus = vehicleData.coolantLevel >= 80 ? 'good' : 'warning';
-  const coolingBadge = document.getElementById('cooling-status-badge');
-  const coolantLevel = document.getElementById('coolant-level');
-  const coolingIcon = document.querySelector('.component-item[data-component="cooling"] .component-icon');
-  
-  coolingBadge.textContent = 'Normal Temperature';
-  coolingBadge.className = `status-badge ${coolingStatus}`;
-  coolantLevel.textContent = `Coolant level: ${vehicleData.coolantLevel}%`;
-  coolingIcon.className = `component-icon cooling-icon ${coolingStatus === 'good' ? '' : coolingStatus}`;
 }
 
 // === PARTICLE BACKGROUND ===
@@ -616,57 +553,6 @@ function highlightComponent(componentName, color) {
     component.style.borderColor = color;
     component.style.boxShadow = `0 0 15px ${color}`;
   });
-}
-
-// === 3D CONTROLS ===
-function setViewMode(mode) {
-  currentViewMode = mode;
-  
-  // Update button states
-  document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
-  
-  const vehicleModel = document.getElementById('vehicle-model');
-  
-  // Reset classes
-  vehicleModel.className = 'car';
-  
-  // Apply mode
-  switch (mode) {
-    case 'xray':
-      vehicleModel.classList.add('xray-mode');
-      break;
-    case 'thermal':
-      vehicleModel.classList.add('thermal-mode');
-      break;
-    case 'diagnostic':
-      vehicleModel.classList.add('diagnostic-mode');
-      startAIScan();
-      break;
-  }
-  
-  addToAnalysisFeed(`Vehicle view mode changed to ${mode}`);
-}
-
-function rotateVehicle(direction) {
-  const vehicleModel = document.getElementById('vehicle-model');
-  
-  switch (direction) {
-    case 'left':
-      vehicleRotation.y -= 45;
-      break;
-    case 'right':
-      vehicleRotation.y += 45;
-      break;
-    case 'up':
-      vehicleRotation.x -= 45;
-      break;
-    case 'down':
-      vehicleRotation.x += 45;
-      break;
-  }
-  
-  vehicleModel.style.transform = `rotateX(${vehicleRotation.x}deg) rotateY(${vehicleRotation.y}deg)`;
 }
 
 function toggleAnimation() {
