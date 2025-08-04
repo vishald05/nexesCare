@@ -4,12 +4,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AutoCare360 - New User Registration</title>
+<title>NexesCare - New User Registration</title>
 
 
 
 
-<style>/* ================== AUTOCARE360 REGISTRATION STYLES ================== */
+<style>/* ================== NEXESCARE REGISTRATION STYLES ================== */
 
 /* === RESET AND BASE === */
 * {
@@ -985,7 +985,7 @@ label {
 <div class="logo-pulse"></div>
 </div>
 <h1 class="register-title">
-<span class="auto">Auto</span><span class="care">Care</span><span class="ai">360</span>
+<span class="auto">Nexes</span><span class="care">Care</span>
 </h1>
 <p class="register-subtitle">Create Your Vehicle Intelligence Account</p>
 </div>
@@ -1264,7 +1264,7 @@ label {
 <div class="success-icon">
 <i class="fas fa-check-circle"></i>
 </div>
-<h3>Welcome to AutoCare360!</h3>
+<h3>Welcome to NexesCare!</h3>
 </div>
 <div class="modal-body">
 <p>Your account has been created successfully. You can now access your personalized vehicle intelligence dashboard.</p>
@@ -1280,7 +1280,7 @@ label {
 </div>
 </div>
 <script>
-// ================== AUTOCARE360 REGISTRATION SYSTEM (FRONTEND ONLY) ==================
+// ================== NEXESCARE REGISTRATION SYSTEM (FRONTEND ONLY) ==================
 
 // === GLOBAL VARIABLES ===
 let currentStep = 1;
@@ -1858,7 +1858,7 @@ function showSuccessModal() {
     }
 }
 function redirectToDashboard() {
-    localStorage.setItem('autocare360_user', JSON.stringify({
+    localStorage.setItem('nexescare_user', JSON.stringify({
         ...formData,
         sessionStart: Date.now()
     }));

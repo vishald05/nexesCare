@@ -1,5 +1,5 @@
 /* filepath: c:\Users\vimal\OneDrive\Apps\Desktop\front_end_of_ux_project\script.js */
-// ================== AUTOCARE360 3D VEHICLE DIAGNOSTIC SYSTEM ==================
+// ================== NEXESCARE 3D VEHICLE DIAGNOSTIC SYSTEM ==================
 
 // === GLOBAL VARIABLES ===
 let isAnimating = true;
@@ -54,10 +54,10 @@ async function checkAuthAndLoadDashboard() {
   // Check for token in multiple storage locations
   let token = localStorage.getItem('token');
   
-  // If not found, check in autocare360_auth format
+  // If not found, check in nexescare_auth format
   if (!token) {
-    const authData = localStorage.getItem('autocare360_auth') || 
-                     sessionStorage.getItem('autocare360_auth');
+    const authData = localStorage.getItem('nexescare_auth') || 
+                     sessionStorage.getItem('nexescare_auth');
     if (authData) {
       try {
         const parsed = JSON.parse(authData);
@@ -99,8 +99,8 @@ async function checkAuthAndLoadDashboard() {
       console.log('🔄 Token invalid, clearing auth and redirecting...');
       // Clear invalid tokens
       localStorage.removeItem('token');
-      localStorage.removeItem('autocare360_auth');
-      sessionStorage.removeItem('autocare360_auth');
+      localStorage.removeItem('nexescare_auth');
+      sessionStorage.removeItem('nexescare_auth');
       window.location.href = 'login.html';
     }
   }
@@ -109,8 +109,8 @@ async function checkAuthAndLoadDashboard() {
 function logout() {
   // Clear all authentication data
   localStorage.removeItem('token');
-  localStorage.removeItem('autocare360_auth');
-  sessionStorage.removeItem('autocare360_auth');
+  localStorage.removeItem('nexescare_auth');
+  sessionStorage.removeItem('nexescare_auth');
   
   // Redirect to login page
   window.location.href = 'login.html';
@@ -252,7 +252,7 @@ function simulateLoading() {
     { progress: 25, text: "Loading Vehicle Data..." },
     { progress: 50, text: "Initializing AI Agents..." },
     { progress: 75, text: "Connecting to Vehicle Systems..." },
-    { progress: 100, text: "AutoCare360 Ready!" }
+    { progress: 100, text: "NexesCare Ready!" }
   ];
   
   let currentStep = 0;
@@ -1310,7 +1310,7 @@ function contactService(event) {
   
   showModal(
     "Emergency Contact",
-    "Contacting nearest AutoCare360 service center...",
+    "Contacting nearest NexesCare service center...",
     "emergency",
     ["📞 Service Center: (555) 123-4567", "🚗 Mobile Service: Available", "⏰ Estimated arrival: 25 minutes"],
     "critical"
@@ -1559,4 +1559,4 @@ document.addEventListener('click', (e) => {
 });
 
 // Initialize everything when the page loads
-console.log('AutoCare360 AI System Initialized - Enhanced with Interactive Features');
+console.log('NexesCare AI System Initialized - Enhanced with Interactive Features');

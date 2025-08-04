@@ -1,4 +1,4 @@
-// ================== AUTOCARE360 AUTHENTICATION SYSTEM ==================
+// ================== NEXESCARE AUTHENTICATION SYSTEM ==================
 
 // === GLOBAL VARIABLES ===
 let isSubmitting = false;
@@ -137,10 +137,10 @@ async function handleLogin(event) {
         
         // Store in both formats for compatibility
         if (rememberMe) {
-            localStorage.setItem('autocare360_auth', JSON.stringify(authData));
+            localStorage.setItem('nexescare_auth', JSON.stringify(authData));
             localStorage.setItem('token', result.token); // For script.js compatibility
         } else {
-            sessionStorage.setItem('autocare360_auth', JSON.stringify(authData));
+            sessionStorage.setItem('nexescare_auth', JSON.stringify(authData));
             localStorage.setItem('token', result.token); // For script.js compatibility
         }
         
@@ -186,8 +186,8 @@ async function handleForgotPassword(event) {
 
 function checkExistingAuth() {
     console.log('🔍 Checking existing auth on page load...');
-    const authData = localStorage.getItem('autocare360_auth') || 
-                    sessionStorage.getItem('autocare360_auth');
+    const authData = localStorage.getItem('nexescare_auth') || 
+                    sessionStorage.getItem('nexescare_auth');
     
     if (authData) {
         try {
@@ -205,8 +205,8 @@ function checkExistingAuth() {
         } catch (err) {
             console.error('❌ Error parsing auth data:', err);
             // Clear invalid auth data
-            localStorage.removeItem('autocare360_auth');
-            sessionStorage.removeItem('autocare360_auth');
+            localStorage.removeItem('nexescare_auth');
+            sessionStorage.removeItem('nexescare_auth');
         }
     } else {
         console.log('❌ No existing auth data found');
